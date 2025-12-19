@@ -13,9 +13,9 @@ The system addresses the problem of cluttered and non-intuitive recipe platforms
 **Note:** The engineering thesis document associated with this project is written in **Polish**.
 
 **Application Demo:** [here](https://cibaria.vercel.app/)
-_(It might take a while for backend to run since its on a free hosting)_
+(It might take a while for backend to run since its on a free hosting)
 
-_[Link to repository with code](<(https://github.com/Brbn-jpg/Recipe-management-app)>)_
+[Link to repository with code](https://github.com/Brbn-jpg/Recipe-management-app)
 
 ## Key Features
 
