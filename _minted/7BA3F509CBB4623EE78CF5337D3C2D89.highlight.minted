@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{setLanguage}\PYG{p}{(}\PYG{n+nx}{language}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{languageSubject}\PYG{p}{.}\PYG{n+nx}{next}\PYG{p}{(}\PYG{n+nx}{language}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{setItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}language\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{language}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nx}{getLanguage}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{languageSubject}\PYG{p}{.}\PYG{n+nx}{value}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

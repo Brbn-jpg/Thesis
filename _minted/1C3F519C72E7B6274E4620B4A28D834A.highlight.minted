@@ -1,0 +1,27 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{spring}\PYG{p}{:}
+\PYG{+w}{  }\PYG{n+nt}{application}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{cibaria}
+\PYG{+w}{  }\PYG{n+nt}{datasource}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{url}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{\PYGZdl{}\PYGZob{}DB\PYGZus{}URL\PYGZcb{}}
+\PYG{+w}{    }\PYG{n+nt}{username}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{\PYGZdl{}\PYGZob{}POSTGRES\PYGZus{}USER\PYGZcb{}}
+\PYG{+w}{    }\PYG{n+nt}{password}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{\PYGZdl{}\PYGZob{}POSTGRES\PYGZus{}PASSWORD\PYGZcb{}}
+\PYG{+w}{    }\PYG{n+nt}{driver\PYGZhy{}class\PYGZhy{}name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{org.postgresql.Driver}
+\PYG{+w}{    }\PYG{n+nt}{hikari}\PYG{p}{:}
+\PYG{+w}{      }\PYG{n+nt}{maximum\PYGZhy{}pool\PYGZhy{}size}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{25}
+\PYG{+w}{      }\PYG{n+nt}{minimum\PYGZhy{}idle}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{5}
+\PYG{+w}{      }\PYG{n+nt}{connection\PYGZhy{}timeout}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{30000}
+\PYG{+w}{      }\PYG{n+nt}{idle\PYGZhy{}timeout}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{600000}
+\PYG{+w}{      }\PYG{n+nt}{max\PYGZhy{}lifetime}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{1800000}
+\PYG{+w}{  }\PYG{n+nt}{jpa}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{database\PYGZhy{}platform}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{org.hibernate.dialect.PostgreSQLDialect}
+\PYG{+w}{    }\PYG{n+nt}{hibernate}\PYG{p}{:}
+\PYG{+w}{      }\PYG{n+nt}{ddl\PYGZhy{}auto}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{update}
+\PYG{+w}{  }\PYG{n+nt}{servlet}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{multipart}\PYG{p}{:}
+\PYG{+w}{      }\PYG{n+nt}{max\PYGZhy{}file\PYGZhy{}size}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{5MB}
+
+\PYG{n+nt}{server}\PYG{p}{:}
+\PYG{+w}{  }\PYG{n+nt}{servlet}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{context\PYGZhy{}path}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{/api}
+\end{MintedVerbatim}

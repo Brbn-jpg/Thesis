@@ -1,0 +1,14 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@Bean}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{WebMvcConfigurer}\PYG{+w}{ }\PYG{n+nf}{webMvcConfigurer}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{WebMvcConfigurer}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nd}{@Override}
+\PYG{+w}{        }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{addCorsMappings}\PYG{p}{(}\PYG{n}{CorsRegistry}\PYG{+w}{ }\PYG{n}{registry}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{registry}\PYG{p}{.}\PYG{n+na}{addMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{/**}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                }\PYG{p}{.}\PYG{n+na}{allowedOrigins}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{http://localhost:4200}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                }\PYG{p}{.}\PYG{n+na}{allowedMethods}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{*}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{                }\PYG{p}{.}\PYG{n+na}{allowedHeaders}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Authorization}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Content\PYGZhy{}Type}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{*}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

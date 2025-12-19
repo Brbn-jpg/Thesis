@@ -1,0 +1,77 @@
+\babel@toc {polish}{}\relax 
+\contentsline {section}{\numberline {1}Wprowadzenie}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Cel i zakres pracy}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Opis problemu i motywacja}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Struktura pracy}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Analiza wymagań}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Wymagania funkcjonalne i niefunkcjonalne}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Analiza technologii i narzędzi}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Projekt architektury systemu}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Implementacja backendu z wykorzystaniem Spring Boot}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Spring Framework vs Spring Boot}{7}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Uzasadnienie wyboru i kluczowe zależności}{7}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Struktura aplikacji Spring Boot}{7}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Konfiguracja głównej klasy aplikacji (@SpringBootApplication)}{8}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Struktura katalogów projektu}{9}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Architektura warstwowa aplikacji}{10}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Warstwa kontrolerów (@RestController)}{11}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Warstwa serwisów (@Service)}{13}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Warstwa dostępu do danych (@Repository)}{14}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Pełna lista endpointów}{14}{subsubsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.4}Projektowanie RESTful API}{16}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Obsługa parametrów oraz serializacja i deserializacja JSON}{17}{subsubsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.5}Modelowanie danych z JPA/Hibernate}{17}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Integracja z bazą danych PostgreSQL}{19}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Implementacja funkcjonalności biznesowych}{20}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}Zarządzanie użytkownikami i autoryzacja}{20}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}Zarządzanie przepisami}{23}{subsubsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.8}Obsługa błędów}{24}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Podsumowanie rozdziału}{25}{subsection.3.9}%
+\contentsline {section}{\numberline {4}Implementacja aplikacji frontendowej}{26}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Przegląd architektury}{26}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Struktura projektu}{27}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Wzorce projektowe}{28}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Serwisy HTTP}{29}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Auth.service.ts}{29}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Recipe.service.ts}{31}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Filter.service.ts}{32}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Profile.service.ts}{33}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}Kluczowe komponenty}{35}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Nawigacja i układ}{36}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Autoryzacja}{37}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Przepisy}{39}{subsubsection.4.3.3}%
+\contentsline {paragraph}{RecipeComponent}{39}{section*.2}%
+\contentsline {paragraph}{RecipeDetailedComponent}{41}{section*.3}%
+\contentsline {paragraph}{AddRecipePanelComponent}{42}{section*.4}%
+\contentsline {paragraph}{EditRecipeComponent}{45}{section*.5}%
+\contentsline {subsubsection}{\numberline {4.3.4}System filtrowania}{45}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Profil użytkownika}{46}{subsubsection.4.3.5}%
+\contentsline {paragraph}{ProfileComponent}{46}{section*.6}%
+\contentsline {paragraph}{EditProfileComponent}{47}{section*.7}%
+\contentsline {paragraph}{SettingsProfileComponent}{48}{section*.8}%
+\contentsline {paragraph}{DeleteProfileComponent}{49}{section*.9}%
+\contentsline {subsubsection}{\numberline {4.3.6}Panel administratora}{50}{subsubsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.4}Systemy wsparcia}{51}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}System powiadomień}{51}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}System zarządzania stanem interfejsu}{53}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Zarządzanie językiem aplikacji}{54}{subsubsection.4.4.3}%
+\contentsline {paragraph}{Internacjonalizacja (i18n)}{54}{section*.10}%
+\contentsline {subsection}{\numberline {4.5}Podsumowanie}{55}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Weryfikacja, testowanie i konteneryzacja systemu}{56}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Środowisko testowe i wykorzystane narzędzia}{56}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Konteneryzacja środowiska}{56}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Budowa obrazów kontenerów}{56}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Orkiestracja usług}{57}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Testy warstwy serwerowej}{58}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Testy jednostkowe}{58}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Testy integracyjne}{59}{subsubsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.4}Testy warstwy klienckiej}{61}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Weryfikacja logiki i formularzy}{61}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Testy warstwy prezentacji}{62}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Testy wydajnościowe}{63}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Scenariusz testowy}{64}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Sposób uruchomienia}{64}{subsubsection.5.5.2}%
+\contentsline {section}{\numberline {6}Podsumowanie i wnioski}{65}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Kierunki dalszego rozwoju aplikacji}{66}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Przepis na carbonarę}{66}{subsection.6.2}%
+\contentsline {section}{Źródła}{68}{Item.40}%

@@ -1,0 +1,577 @@
+PWD /Users/brbn/Downloads/vertopal.com_Praca inżynierska
+INPUT /usr/local/texlive/2025/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.tex
+OUTPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.log
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/size12.clo
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-polish/polish.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-polish/polish.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel-polish/polish.ldf
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/pl/babel-polish.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/pl/babel-polish.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/pl/babel-polish.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/pl/babel-pl.ini
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/lmodern.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/lmodern.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/atveryend/atveryend.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/minted/minted.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/minted/minted.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/catchfile/catchfile.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/catchfile/catchfile.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fvextra/fvextra.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fvextra/fvextra.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lineno/lineno.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.aux
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.aux
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.aux
+OUTPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.aux
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+OUTPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.pdf
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+OUTPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
+INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.toc
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.toc
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.toc
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/rm-lmr6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmi12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmi8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmmi6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmsy8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmsy6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/lmex10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+OUTPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.toc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ts1-lmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image1.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image1.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image1.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image1.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image1.png
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image2.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image2.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image2.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image2.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image2.png
+OUTPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_143B001747FD8E5200B80FDB49654DD9.data.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_143B001747FD8E5200B80FDB49654DD9.config.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_143B001747FD8E5200B80FDB49654DD9.config.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_143B001747FD8E5200B80FDB49654DD9.config.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/_143B001747FD8E5200B80FDB49654DD9.index.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/_143B001747FD8E5200B80FDB49654DD9.index.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/default.style.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/default.style.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/default.style.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/ED7BF05602082101E59A4371B5ECE649.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/ED7BF05602082101E59A4371B5ECE649.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/ED7BF05602082101E59A4371B5ECE649.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmtt10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4E46002E338F3DDEBC708A7FF77EB98D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4E46002E338F3DDEBC708A7FF77EB98D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4E46002E338F3DDEBC708A7FF77EB98D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7911CD1A53B1DAB0DEE3C6F81AF79B73.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7911CD1A53B1DAB0DEE3C6F81AF79B73.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7911CD1A53B1DAB0DEE3C6F81AF79B73.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D1DCC505B79DD6866D26759B6EE6A09B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D1DCC505B79DD6866D26759B6EE6A09B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D1DCC505B79DD6866D26759B6EE6A09B.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/CB79E1571FCE57B85A160EBD877EEC49.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/CB79E1571FCE57B85A160EBD877EEC49.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/CB79E1571FCE57B85A160EBD877EEC49.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A505E40983C36C2D80D0250BB33610B3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A505E40983C36C2D80D0250BB33610B3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A505E40983C36C2D80D0250BB33610B3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9E8D0788A75839B3DFF603395BDD2DDA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9E8D0788A75839B3DFF603395BDD2DDA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9E8D0788A75839B3DFF603395BDD2DDA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A7B5E368B659DCEFA2712ADDD9CF8E87.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A7B5E368B659DCEFA2712ADDD9CF8E87.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A7B5E368B659DCEFA2712ADDD9CF8E87.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/018EB93B2130596BF94C93F4CE863146.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/018EB93B2130596BF94C93F4CE863146.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/018EB93B2130596BF94C93F4CE863146.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3C9FB357BC64502DA3BB6057FA05C955.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3C9FB357BC64502DA3BB6057FA05C955.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3C9FB357BC64502DA3BB6057FA05C955.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image3.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image3.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image3.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image3.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image3.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/1C3F519C72E7B6274E4620B4A28D834A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/1C3F519C72E7B6274E4620B4A28D834A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/1C3F519C72E7B6274E4620B4A28D834A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/024058C5DEABFE238925B9C87D89DA9D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/024058C5DEABFE238925B9C87D89DA9D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/024058C5DEABFE238925B9C87D89DA9D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3CD1CE507A2F820DF490EDBBF626915D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3CD1CE507A2F820DF490EDBBF626915D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3CD1CE507A2F820DF490EDBBF626915D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/C36F92BB53CB5E6F79F761D040C080B5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/C36F92BB53CB5E6F79F761D040C080B5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/C36F92BB53CB5E6F79F761D040C080B5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BA6897A9BB4E4F80378B4659533967ED.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BA6897A9BB4E4F80378B4659533967ED.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BA6897A9BB4E4F80378B4659533967ED.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image4.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image4.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image4.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image4.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image4.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image5.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image5.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image5.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image5.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image5.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9E8D0788A75839B3DFF603395BDD2DDA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9E8D0788A75839B3DFF603395BDD2DDA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9E8D0788A75839B3DFF603395BDD2DDA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EB3E6E2F7B97448E9464CE1039D37729.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EB3E6E2F7B97448E9464CE1039D37729.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EB3E6E2F7B97448E9464CE1039D37729.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/49793275CF23BBE53037F84434F0E5E6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/49793275CF23BBE53037F84434F0E5E6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/49793275CF23BBE53037F84434F0E5E6.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmtt.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ts1-lmtt10.tfm
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image6.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image6.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image6.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image6.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image6.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A189927256BD5F27758EBC1B10245F1E.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A189927256BD5F27758EBC1B10245F1E.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/A189927256BD5F27758EBC1B10245F1E.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/6E5104C7918C52EE9A704D6F9E4DFDA8.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/6E5104C7918C52EE9A704D6F9E4DFDA8.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/6E5104C7918C52EE9A704D6F9E4DFDA8.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmtti10.tfm
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/786C5A49F258E17AED439E5CFBC8252A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/786C5A49F258E17AED439E5CFBC8252A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/786C5A49F258E17AED439E5CFBC8252A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AA0BF0D3C8E209EFC4ACC925DB037047.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AA0BF0D3C8E209EFC4ACC925DB037047.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AA0BF0D3C8E209EFC4ACC925DB037047.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/59D839AED82466AB3D5D0223B7154051.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/59D839AED82466AB3D5D0223B7154051.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/59D839AED82466AB3D5D0223B7154051.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BE70B2C50F028999E3BFFEDC054F5931.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BE70B2C50F028999E3BFFEDC054F5931.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BE70B2C50F028999E3BFFEDC054F5931.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/92A17E4F79EBC2EB8C75C9E3426CCDDF.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/92A17E4F79EBC2EB8C75C9E3426CCDDF.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/92A17E4F79EBC2EB8C75C9E3426CCDDF.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/B6B7BD0DD5D8D53213741D531854162D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/B6B7BD0DD5D8D53213741D531854162D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/B6B7BD0DD5D8D53213741D531854162D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EE38DDB08692F8D5756D715FB5487378.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EE38DDB08692F8D5756D715FB5487378.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EE38DDB08692F8D5756D715FB5487378.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AE92123D9063185FBCBB14CFC71A64C6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AE92123D9063185FBCBB14CFC71A64C6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AE92123D9063185FBCBB14CFC71A64C6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7A332CB5138CB75B17BDC72C014B7D6B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7A332CB5138CB75B17BDC72C014B7D6B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7A332CB5138CB75B17BDC72C014B7D6B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EBD27303D741224BD89BDD92630B95A6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EBD27303D741224BD89BDD92630B95A6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EBD27303D741224BD89BDD92630B95A6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/61279BCAC097E121D6E1EC68BA5B6D41.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/61279BCAC097E121D6E1EC68BA5B6D41.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/61279BCAC097E121D6E1EC68BA5B6D41.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4AA16BC3C1A2F92E966B09B7D068306B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4AA16BC3C1A2F92E966B09B7D068306B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4AA16BC3C1A2F92E966B09B7D068306B.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/23D3EDBF859A87001EA95508F4AB4ED9.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/23D3EDBF859A87001EA95508F4AB4ED9.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/23D3EDBF859A87001EA95508F4AB4ED9.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D9935B676F2E1D5D6EB35354A9256DED.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D9935B676F2E1D5D6EB35354A9256DED.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D9935B676F2E1D5D6EB35354A9256DED.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image7.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image7.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image7.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image7.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image7.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image8.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image8.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image8.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image8.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image8.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AF850004A00271FA3EF65A4118E60AE9.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AF850004A00271FA3EF65A4118E60AE9.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AF850004A00271FA3EF65A4118E60AE9.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/FBABD4DDB531AE52CA4E73C78D9C5C68.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/FBABD4DDB531AE52CA4E73C78D9C5C68.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/FBABD4DDB531AE52CA4E73C78D9C5C68.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image9.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image9.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image9.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image9.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image9.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D5A617C72DA638424E8FD61949517A51.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D5A617C72DA638424E8FD61949517A51.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D5A617C72DA638424E8FD61949517A51.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image10.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image10.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image10.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image10.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image10.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AC158D52FA615DC68BFADAD859048DA8.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AC158D52FA615DC68BFADAD859048DA8.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AC158D52FA615DC68BFADAD859048DA8.highlight.minted
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ts1-lmtti10.tfm
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image11.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image11.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image11.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image11.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image11.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BD1CB56100E0E2BAAC7B7C044290E78D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BD1CB56100E0E2BAAC7B7C044290E78D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/BD1CB56100E0E2BAAC7B7C044290E78D.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AF4BA16C24D2B0D74EE335F92FAED937.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AF4BA16C24D2B0D74EE335F92FAED937.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/AF4BA16C24D2B0D74EE335F92FAED937.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/03D12D7A468AEEBFBD675F76310D9EC4.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/03D12D7A468AEEBFBD675F76310D9EC4.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/03D12D7A468AEEBFBD675F76310D9EC4.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/625AAEBEFE49D6048C21025839354A64.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/625AAEBEFE49D6048C21025839354A64.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/625AAEBEFE49D6048C21025839354A64.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/E792272C02D1D9B407171C84005CA7A3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/E792272C02D1D9B407171C84005CA7A3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/E792272C02D1D9B407171C84005CA7A3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/1897764DD00FA41B0F250DEBC7EBEE94.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/1897764DD00FA41B0F250DEBC7EBEE94.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/1897764DD00FA41B0F250DEBC7EBEE94.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9B4DB02DCB9701E88A8335E2D6EBD2CD.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9B4DB02DCB9701E88A8335E2D6EBD2CD.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/9B4DB02DCB9701E88A8335E2D6EBD2CD.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/10DE8E2EE0B22DAF4E0826B8B87E89C6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/10DE8E2EE0B22DAF4E0826B8B87E89C6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/10DE8E2EE0B22DAF4E0826B8B87E89C6.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D71B22DB16A9450331D63BCCE4293473.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D71B22DB16A9450331D63BCCE4293473.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D71B22DB16A9450331D63BCCE4293473.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image12.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image12.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image12.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image12.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image12.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/2464A87AF12E7C79CD2923BB83C923F5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/2464A87AF12E7C79CD2923BB83C923F5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/2464A87AF12E7C79CD2923BB83C923F5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image13.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image13.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image13.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image13.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image13.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/B51B31DAA60272210FECDBCB1811D170.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/B51B31DAA60272210FECDBCB1811D170.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/B51B31DAA60272210FECDBCB1811D170.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image14.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image14.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image14.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image14.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image14.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image15.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image15.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image15.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image15.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image15.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3528AB94FFA329D2934F3D074A49763C.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3528AB94FFA329D2934F3D074A49763C.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/3528AB94FFA329D2934F3D074A49763C.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/07820F8943EAABBE58C9CE8ACEE507CC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/07820F8943EAABBE58C9CE8ACEE507CC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/07820F8943EAABBE58C9CE8ACEE507CC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/39AEB313F902957E17105BE9C88918CC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/39AEB313F902957E17105BE9C88918CC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/39AEB313F902957E17105BE9C88918CC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image16.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image16.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image16.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image16.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image16.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/610B7D7931875D6567CC5FFEFF8996CA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/610B7D7931875D6567CC5FFEFF8996CA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/610B7D7931875D6567CC5FFEFF8996CA.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/95FB45B8B4D418425187F198B01EFCBC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/95FB45B8B4D418425187F198B01EFCBC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/95FB45B8B4D418425187F198B01EFCBC.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/140D92089C93E17FE74081FE56123D62.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/140D92089C93E17FE74081FE56123D62.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/140D92089C93E17FE74081FE56123D62.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/531704553F51822A66F6A082BEE8D4F5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/531704553F51822A66F6A082BEE8D4F5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/531704553F51822A66F6A082BEE8D4F5.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/60837B7BAA256CBB9BCE61F0FFE405D1.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/60837B7BAA256CBB9BCE61F0FFE405D1.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/60837B7BAA256CBB9BCE61F0FFE405D1.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7BA3F509CBB4623EE78CF5337D3C2D89.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7BA3F509CBB4623EE78CF5337D3C2D89.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/7BA3F509CBB4623EE78CF5337D3C2D89.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/8F23F872A8819E1382FD5B0501970E0A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/8F23F872A8819E1382FD5B0501970E0A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/8F23F872A8819E1382FD5B0501970E0A.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/E47AB1B8406321F6C977D45ACCACE0A0.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/E47AB1B8406321F6C977D45ACCACE0A0.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/E47AB1B8406321F6C977D45ACCACE0A0.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/F47EF89DB35314ADE0FE7C6BE74E6899.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/F47EF89DB35314ADE0FE7C6BE74E6899.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/F47EF89DB35314ADE0FE7C6BE74E6899.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/104846FEA02E71F897AEEB1D777A2142.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/104846FEA02E71F897AEEB1D777A2142.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/104846FEA02E71F897AEEB1D777A2142.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/5425DB1A405A5F866D6F79605E22520E.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/5425DB1A405A5F866D6F79605E22520E.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/5425DB1A405A5F866D6F79605E22520E.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/81E31DFB9B979605C948DCCD132BD715.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/81E31DFB9B979605C948DCCD132BD715.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/81E31DFB9B979605C948DCCD132BD715.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/31E1F207784649880B6C6D25D10217E3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/31E1F207784649880B6C6D25D10217E3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/31E1F207784649880B6C6D25D10217E3.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EEB2802DF31ED6F46894BAD7A69F71B1.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EEB2802DF31ED6F46894BAD7A69F71B1.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EEB2802DF31ED6F46894BAD7A69F71B1.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/91ADE48FD972452C8302C147BC24A404.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/91ADE48FD972452C8302C147BC24A404.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/91ADE48FD972452C8302C147BC24A404.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/74FF83061989AA1533448C37EB96A858.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/74FF83061989AA1533448C37EB96A858.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/74FF83061989AA1533448C37EB96A858.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D012517F0BE6721F1DABE2A2861C3BCF.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D012517F0BE6721F1DABE2A2861C3BCF.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/D012517F0BE6721F1DABE2A2861C3BCF.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EE7B818E20F5A9A8480AA208B5E8AF70.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EE7B818E20F5A9A8480AA208B5E8AF70.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/EE7B818E20F5A9A8480AA208B5E8AF70.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4D1C1ABF114EB3F3D35680F5B03C1CB2.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4D1C1ABF114EB3F3D35680F5B03C1CB2.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/4D1C1ABF114EB3F3D35680F5B03C1CB2.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/40B80576AC03AED77DECF1F4F3BABF21.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/40B80576AC03AED77DECF1F4F3BABF21.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/_minted/40B80576AC03AED77DECF1F4F3BABF21.highlight.minted
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image17.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image17.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image17.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image17.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska/media/image17.png
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.aux
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+INPUT /Users/brbn/Downloads/vertopal.com_Praca inżynierska/praca_inzynierska.out
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtti10.pfb

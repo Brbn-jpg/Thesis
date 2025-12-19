@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{getUserProfile}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{Observable}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{any}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{headers}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{getAuthHeaders}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{http}\PYG{p}{.}\PYG{n+nx}{get}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{any}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{l+s+sb}{`}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{environment}\PYG{p}{.}\PYG{n+nx}{apiUrl}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{/users/aboutme}\PYG{l+s+sb}{`}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{headers}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

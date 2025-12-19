@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{updateFilters}\PYG{p}{(}\PYG{n+nx}{filters}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Partial}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{FilterState}\PYG{o}{\PYGZgt{}}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{currentState}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filterState\PYGZdl{}}\PYG{p}{.}\PYG{n+nx}{value}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{newState}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{p}{...}\PYG{n+nx}{currentState}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{...}\PYG{n+nx}{filters}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filterState\PYGZdl{}}\PYG{p}{.}\PYG{n+nx}{next}\PYG{p}{(}\PYG{n+nx}{newState}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

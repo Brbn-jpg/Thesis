@@ -1,0 +1,47 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{services}\PYG{p}{:}
+\PYG{+w}{  }\PYG{n+nt}{cibaria\PYGZus{}database}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{container\PYGZus{}name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{cibaria\PYGZus{}database}
+\PYG{+w}{    }\PYG{n+nt}{image}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{postgres:15\PYGZhy{}alpine}
+\PYG{+w}{    }\PYG{n+nt}{ports}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{5433:5432}
+\PYG{+w}{    }\PYG{n+nt}{environment}\PYG{p}{:}
+\PYG{+w}{      }\PYG{n+nt}{POSTGRES\PYGZus{}USER}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{\PYGZdl{}\PYGZob{}POSTGRES\PYGZus{}USER\PYGZcb{}}
+\PYG{+w}{      }\PYG{n+nt}{POSTGRES\PYGZus{}PASSWORD}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{\PYGZdl{}\PYGZob{}POSTGRES\PYGZus{}PASSWORD\PYGZcb{}}
+\PYG{+w}{      }\PYG{n+nt}{POSTGRES\PYGZus{}DB}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{\PYGZdl{}\PYGZob{}POSTGRES\PYGZus{}DB\PYGZcb{}}
+\PYG{+w}{    }\PYG{n+nt}{volumes}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{pgdata:/var/lib/postgresql/data}
+\PYG{+w}{    }\PYG{n+nt}{env\PYGZus{}file}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{.env}
+
+\PYG{+w}{  }\PYG{n+nt}{cibaria\PYGZus{}backend}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{container\PYGZus{}name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{cibaria\PYGZus{}backend}
+\PYG{+w}{    }\PYG{n+nt}{build}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{./backend}
+\PYG{+w}{    }\PYG{n+nt}{ports}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{8080:8080}
+\PYG{+w}{    }\PYG{n+nt}{environment}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}USER=\PYGZdl{}\PYGZob{}POSTGRES\PYGZus{}USER\PYGZcb{}}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}PASSWORD=\PYGZdl{}\PYGZob{}POSTGRES\PYGZus{}PASSWORD\PYGZcb{}}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{DB\PYGZus{}URL=\PYGZdl{}\PYGZob{}DB\PYGZus{}URL\PYGZcb{}}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{CLOUD\PYGZus{}NAME=\PYGZdl{}\PYGZob{}CLOUD\PYGZus{}NAME\PYGZcb{}}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{API\PYGZus{}SECRET\PYGZus{}KEY=\PYGZdl{}\PYGZob{}API\PYGZus{}SECRET\PYGZus{}KEY\PYGZcb{}}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{API\PYGZus{}KEY=\PYGZdl{}\PYGZob{}API\PYGZus{}KEY\PYGZcb{}}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{SECRET\PYGZus{}KEY=\PYGZdl{}\PYGZob{}SECRET\PYGZus{}KEY\PYGZcb{}}
+\PYG{+w}{    }\PYG{n+nt}{env\PYGZus{}file}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{.env}
+\PYG{+w}{    }\PYG{n+nt}{depends\PYGZus{}on}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{cibaria\PYGZus{}database}
+
+\PYG{+w}{  }\PYG{n+nt}{cibaria\PYGZus{}frontend}\PYG{p}{:}
+\PYG{+w}{    }\PYG{n+nt}{container\PYGZus{}name}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{cibaria\PYGZus{}frontend}
+\PYG{+w}{    }\PYG{n+nt}{build}\PYG{p}{:}
+\PYG{+w}{      }\PYG{n+nt}{context}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{./frontend}
+\PYG{+w}{      }\PYG{n+nt}{dockerfile}\PYG{p}{:}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{Dockerfile}
+\PYG{+w}{    }\PYG{n+nt}{ports}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{4200:80}
+\PYG{+w}{    }\PYG{n+nt}{depends\PYGZus{}on}\PYG{p}{:}
+\PYG{+w}{      }\PYG{p+pIndicator}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+lScalar+lScalarPlain}{cibaria\PYGZus{}backend}
+
+\PYG{n+nt}{volumes}\PYG{p}{:}
+\PYG{+w}{  }\PYG{n+nt}{pgdata}\PYG{p}{:}\PYG{+w}{ }\PYG{p+pIndicator}{\PYGZob{}}\PYG{p+pIndicator}{\PYGZcb{}}
+\end{MintedVerbatim}

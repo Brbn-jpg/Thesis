@@ -1,0 +1,24 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{loadRecipeDetails}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeService}\PYG{p}{.}\PYG{n+nx}{loadRecipeDetails}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeId}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{next}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{response}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeDetails}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeDetails}\PYG{p}{.}\PYG{n+nx}{ingredients}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+nx}{map}\PYG{p}{(}\PYG{p}{(}\PYG{n+nx}{ingredient}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{name}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{ingredient.ingredientName}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n+nx}{quantity}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Number}\PYG{p}{(}\PYG{n+nx}{ingredient}\PYG{p}{.}\PYG{n+nx}{quantity}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n+nx}{unit}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{ingredient.unit}\PYG{p}{,}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{checkOwnership}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{error}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{c+c1}{// Check if it\PYGZsq{}s a 404 error (recipe not found)}
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{err}\PYG{p}{.}\PYG{n+nx}{status}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{l+m+mf}{404}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{router}\PYG{p}{.}\PYG{n+nx}{navigate}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}/not\PYGZhy{}found\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Error loading recipe details\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

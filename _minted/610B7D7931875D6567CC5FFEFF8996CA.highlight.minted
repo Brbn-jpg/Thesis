@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{ngOnInit}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{subscription}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{notifications\PYGZdl{}}\PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n+nx}{notification}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notifications}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{notification}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

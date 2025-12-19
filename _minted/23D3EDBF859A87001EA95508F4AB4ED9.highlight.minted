@@ -1,0 +1,42 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{editProfilePicture}\PYG{p}{(}\PYG{n+nx}{userId}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{number}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{event}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Event}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{fileInput}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{createElement}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}input\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{fileInput}\PYG{p}{.}\PYG{k+kr}{type}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}file\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{fileInput}\PYG{p}{.}\PYG{n+nx}{accept}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}image/*\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{fileInput}\PYG{p}{.}\PYG{n+nx}{onchange}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{e}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Event}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{target}\PYG{+w}{ }\PYG{k+kr}{as}\PYG{+w}{ }\PYG{n+nx}{HTMLInputElement}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{input}\PYG{p}{.}\PYG{n+nx}{files}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n+nx}{input}\PYG{p}{.}\PYG{n+nx}{files}\PYG{p}{.}\PYG{n+nx}{length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mf}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{file}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{input}\PYG{p}{.}\PYG{n+nx}{files}\PYG{p}{[}\PYG{l+m+mf}{0}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{file}\PYG{p}{.}\PYG{n+nx}{size}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mf}{5}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mf}{1024}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mf}{1024}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{alert}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}File size exceeds 5 MB limit.\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{uploadProfilePicture}\PYG{p}{(}\PYG{n+nx}{userId}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{file}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{next}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{imageUrl}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{setImageSafely}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}.profile\PYGZhy{}picture\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{imageUrl}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n+nx}{error}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{error}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n+nx}{alert}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Failed to upload profile picture.\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{fileInput}\PYG{p}{.}\PYG{n+nx}{click}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{uploadProfilePicture}\PYG{p}{(}\PYG{n+nx}{userId}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{number}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{file}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{File}\PYG{p}{)}\PYG{o}{:}
+\PYG{n+nx}{Observable}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{string}\PYG{o}{\PYGZgt{}}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{formData}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o+ow}{new}\PYG{+w}{ }\PYG{n+nx}{FormData}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n+nx}{formData}\PYG{p}{.}\PYG{n+nx}{append}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}file\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{file}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{headers}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{getAuthHeaders}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{http}\PYG{p}{.}\PYG{n+nx}{put}\PYG{p}{(}
+\PYG{+w}{    }\PYG{l+s+sb}{`}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{environment}\PYG{p}{.}\PYG{n+nx}{apiUrl}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{/users/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{userId}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{/profile\PYGZhy{}picture}\PYG{l+s+sb}{`}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{formData}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{headers}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{responseType}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}text\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

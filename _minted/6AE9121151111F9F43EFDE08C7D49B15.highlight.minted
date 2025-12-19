@@ -1,0 +1,20 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{recipeForm}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o+ow}{new}\PYG{+w}{ }\PYG{n+nx}{FormGroup}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nx}{title}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{description}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{category}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{servings}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k+kc}{null}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{min}\PYG{p}{(}\PYG{l+m+mf}{1}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{prepareTime}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k+kc}{null}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}
+\PYG{+w}{    }\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{min}\PYG{p}{(}\PYG{l+m+mf}{1}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{quantity}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{unit}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{difficulty}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k+kc}{null}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{images}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{File}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{k+kc}{null}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{steps}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{steps}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{ingredients}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{isPublic}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isPublic}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{language}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{new}\PYG{+w}{ }\PYG{n+nx}{FormControl}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeLanguage}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nx}{Validators}\PYG{p}{.}\PYG{n+nx}{required}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

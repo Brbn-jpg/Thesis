@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{login}\PYG{p}{(}\PYG{n+nx}{email}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{password}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{rememberMe}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{boolean}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{Observable}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{any}\PYG{o}{\PYGZgt{}}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{body}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{email}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{email}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{password}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{password}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{http}\PYG{p}{.}\PYG{n+nx}{post}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{apiUrl}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}/authenticate\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{body}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{pipe}\PYG{p}{(}
+\PYG{+w}{    }\PYG{n+nx}{tap}\PYG{p}{(}\PYG{p}{(}\PYG{n+nx}{response}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{any}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{response}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{token}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{rememberMe}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{setItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}token\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{token}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{          }\PYG{n+nx}{sessionStorage}\PYG{p}{.}\PYG{n+nx}{setItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}token\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{token}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isLoggedInSubject}\PYG{p}{.}\PYG{n+nx}{next}\PYG{p}{(}\PYG{k+kc}{true}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

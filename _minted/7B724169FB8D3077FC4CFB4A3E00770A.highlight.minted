@@ -1,0 +1,28 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{executeFilterUpdate}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{useCustomData}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// For custom usage, just emit the change}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filtersChanged}\PYG{p}{.}\PYG{n+nx}{emit}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// For FilterService usage}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{filters}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Partial}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{FilterState}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{query}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.searchQuery}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{prepTimeFrom}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.prepTimeFrom}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{prepTimeTo}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.prepTimeTo}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{servingsFrom}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.servingsFrom}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{servingsTo}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.servingsTo}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{category}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.selectedCategory}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{k+kc}{undefined}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{difficulty}\PYG{o}{:}
+\PYG{+w}{        }\PYG{k+kt}{this.selectedDifficulty}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{k+kc}{undefined}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{o}{+}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{selectedDifficulty}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{recipeLanguage}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.selectedLanguage}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{k+kc}{undefined}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{ingredients}\PYG{o}{:}
+\PYG{+w}{        }\PYG{k+kt}{this.selectedIngredients.length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mf}{0}
+\PYG{+w}{          }\PYG{o}{?}\PYG{+w}{ }\PYG{n+nx}{this.selectedIngredients}
+\PYG{+w}{          }\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{undefined}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{currentPage}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{1}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filterService}\PYG{p}{.}\PYG{n+nx}{updateFilters}\PYG{p}{(}\PYG{n+nx}{filters}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filtersChanged}\PYG{p}{.}\PYG{n+nx}{emit}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

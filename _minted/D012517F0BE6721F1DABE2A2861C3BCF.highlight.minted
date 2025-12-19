@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{it}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}should return Recipe image when recipe has images\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{recipe}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{mockRecipe}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{imageUrl}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{getRecipeImage}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{imageUrl}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toBe}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}https://images.com/test\PYGZhy{}image.jpg\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

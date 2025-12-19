@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filters}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filters}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{p}{.}\PYG{n+nx}{length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mf}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nx}{filtered}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{filtered}\PYG{p}{.}\PYG{n+nx}{filter}\PYG{p}{(}\PYG{p}{(}\PYG{n+nx}{recipe}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{filters}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{o}{!}\PYG{p}{.}\PYG{n+nx}{every}\PYG{p}{(}\PYG{p}{(}\PYG{n+nx}{filterIngredient}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}
+\PYG{+w}{      }\PYG{n+nx}{recipe}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{o}{?}\PYG{p}{.}\PYG{n+nx}{some}\PYG{p}{(}\PYG{p}{(}\PYG{n+nx}{recipeIngredient}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}
+\PYG{+w}{        }\PYG{n+nx}{recipeIngredient}\PYG{p}{.}\PYG{n+nx}{ingredientName}
+\PYG{+w}{          }\PYG{p}{.}\PYG{n+nx}{toLowerCase}\PYG{p}{(}\PYG{p}{)}
+\PYG{+w}{          }\PYG{p}{.}\PYG{n+nx}{includes}\PYG{p}{(}\PYG{n+nx}{filterIngredient}\PYG{p}{.}\PYG{n+nx}{toLowerCase}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{      }\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

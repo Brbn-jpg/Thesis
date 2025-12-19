@@ -1,0 +1,45 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@BeforeEach}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{setup}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// Create test admin user with proper role}
+\PYG{+w}{    }\PYG{n}{adminUser}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UserEntity}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{adminUser}\PYG{p}{.}\PYG{n+na}{setUsername}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{testAdmin}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{adminUser}\PYG{p}{.}\PYG{n+na}{setEmail}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{admin@integration.test}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{adminUser}\PYG{p}{.}\PYG{n+na}{setPassword}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{hashedPassword}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{adminUser}\PYG{p}{.}\PYG{n+na}{setRole}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ADMIN}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{adminUser}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{adminUser}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// Create test regular user}
+\PYG{+w}{    }\PYG{n}{regularUser}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UserEntity}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{setUsername}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{testUser}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{setEmail}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{user@integration.test}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{setPassword}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{hashedPassword}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{setRole}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{USER}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{regularUser}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{regularUser}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{flush}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// Create test recipe owned by regular user}
+\PYG{+w}{    }\PYG{n}{testRecipe}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Recipe}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{testRecipe}\PYG{p}{.}\PYG{n+na}{setRecipeName}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Test Recipe}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{testRecipe}\PYG{p}{.}\PYG{n+na}{setDifficulty}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{testRecipe}\PYG{p}{.}\PYG{n+na}{setIsPublic}\PYG{p}{(}\PYG{k+kc}{true}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{testRecipe}\PYG{p}{.}\PYG{n+na}{setLanguage}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{en}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{testRecipe}\PYG{p}{.}\PYG{n+na}{setUser}\PYG{p}{(}\PYG{n}{regularUser}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{testRecipe}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{testRecipe}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{flush}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// Generate JWT tokens for testing using UserDetails}
+\PYG{+w}{    }\PYG{n}{User}\PYG{+w}{ }\PYG{n}{adminUserDetails}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{User}\PYG{p}{(}\PYG{n}{adminUser}\PYG{p}{.}\PYG{n+na}{getEmail}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{          }\PYG{n}{adminUser}\PYG{p}{.}\PYG{n+na}{getPassword}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{          }\PYG{n}{java}\PYG{p}{.}\PYG{n+na}{util}\PYG{p}{.}\PYG{n+na}{Collections}\PYG{p}{.}\PYG{n+na}{singletonList}
+\PYG{+w}{          }\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleGrantedAuthority}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ROLE\PYGZus{}ADMIN}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{User}\PYG{+w}{ }\PYG{n}{regularUserDetails}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{User}\PYG{p}{(}\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{getEmail}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{          }\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{getPassword}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{          }\PYG{n}{java}\PYG{p}{.}\PYG{n+na}{util}\PYG{p}{.}\PYG{n+na}{Collections}\PYG{p}{.}\PYG{n+na}{singletonList}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{SimpleGrantedAuthority}
+\PYG{+w}{          }\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ROLE\PYGZus{}USER}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{adminToken}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Bearer }\PYG{l+s}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{jwtService}\PYG{p}{.}\PYG{n+na}{generateToken}\PYG{p}{(}\PYG{n}{adminUserDetails}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{userToken}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Bearer }\PYG{l+s}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{jwtService}\PYG{p}{.}\PYG{n+na}{generateToken}\PYG{p}{(}\PYG{n}{regularUserDetails}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{destroy\PYGZdl{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o+ow}{new}\PYG{+w}{ }\PYG{n+nx}{Subject}\PYG{o}{\PYGZlt{}}\PYG{o+ow}{void}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{n+nx}{ngOnDestroy}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{destroy\PYGZdl{}}\PYG{p}{.}\PYG{n+nx}{next}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{destroy\PYGZdl{}}\PYG{p}{.}\PYG{n+nx}{complete}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

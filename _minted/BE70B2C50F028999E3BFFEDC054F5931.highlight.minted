@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{isLoggedInSubject}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o+ow}{new}\PYG{+w}{ }\PYG{n+nx}{BehaviorSubject}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{boolean}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{k+kc}{false}\PYG{p}{)}\PYG{p}{;}
+\PYG{k}{public}\PYG{+w}{ }\PYG{n+nx}{isLoggedIn\PYGZdl{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isLoggedInSubject}\PYG{p}{.}\PYG{n+nx}{asObservable}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{k+kr}{constructor}\PYG{p}{(}\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{http}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{HttpClient}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{router}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Router}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{checkInitialAuthState}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{checkInitialAuthState}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{token}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{getToken}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{token}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isLoggedInSubject}\PYG{p}{.}\PYG{n+nx}{next}\PYG{p}{(}\PYG{k+kc}{true}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isLoggedInSubject}\PYG{p}{.}\PYG{n+nx}{next}\PYG{p}{(}\PYG{k+kc}{false}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

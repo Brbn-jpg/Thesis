@@ -1,0 +1,32 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@Transactional}
+\PYG{n+nd}{@Override}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{Recipe}\PYG{+w}{ }\PYG{n+nf}{rating}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{token}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{rating}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{rating}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{|}\PYG{o}{|}\PYG{+w}{ }\PYG{n}{rating}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{IllegalArgumentException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Rating has to be from 1 to 5}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{userId}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{jwtService}\PYG{p}{.}\PYG{n+na}{extractId}\PYG{p}{(}\PYG{n}{token}\PYG{p}{.}\PYG{n+na}{substring}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{UserEntity}\PYG{+w}{ }\PYG{n}{user}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{findById}\PYG{p}{(}\PYG{n}{userId}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{orElseThrow}\PYG{p}{(}
+\PYG{+w}{            }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UserNotFoundException}\PYG{p}{(}\PYG{n}{String}
+\PYG{+w}{            }\PYG{p}{.}\PYG{n+na}{format}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{User with id: \PYGZpc{}s does not exist in the database}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{userId}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Recipe}\PYG{+w}{ }\PYG{n}{recipe}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{findById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{orElseThrow}\PYG{p}{(}
+\PYG{+w}{            }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{RecipeNotFoundException}\PYG{p}{(}\PYG{n}{String}
+\PYG{+w}{            }\PYG{p}{.}\PYG{n+na}{format}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Recipe with id: \PYGZpc{}s does not exist in the database}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{Optional}\PYG{o}{\PYGZlt{}}\PYG{n}{Rating}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{existingRating}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ratingRepository}
+\PYG{+w}{                                      }\PYG{p}{.}\PYG{n+na}{findByRecipeIdAndUserId}\PYG{p}{(}\PYG{n}{id}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{userId}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{existingRating}\PYG{p}{.}\PYG{n+na}{isPresent}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Rating}\PYG{+w}{ }\PYG{n}{rating1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{existingRating}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{rating1}\PYG{p}{.}\PYG{n+na}{setValue}\PYG{p}{(}\PYG{n}{rating}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{ratingRepository}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{rating1}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Rating}\PYG{+w}{ }\PYG{n}{newRating}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Rating}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{newRating}\PYG{p}{.}\PYG{n+na}{setRecipe}\PYG{p}{(}\PYG{n}{recipe}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{newRating}\PYG{p}{.}\PYG{n+na}{setValue}\PYG{p}{(}\PYG{n}{rating}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{newRating}\PYG{p}{.}\PYG{n+na}{setUser}\PYG{p}{(}\PYG{n}{user}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{ratingRepository}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{newRating}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{recipe}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

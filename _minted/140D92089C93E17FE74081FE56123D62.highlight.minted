@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{lockScroll}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{renderer}\PYG{p}{.}\PYG{n+nx}{addClass}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{body}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}overflow\PYGZhy{}h\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nx}{unlockScroll}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{renderer}\PYG{p}{.}\PYG{n+nx}{removeClass}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{body}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}overflow\PYGZhy{}h\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

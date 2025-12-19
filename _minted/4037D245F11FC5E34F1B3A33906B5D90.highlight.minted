@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@Override}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{TokenResponseDto}\PYG{+w}{ }\PYG{n+nf}{save}\PYG{p}{(}\PYG{n}{RegisterDto}\PYG{+w}{ }\PYG{n}{dto}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Optional}\PYG{o}{\PYGZlt{}}\PYG{n}{UserEntity}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{isUser}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{findByEmail}\PYG{p}{(}\PYG{n}{dto}\PYG{p}{.}\PYG{n+na}{getEmail}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{isUser}\PYG{p}{.}\PYG{n+na}{isPresent}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UserEmailAlreadyExistException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{User with given email: }\PYG{l+s}{\PYGZdq{}}
+\PYG{+w}{        }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{dto}\PYG{p}{.}\PYG{n+na}{getEmail}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ already exist in database}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{UserEntity}\PYG{+w}{ }\PYG{n}{newUser}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UserEntity}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{newUser}\PYG{p}{.}\PYG{n+na}{setEmail}\PYG{p}{(}\PYG{n}{dto}\PYG{p}{.}\PYG{n+na}{getEmail}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{newUser}\PYG{p}{.}\PYG{n+na}{setPassword}\PYG{p}{(}\PYG{n}{passwordEncoder}\PYG{p}{.}\PYG{n+na}{encode}\PYG{p}{(}\PYG{n}{dto}\PYG{p}{.}\PYG{n+na}{getPassword}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{newUser}\PYG{p}{.}\PYG{n+na}{setUsername}\PYG{p}{(}\PYG{n}{dto}\PYG{p}{.}\PYG{n+na}{getUsername}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{UserEntity}\PYG{+w}{ }\PYG{n}{userDb}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{newUser}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{TokenResponseDto}\PYG{+w}{ }\PYG{n}{token}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{TokenResponseDto}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{token}\PYG{p}{.}\PYG{n+na}{setToken}\PYG{p}{(}\PYG{n}{jwtService}\PYG{p}{.}\PYG{n+na}{generateToken}\PYG{p}{(}\PYG{n}{userDetailService}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n+na}{loadUserByUsername}\PYG{p}{(}\PYG{n}{userDb}\PYG{p}{.}\PYG{n+na}{getEmail}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{token}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

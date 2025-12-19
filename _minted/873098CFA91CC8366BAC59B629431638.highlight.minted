@@ -1,0 +1,14 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@ControllerAdvice}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{GlobalExceptionHandler}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{n+nd}{@ExceptionHandler}\PYG{p}{(}\PYG{n}{RecipeNotFoundException}\PYG{p}{.}\PYG{n+na}{class}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{ResponseEntity}\PYG{o}{\PYGZlt{}}\PYG{n}{ErrorObject}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n+nf}{handleRecipeNotFoundException}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n}{RecipeNotFoundException}\PYG{+w}{ }\PYG{n}{ex}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{ErrorObject}\PYG{+w}{ }\PYG{n}{errorObject}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{ErrorObject}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{errorObject}\PYG{p}{.}\PYG{n+na}{setStatusCode}\PYG{p}{(}\PYG{n}{HttpStatus}\PYG{p}{.}\PYG{n+na}{NOT\PYGZus{}FOUND}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{errorObject}\PYG{p}{.}\PYG{n+na}{setMessage}\PYG{p}{(}\PYG{n}{ex}\PYG{p}{.}\PYG{n+na}{getMessage}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{ResponseEntity}\PYG{o}{\PYGZlt{}}\PYG{n}{ErrorObject}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{errorObject}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{HttpStatus}\PYG{p}{.}\PYG{n+na}{NOT\PYGZus{}FOUND}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

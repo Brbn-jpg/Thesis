@@ -1,0 +1,31 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{it}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}should handle successful login and navigate to profile\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{fakeAsync}\PYG{p}{(}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{authServiceMock}\PYG{p}{.}\PYG{n+nx}{login}\PYG{p}{.}\PYG{n+nx}{and}\PYG{p}{.}\PYG{n+nx}{returnValue}\PYG{p}{(}\PYG{k}{of}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{success}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{true}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{formPassword}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}abc123\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{formEmail}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}abc123@gmail.com\PYGZsq{}}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{onLogin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{tick}\PYG{p}{(}\PYG{l+m+mf}{600}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{routerMock}\PYG{p}{.}\PYG{n+nx}{navigate}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toHaveBeenCalled}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{isLoginLoading}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toBe}\PYG{p}{(}\PYG{k+kc}{false}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{n+nx}{it}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}should handle login failure and show error message\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{fakeAsync}\PYG{p}{(}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{routerMock}\PYG{p}{.}\PYG{n+nx}{navigate}\PYG{p}{.}\PYG{n+nx}{calls}\PYG{p}{.}\PYG{n+nx}{reset}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{authServiceMock}\PYG{p}{.}\PYG{n+nx}{login}\PYG{p}{.}\PYG{n+nx}{and}\PYG{p}{.}\PYG{n+nx}{returnValue}\PYG{p}{(}\PYG{n+nx}{throwError}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Login failed\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{formPassword}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}abc123\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{formEmail}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}abc123@gmail.co\PYGZsq{}}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{onLogin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{tick}\PYG{p}{(}\PYG{l+m+mf}{600}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{notificationServiceMock}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toHaveBeenCalledWith}\PYG{p}{(}
+\PYG{+w}{        }\PYG{l+s+s1}{\PYGZsq{}Email or password is incorrect\PYGZsq{}}
+\PYG{+w}{    }\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{routerMock}\PYG{p}{.}\PYG{n+nx}{navigate}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{not}\PYG{p}{.}\PYG{n+nx}{toHaveBeenCalled}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{isLoginLoading}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toBe}\PYG{p}{(}\PYG{k+kc}{false}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n+nf}{generateToken}\PYG{p}{(}\PYG{n}{UserDetails}\PYG{+w}{ }\PYG{n}{userDetails}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{UserEntity}\PYG{+w}{ }\PYG{n}{user}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{findByEmail}\PYG{p}{(}\PYG{n}{userDetails}\PYG{p}{.}\PYG{n+na}{getUsername}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+na}{orElseThrow}\PYG{p}{(}\PYG{p}{(}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UsernameNotFoundException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{User not found}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{Map}\PYG{o}{\PYGZlt{}}\PYG{n}{String}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Object}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{claims}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{HashMap}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{claims}\PYG{p}{.}\PYG{n+na}{put}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{provider}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{kkBackend}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{claims}\PYG{p}{.}\PYG{n+na}{put}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{id}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{String}\PYG{p}{.}\PYG{n+na}{valueOf}\PYG{p}{(}\PYG{n}{user}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{claims}\PYG{p}{.}\PYG{n+na}{put}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{roles}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{.}\PYG{n+na}{getRole}\PYG{p}{(}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{split}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{,}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{Jwts}\PYG{p}{.}\PYG{n+na}{builder}\PYG{p}{(}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+na}{claims}\PYG{p}{(}\PYG{n}{claims}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+na}{subject}\PYG{p}{(}\PYG{n}{userDetails}\PYG{p}{.}\PYG{n+na}{getUsername}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+na}{issuedAt}\PYG{p}{(}\PYG{n}{Date}\PYG{p}{.}\PYG{n+na}{from}\PYG{p}{(}\PYG{n}{Instant}\PYG{p}{.}\PYG{n+na}{now}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+na}{expiration}\PYG{p}{(}\PYG{n}{Date}\PYG{p}{.}\PYG{n+na}{from}\PYG{p}{(}\PYG{n}{Instant}\PYG{p}{.}\PYG{n+na}{now}\PYG{p}{(}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{plusMillis}\PYG{p}{(}\PYG{n}{EXPIRATIONTIME}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+na}{signWith}\PYG{p}{(}\PYG{n}{generateKey}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n+na}{compact}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

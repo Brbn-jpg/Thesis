@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@GetMapping}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{RecipeRequestDto}\PYG{+w}{ }\PYG{n+nf}{getRecipesByPage}\PYG{p}{(}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{defaultValue}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{1}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n+nd}{@Min}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{page}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{defaultValue}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{10}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n+nd}{@Min}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{size}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{String}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{category}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{difficulty}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{servings}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{prepareTime}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{defaultValue}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{true}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{Boolean}\PYG{+w}{ }\PYG{n}{isPublic}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{language}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{String}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ingredients}
+\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{recipeService}\PYG{p}{.}\PYG{n+na}{getRecipeByPage}\PYG{p}{(}\PYG{n}{page}\PYG{p}{,}\PYG{n}{size}\PYG{p}{,}\PYG{n}{category}\PYG{p}{,}\PYG{n}{difficulty}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{servings}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{prepareTime}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{isPublic}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{language}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ingredients}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

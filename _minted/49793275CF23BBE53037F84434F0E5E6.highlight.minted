@@ -1,0 +1,14 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{@Component}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nx}{selector}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}app\PYGZhy{}admin\PYGZhy{}panel\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{standalone}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{true}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{imports}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[}
+\PYG{+w}{    }\PYG{n+nx}{CommonModule}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{FormsModule}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{TranslateModule}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{ToastNotificationComponent}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{]}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{templateUrl}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}./admin\PYGZhy{}panel.component.html\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{  }\PYG{n+nx}{styleUrls}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}./admin\PYGZhy{}panel.component.css\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\end{MintedVerbatim}

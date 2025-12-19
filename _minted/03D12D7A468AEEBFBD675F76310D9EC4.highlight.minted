@@ -1,0 +1,71 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{submitAttempts\PYGZdl{}}
+\PYG{+w}{  }\PYG{p}{.}\PYG{n+nx}{pipe}\PYG{p}{(}\PYG{n+nx}{debounceTime}\PYG{p}{(}\PYG{l+m+mf}{1000}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{takeUntil}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{destroy\PYGZdl{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{executeSubmit}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{executeSubmit}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isSubmitting}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{authService}\PYG{p}{.}\PYG{n+nx}{isAuthenticated}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}User is not logged in!\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{5000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeForm}\PYG{p}{.}\PYG{n+nx}{pristine}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeForm}\PYG{p}{.}\PYG{n+nx}{untouched}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Please fill in the form!\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{5000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{p}{.}\PYG{n+nx}{length}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{l+m+mf}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}
+\PYG{+w}{      }\PYG{l+s+s1}{\PYGZsq{}Please add at least one ingredient!\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{      }\PYG{l+m+mf}{5000}
+\PYG{+w}{    }\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{steps}\PYG{p}{.}\PYG{n+nx}{length}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{l+m+mf}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Please add at least one step!\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{5000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isSubmitting}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{true}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{lastSubmitAttempt}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{Date}\PYG{p}{.}\PYG{n+nx}{now}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{formData}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o+ow}{new}\PYG{+w}{ }\PYG{n+nx}{FormData}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{n+nx}{formData}\PYG{p}{.}\PYG{n+nx}{append}\PYG{p}{(}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}recipe\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nb}{JSON}\PYG{p}{.}\PYG{n+nx}{stringify}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{recipeName}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.recipeForm.value.title}\PYG{o}{!}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{category}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.recipeForm.value.category}\PYG{o}{!}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{difficulty}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.recipeForm.value.difficulty}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{servings}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.recipeForm.value.servings}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{prepareTime}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.recipeForm.value.prepareTime}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{ingredients}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.ingredients}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{steps}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.steps}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{isPublic}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.recipeForm.value.isPublic}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{language}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.recipeForm.value.language}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\PYG{+w}{  }\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{fileInput}\PYG{p}{.}\PYG{n+nx}{nativeElement}\PYG{p}{.}\PYG{n+nx}{files}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{fileInput}\PYG{p}{.}\PYG{n+nx}{nativeElement}\PYG{p}{.}\PYG{n+nx}{files}\PYG{p}{.}\PYG{n+nx}{length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mf}{0}
+\PYG{+w}{  }\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{file}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{fileInput}\PYG{p}{.}\PYG{n+nx}{nativeElement}\PYG{p}{.}\PYG{n+nx}{files}\PYG{p}{[}\PYG{l+m+mf}{0}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{formData}\PYG{p}{.}\PYG{n+nx}{append}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}images\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{file}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{recipeService}\PYG{p}{.}\PYG{n+nx}{postRecipe}\PYG{p}{(}\PYG{n+nx}{formData}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{next}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{success}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Recipe has been created\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{5000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{resetForm}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isSubmitting}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{error}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Failed to add the recipe!\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{5000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{isSubmitting}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

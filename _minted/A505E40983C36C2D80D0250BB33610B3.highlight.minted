@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{interface} \PYG{n+nc}{RecipeRepository}\PYG{+w}{ }\PYG{k+kd}{extends}\PYG{+w}{ }\PYG{n}{JpaRepository}\PYG{o}{\PYGZlt{}}\PYG{n}{Recipe}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Integer}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nd}{@Query}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{SELECT u FROM Recipe u WHERE u.recipeName ILIKE \PYGZpc{}:query\PYGZpc{}}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Recipe}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n+nf}{findByRecipeNameQuery}\PYG{p}{(}\PYG{n+nd}{@Param}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{query}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{query}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Recipe}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n+nf}{findByUser}\PYG{p}{(}\PYG{n}{UserEntity}\PYG{+w}{ }\PYG{n}{user}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

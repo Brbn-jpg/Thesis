@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{it}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}should create\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{component}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toBeTruthy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

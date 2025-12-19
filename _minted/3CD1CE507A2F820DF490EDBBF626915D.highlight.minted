@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@PostMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{/authenticate}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{TokenResponseDto}\PYG{+w}{ }\PYG{n+nf}{authenticate}\PYG{p}{(}\PYG{n+nd}{@Valid}\PYG{+w}{ }\PYG{n+nd}{@RequestBody}
+\PYG{+w}{                                            }\PYG{n}{LoginFormDto}\PYG{+w}{ }\PYG{n}{loginFormDto}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{try}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{authenticationManager}\PYG{p}{.}\PYG{n+na}{authenticate}\PYG{p}{(}
+\PYG{+w}{        }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UsernamePasswordAuthenticationToken}\PYG{p}{(}\PYG{n}{loginFormDto}\PYG{p}{.}\PYG{n+na}{email}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{loginFormDto}\PYG{p}{.}\PYG{n+na}{password}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{TokenResponseDto}\PYG{+w}{ }\PYG{n}{token}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{TokenResponseDto}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{token}\PYG{p}{.}\PYG{n+na}{setToken}\PYG{p}{(}\PYG{n}{jwtService}\PYG{p}{.}\PYG{n+na}{generateToken}\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{userDetailService}\PYG{p}{.}\PYG{n+na}{loadUserByUsername}\PYG{p}{(}\PYG{n}{loginFormDto}\PYG{p}{.}\PYG{n+na}{email}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{token}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{catch}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{BadCredentialsException}\PYG{+w}{ }\PYG{n}{ex}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UserNotFoundException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Invalid credentials}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

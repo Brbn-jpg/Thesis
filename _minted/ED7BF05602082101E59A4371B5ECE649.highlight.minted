@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{boolean}\PYG{+w}{ }\PYG{n}{isOwner}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{recipeFound}\PYG{p}{.}\PYG{n+na}{getUser}\PYG{p}{(}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{currentUser}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{k+kt}{boolean}\PYG{+w}{ }\PYG{n}{isAdmin}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{jwtService}\PYG{p}{.}\PYG{n+na}{hasRole}\PYG{p}{(}\PYG{n}{token}\PYG{p}{.}\PYG{n+na}{substring}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ADMIN}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{isOwner}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{o}{!}\PYG{n}{isAdmin}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{throw}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{UnauthorizedException}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{You can edit only your own recipes!}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

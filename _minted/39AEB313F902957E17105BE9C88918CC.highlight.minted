@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{AddNotification}\PYG{p}{(}\PYG{n+nx}{notification}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Notification}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{currentNotifitcations}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationSubject}\PYG{p}{.}\PYG{n+nx}{value}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationSubject}\PYG{p}{.}\PYG{n+nx}{next}\PYG{p}{(}\PYG{p}{[}\PYG{p}{...}\PYG{n+nx}{currentNotifitcations}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{notification}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{// Automatically remove the notification after its duration}
+\PYG{+w}{  }\PYG{n+nx}{setTimeout}\PYG{p}{(}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{removeNotification}\PYG{p}{(}\PYG{n+nx}{notification}\PYG{p}{.}\PYG{n+nx}{id}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{notification}\PYG{p}{.}\PYG{n+nx}{duration}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{l+m+mf}{3000}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,14 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@Test}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{deleteUser\PYGZus{}ShouldRemoveUserAndRecipes\PYGZus{}WhenAdmin}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{k+kd}{throws}\PYG{+w}{ }\PYG{n}{Exception}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{deleteAll}\PYG{p}{(}\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{findByUser}\PYG{p}{(}\PYG{n}{regularUser}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{flush}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{mockMvc}\PYG{p}{.}\PYG{n+na}{perform}\PYG{p}{(}\PYG{n}{delete}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{/admin/users/}\PYG{l+s}{\PYGZdq{}}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{            }\PYG{p}{.}\PYG{n+na}{header}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Authorization}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{adminToken}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{            }\PYG{p}{.}\PYG{n+na}{andExpect}\PYG{p}{(}\PYG{n}{status}\PYG{p}{(}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{isOk}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{assertFalse}\PYG{p}{(}\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{existsById}\PYG{p}{(}\PYG{n}{regularUser}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{assertEquals}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{findByUser}\PYG{p}{(}\PYG{n}{regularUser}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

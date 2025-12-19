@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{constructor}\PYG{p}{(}\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{translate}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{TranslateService}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{translate}\PYG{p}{.}\PYG{n+nx}{setDefaultLang}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}en\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

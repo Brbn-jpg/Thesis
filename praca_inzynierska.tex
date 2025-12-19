@@ -1,0 +1,2584 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{minted}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=35mm,
+ right=25mm,
+ bottom=25mm,
+ top=25mm,
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Praca Inżynierska},
+    pdfpagemode=FullScreen,
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \textbf{\large AKADEMIA FINANSÓW I BIZNESU VISTULA}
+
+        \vspace{0.2cm}
+        \textbf{Wydział Informatyki, Grafiki i Architektury}
+
+        \vspace{0.2cm}
+        \textbf{Kierunek studiów: Informatyka}
+
+        \vspace{2cm}
+        \textbf{\Large Jakub Kuźnicki}
+
+        \vspace{0.2cm}
+        Numer albumu: 61961
+
+        \begin{spacing}{1.5}
+          \vspace{2cm}
+          \emph{\textbf{\LARGE PROJEKT I IMPLEMENTACJA SYSTEMU ZARZĄDZANIA PRZEPISAMI KULINARNYMI}}
+        \end{spacing}
+
+        \vspace{1cm}
+        Praca inżynierska
+
+        \vspace{0.5cm}
+        napisana pod kierunkiem\\
+        Promotor -- dr hab. Paweł Gburzyński
+
+        \vfill
+        Warszawa, 2026
+    \end{center}
+\end{titlepage}
+
+% --- SPIS TREŚCI ---
+\tableofcontents
+\newpage
+
+% --- TREŚĆ ---
+
+\section{Wprowadzenie}
+
+W pracy podjęto próbę stworzenia systemu, który umożliwia w sposób intuicyjny użytkownikom przechowywanie, przeglądanie i zarządzanie przepisami. Praca została podzielona na sześć rozdziałów, z których każdy opisuje kolejny etap realizacji projektu. Zaczynając od analizy wymagań, przez implementację, aż po testowanie i wnioski końcowe.
+
+\subsection{Cel i zakres pracy}
+
+Celem niniejszej pracy dyplomowej jest zaprojektowanie i implementacja systemu informatycznego służącego do zarządzania przepisami kulinarnymi. System ma umożliwiać użytkownikom tworzenie, edytowanie, przeglądanie oraz usuwanie przepisów za pośrednictwem intuicyjnego interfejsu użytkownika.
+
+Aplikacja frontendowa zostanie zbudowana przy użyciu frameworka Angular. Natomiast warstwa backendowa zostanie napisana przy użyciu technologii Spring Boot. Dane będą przechowywane w relacyjnej bazie danych PostgreSQL. Komunikacja między warstwami będzie zrealizowana za pomocą REST API (Representational State Transfer Application Programming Interface) -- to styl architektury służący do projektowania interfejsów programistycznych (API), które komunikują się za pomocą standardowego protokołu HTTP.
+
+Testy projektu zostaną podzielone na trzy grupy -- testy jednostkowe i integracyjne (przy użyciu JUnit), testy frontendowe (przy użyciu Jasmine) oraz testy wydajnościowe (przy użyciu K6).
+
+Praca obejmuje analizę wymagań, wybór odpowiednich technologii i narzędzi, projekt architektury systemu, implementację frontendu oraz backendu, integracje komponentów oraz testowanie funkcjonalne, wydajnościowe i konteneryzacje. Efektem końcowym pracy jest dostarczenie działającego prototypu systemu oraz analiza możliwości jego dalszego rozwoju.
+
+\subsection{Opis problemu i motywacja}
+
+Aktualnie, coraz więcej osób korzysta z aplikacji internetowych do organizowania codziennych aktywności, w tym również przygotowywania posiłków. Choć istnieje wiele platform i blogów przeznaczonych kulinariom, często zawierają one zbędny tekst taki jak: historie powstania dania, czy osobiste historie autorów przepisów. Niewiele aplikacji zezwala użytkownikom na dodawanie własnych przepisów, zazwyczaj ich publikacją zajmuje się administrator lub redakcja strony.
+
+Podejście to prowadzi do marnowania czasu użytkownika oraz ogranicza możliwości personalizacji. Dodatkowo, wiele aplikacji nie posiada responsywnego UI (User Interface) -- interfejsu użytkownika, lub posiadają zbyt dużą ilość animacji, które często stanowią przeszkodę dla osób z niepełnosprawnością. Często spotyka się również brak funkcjonalności filtrowania czy kategoryzacji przepisów, co nie wpływa pozytywnie na komfort użytkownika.
+
+Motywacją do realizacji tego projektu jest chęć stworzenia elastycznego i nowoczesnego narzędzia, które umożliwi użytkownikom szybkie i bezpieczne zarządzanie przepisami kulinarnymi, bez zbędnego tekstu. Projekt stanowi również okazję do nauki technologii internetowych, takich jak Angular, Spring Boot i bibliotek z tym związanych oraz PostgreSQL. Ponadto, pozwala rozwinąć się w dziedzinie testowania (jednostkowego, integracyjnego i wydajnościowego) i konteneryzacji przy użyciu Dockera i Docker Compose'a.
+
+\subsection{Struktura pracy}
+
+Niniejsza praca składa się z sześciu rozdziałów, z których każdy odpowiada kolejnemu etapowi realizacji projektu.
+
+W rozdziale pierwszym przedstawiono cel pracy, zarysowano główny problem oraz wskazano motywację stojącą za wyborem tematu. Zaprezentowano również strukturę całej pracy.
+
+Drugi rozdział poświęcony jest analizie wymagań funkcjonalnych i niefunkcjonalnych, przeglądowi dostępnych technologii oraz projektowi architektury systemu.
+
+W rozdziale trzecim omówiona została implementacja backendu z wykorzystaniem Spring Boot. Przedstawiono strukturę aplikacji, sposób tworzenia RESTful API oraz integrację z relacyjną bazą danych PostgreSQL.
+
+Rozdział czwarty opisuje implementację aplikacji frontendowej zbudowanej w frameworku Angular, w tym strukturę projektu, tworzenie komponentów i integrację z warstwą backendową.
+
+Piąty rozdział dotyczy procesu testowania, optymalizacji oraz konteneryzacji systemu. Opisano testy jednostkowe, wydajnościowe, a także działania mające na celu poprawę wydajności aplikacji. Zaprezentowano również sposób konteneryzacji aplikacji przy użyciu Dockera oraz Docker Compose'a.
+
+Ostatni, szósty rozdział zawiera podsumowanie zrealizowanych prac, wnioski wynikające z projektu oraz propozycje rozbudowy aplikacji.
+
+\section{Analiza wymagań}
+
+\subsection{Wymagania funkcjonalne i niefunkcjonalne}
+
+Wymagania funkcjonalne określają, co system ma robić, to znaczy jego zachowanie z punktu widzenia użytkownika. W kontekście pracy, system zarządzania przepisami kulinarnymi powinien umożliwiać:
+
+\begin{itemize}
+    \item Dodawanie nowych przepisów kulinarnych.
+    \item Edytowanie istniejących przepisów.
+    \item Usuwanie przepisów.
+    \item Przeglądanie listy przepisów.
+    \item Filtrowanie przepisów według kategorii, czasu przygotowania, ilości porcji lub nazwy.
+    \item Rejestracje i logowanie użytkownika.
+    \item Obsługę konta użytkownika (np. zmiana hasła lub nazwy użytkownika).
+\end{itemize}
+
+Wymagania niefunkcjonalne odnoszą się do jakości działania systemu. Dla projektu będą to:
+
+\begin{itemize}
+    \item System powinien działać responsywnie i być dostępny zarówno na komputerach, jak i urządzeniach mobilnych.
+    \item Interfejs użytkownika powinien być przejrzysty i intuicyjny.
+    \item System powinien zapewniać bezpieczeństwo przesyłania danych (np. hasła powinny być hashowane).
+    \item Backend powinien być skalowalny i odporny na błędy.
+    \item Czas odpowiedzi interfejsu nie powinien przekraczać 500 ms w przypadku prostych zapytań.
+\end{itemize}
+
+\subsection{Analiza technologii i narzędzi}
+
+Do realizacji projektu wybrano nowoczesne i szeroko stosowane technologie frontendowe i backendowe oraz biblioteki i API ułatwiające proces budowy oraz utrzymania systemu:
+
+\begin{itemize}
+    \item \textbf{Angular} -- framework frontendowy umożliwiający tworzenie SPA (Single Page Application) -- dynamicznej jednostronicowej aplikacji. Pozwala to na czytelny podział na komponenty, serwisy oraz routing.
+    \item \textbf{Spring Boot} -- framework Java do budowy aplikacji backendowych w architekturze REST.
+    \item \textbf{PostgreSQL} -- relacyjna baza danych, w której przechowywane będą informacje o przepisach, dane użytkowników oraz linki do zdjęć.
+    \item \textbf{REST API} -- standard komunikacji pomiędzy frontendem a backendem, oparty o protokół HTTP.
+    \item \textbf{Cloudinary} -- zewnętrzne API, służące do przechowywania zdjęć.
+    \item \textbf{Docker} -- technologia konteneryzacji umożliwiająca uruchamianie aplikacji w spójnym środowisku niezależnie od systemu operacyjnego.
+    \item \textbf{Docker Compose} -- narzędzie do uruchamiania wielokontenerowych aplikacji Docker.
+    \item \textbf{JUnit} -- framework do pisania testów jednostkowych i integracyjnych w Javie.
+    \item \textbf{Jasmine} -- narzędzie do testowania aplikacji Angular.
+    \item \textbf{K6} -- narzędzie do testów wydajnościowych aplikacji webowych.
+\end{itemize}
+
+\subsection{Projekt architektury systemu}
+
+System będzie składał się z trzech głównych warstw zamkniętych w kontenerach Docker'a uruchamianych za pomocą Docker Compose oraz jednej warstwy zewnętrznej:
+
+\begin{itemize}
+    \item \textbf{Warstwa frontendowa (Angular)} -- odpowiedzialna za interakcję z użytkownikiem, pobieranie i prezentację danych z backendu. Dane prezentowane będą w formie dynamicznych widoków (np. lista przepisów, formularz edycji).
+    \item \textbf{Warstwa backendowa (Spring Boot)} -- obsługująca logikę biznesową, komunikując się z bazą danych i udostępniającą informacje przez REST API.
+    \item \textbf{Warstwa danych (PostgreSQL)} -- baza danych przechowująca informacje o przepisach, kategoriach i użytkownikach.
+    \item \textbf{Warstwa zewnętrzna (Cloudinary oraz testy)} -- obsługuje zagadnienia związane z przechowywaniem zdjęć oraz jest wsparciem funkcjonalnej części aplikacji. Działa poza bezpośrednim środowiskiem aplikacji.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{praca_inzynierska/media/image1.png}
+    \caption{Diagram przedstawiający główne warstwy systemu}
+\end{figure}
+
+Komunikacja między frontendem a backendem będzie odbywała się poprzez zapytania http (GET, POST, PUT, DELETE), natomiast dane będą przesyłane w formacie JSON.
+
+\section{Implementacja backendu z wykorzystaniem Spring Boot}
+
+\subsection{Spring Framework vs Spring Boot}
+
+Spring Framework to rozbudowany ekosystem bibliotek i narzędzi Javy, który udostępnia Dependency Injection (wzorzec projektowy, w którym obiekty otrzymują zależności z zewnętrznego źródła), wspiera AOP (Aspect-Oriented Programming) oraz umożliwia integrację z bazami danych oraz różnorodnymi systemami. Jednak ma on swoje wady. Konfiguracja aplikacji w Springu, potrafi być czasochłonna i złożona. Zazwyczaj wymaga znajomości wielu komponentów i sposobu ich łączenia. Do uproszczenie tego procesu, stworzono Spring Boot, który automatyzuje konfigurację poprzez rozpoznawanie używanej biblioteki (na przykład JPA) i dobiera do nich odpowiednie ustawienia domyślne. Framework oferuje także skonfigurowane startery zależności pozwalające na uniknięcie tak zwanego „Dependency Hell''. Dzięki wbudowanym serwerom (Tomcat, Jetty lub Undertow) uruchamianie aplikacji nie wymaga dodatkowej konfiguracji. Spring Boot posiada integracje z modułami pozwalającymi na monitorowanie aplikacji, przez co jest atrakcyjnym wyborem w tworzeniu nowoczesnych systemów. Poprzez wsparcie JUnit oraz Mockito, framework ułatwia tworzenie testów jednostkowych i integracyjnych. Dodatkowo, dzięki prostej integracji ze Spring Cloud, stanowi popularny wybór przy budowie mikrousług.
+
+\subsubsection{Uzasadnienie wyboru i kluczowe zależności}
+
+Do stworzenia backendu użyto Spring Boot, ponieważ pozwala na proste i szybkie stworzenie funkcjonalnej aplikacji, eliminując konieczność czasochłonnej konfiguracji. Dzięki starterom zależności i wbudowanemu serwerowi, można skupić się bezpośrednio na logice biznesowej. Dodatkowym atutem jest obszerna dokumentacja oraz szerokie wsparcie społeczności, to czyni ten framework atrakcyjnym wyborem do tego projektu.
+
+Kluczowymi zaletami są zależności, które pomogły w tworzeniu projektu. Pierwsza z nich jest biblioteka „Lombok''. Eliminuje konieczność pisania zbędnego oraz powtarzalnego kodu. Przykładowo używając adnotacji \texttt{@Data}, powoduje automatyczne wygenerowanie getterów i setterów oraz metod jak \texttt{toString()}, \texttt{equals()}. Druga zależnością jest \texttt{JsonWebToken}, pozwala na wysyłanie zaszyfrowanej informacji pomiędzy użytkownikiem a serwerem. Służy do uwierzytelniania użytkownika oraz zawiera w sobie informacje na jego temat (role, id, itp.). Trzecia i ostatnią kluczową zależnością jest Cloudinary, jest to usługa niezależna od Springa, jednak jest to usługa, którą można bezpośrednio zintegrować z projektem. Służy do zarządzania multimediami w chmurze. Umożliwia przesyłanie oraz przechowywanie obrazów, a także na ich automatyczna optymalizację. Daje to możliwość ominięcia tworzenia własnej infrastruktury do obsługi plików, co uprasza implementacje i skalowalność aplikacji.
+
+\subsection{Struktura aplikacji Spring Boot}
+
+W projekcie zastosowano hybrydowe podejście organizacji pakietów. Upraszcza to czytelność, unika duplikacji konfiguracji oraz ułatwia utrzymanie wspólnych komponentów. To pozwala łączyć podejście warstwowe z podejściem funkcjonalnym.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{praca_inzynierska/media/image2.png}
+    \caption{Hybrydowa organizacja pakietów}
+\end{figure}
+
+Natomiast może prowadzić do duplikacji kodu. Przykładem duplikacji jest logika autoryzacji, która pojawia się w kilku miejscach.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+boolean isOwner = recipeFound.getUser().getId() == currentUser.getId();
+boolean isAdmin = jwtService.hasRole(token.substring(7), "ADMIN");
+
+if (!isOwner && !isAdmin) {
+    throw new UnauthorizedException("You can edit only your own recipes!");
+}
+\end{minted}
+
+\subsubsection{Konfiguracja głównej klasy aplikacji (@SpringBootApplication)}
+
+Konfiguracja używa meta-adnotacji \texttt{@SpringBootApplication}, która łączy w sobie trzy kluczowe adnotacje:
+
+\begin{enumerate}
+    \item \texttt{@Configuration} -- oznacza klasę jako źródło definicji bean'ów.
+    \item \texttt{@EnableAutoConfiguration} -- uruchamia automatyczną konfigurację na podstawie zależności w classpath (zmienna mówiąca, gdzie spring musi szukać klas).
+    \item \texttt{@ComponentScan} -- skanuje pakiety w poszukiwaniu komponentów Spring (klasy z @Component, @Service, @Controller, @Repository).
+\end{enumerate}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@SpringBootApplication
+public class CibariaApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(CibariaApplication.class, args);
+    }
+}
+\end{minted}
+
+Dodatkowo w aplikacji zawarta jest konfiguracja CORS (Cross-Origin Resource Sharing). Ta konfiguracja umożliwia komunikacje między frontendem Angular działającym na porcie 4200, a backendem. Rozwiązuje to problemy z polityką same-origin przeglądarek. Wyjaśnienie konfiguracji:
+
+\begin{enumerate}
+    \item \texttt{addMapping("/**")} -- dotyczy wszystkich endpointów.
+    \item \texttt{allowedOrigins("http://localhost:4200")} -- zezwala na żądania frontendu.
+    \item \texttt{allowedMethods("*")} -- wszystkie metody http (GET, POST, PUT, DELETE).
+    \item \texttt{allowedHeaders("Authorization","Content-Type", "*")} -- dozwolone nagłówki, szczególnie „Authorization'', bardzo ważny dla JWT.
+\end{enumerate}
+
+Alternatywą do tego podejścia jest użycie \texttt{@CrossOrigin} na poziomie kontrolerów, jednak produkuje to zbędne linijki kodu. Globalne podejście do konfiguracji jest bardziej praktyczne.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@Bean
+public WebMvcConfigurer webMvcConfigurer() {
+    return new WebMvcConfigurer() {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**")
+                .allowedOrigins("http://localhost:4200")
+                .allowedMethods("*")
+                .allowedHeaders("Authorization","Content-Type", "*");
+        }
+    };
+}
+\end{minted}
+
+\subsubsection{Struktura katalogów projektu}
+
+Projekt został zainicjalizowany przy pomocy Spring Initalizr, co oznacza, że otrzymał standardową strukturę folderów.
+
+\begin{itemize}
+    \item \texttt{src/main/java} -- kod źródłowy aplikacji
+    \item \texttt{src/main/resources} -- plik konfiguracyjne application.yml
+    \item \texttt{src/test/java} -- testy jednostkowe i integracyjne
+\end{itemize}
+
+Głównymi folderami są:
+
+\begin{itemize}
+    \item \texttt{dto} -- (Data Transfer Object) obiekty transferowe, używane do wymiany danych między warstwami.
+    \item \texttt{admin, auth, image, ingredient, rating, recipe, step, user} -- moduły domenowe zawierające:
+    \begin{itemize}
+        \item Model (Step.java, Recipe.java).
+        \item Repozytorium.
+        \item Ewentualnie serwis (Service + ServiceImpl).
+        \item Ewentualnie kontroler (Controller).
+    \end{itemize}
+    \item \texttt{exception} -- obsługa wyjątków oraz błędów.
+    \item \texttt{helper} -- klasy pomocnicze.
+    \item \texttt{cloudinary} -- integracja z usługami Cloudinary.
+\end{itemize}
+
+\subsection{Architektura warstwowa aplikacji}
+
+\begin{sloppypar}
+  Aplikacja została zbudowana w oparciu o klasyczne podejście, jaką jest architektura warstwowa. Zapewnia wyraźne rozdzielenie funkcji między poszczególnymi komponentami systemu. To podejście prowadzi do łatwiejszego utrzymania kodu i upraszcza przyszły rozwój aplikacji. Spring Boot automatycznie zarządza cyklem życia komponentów i wstrzykiwaniem zależności, poprzez system adnotacji (np. \texttt{@RestController}).
+\end{sloppypar}
+
+Schemat architektury:
+
+\begin{itemize}
+    \item Warstwa kontrolerów -- (\texttt{@RestController}) Żądania/Odpowiedzi HTTP.
+    \item Warstwa serwisów -- (\texttt{@Service}) Logika biznesowa.
+    \item Warstwa dostępu do danych -- (\texttt{@Repository}) Komunikacja z bazą danych.
+\end{itemize}
+
+Każda warstwa komunikuje się tylko z warstwą bezpośrednio pod nią co ułatwia testowanie oraz wprowadzanie zmian, gdyż zmiana w jednej warstwie, nie wpłynie na pozostałe. Architektura jednak ma wady takie jak, trudność w rozbudowie (potrzeba wielu klas DTO), utrudnia elastyczność (momentami trudno ominąć koncepcje tej architektury). Zazwyczaj przy większych projektach może prowadzić do zbytniego rozrostu kodu i przechodzenia przez wszystkie warstwy nawet dla najprostszych operacji.
+
+\noindent Przykład przepływu danych:
+
+\noindent Klient wysyła żądanie http.\\
+$\downarrow$\\
+Kontroler odbiera i waliduje parametry.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@GetMapping("/{id}")
+public Recipe getById(@PathVariable int id) {
+    return recipeService.getById(id);
+}
+\end{minted}
+
+$\downarrow$\\
+Serwis wykonuje logikę biznesową.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@Override
+public Recipe getById(int id) {
+    return recipeRepository.findById(id).orElseThrow(
+        () -> new RecipeNotFoundException(String
+        .format("Recipe with id: %s does not exist in the database", id)));
+}
+\end{minted}
+
+$\downarrow$\\
+Repozytorium kontaktuje się z bazą danych.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
+    @Query("SELECT u FROM Recipe u WHERE u.recipeName ILIKE %:query%")
+    List<Recipe> findByRecipeNameQuery(@Param("query") String query);
+
+    List<Recipe> findByUser(UserEntity user);
+}
+\end{minted}
+
+$\downarrow$\\
+Wynik jest zwracany z powrotem do klienta i przechodzi przez wszystkie warstwy.
+
+\subsubsection{Warstwa kontrolerów (@RestController)}
+
+System został podzielony na pięć głównych modułów, z których każdy posiada minimum jeden kontroler:
+
+\begin{enumerate}
+    \item Recipe,
+    \item User,
+    \item Image,
+    \item Auth (posiada dwa kontrolery, LoginController oraz RegisterController),
+    \item Admin.
+\end{enumerate}
+
+Każdy z kontrolerów zawiera adnotacje \texttt{@RequestMapping("**")}, która sprawia, że wszystkie endpointy znajdują się pod konkretną ścieżka \texttt{/api/*}. Większość kontrolerów obsługuje operacje CRUD (tworzenie, odczyt, aktualizacje, usuwanie), jednak Auth oraz Image są wyjątkiem, w nich znajduje się tylko operacja tworzenia.
+
+Przykładowe endpointy:
+
+\begin{enumerate}
+    \item Recipe - Wyświetlanie przepisów (GET \texttt{/recipes})
+\end{enumerate}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@GetMapping
+public RecipeRequestDto getRecipesByPage(
+    @RequestParam(defaultValue = "1", required = false) @Min(1) int page,
+    @RequestParam(defaultValue = "10", required = false) @Min(1) int size,
+    @RequestParam(required = false) List<String> category,
+    @RequestParam(required = false) Integer difficulty,
+    @RequestParam(required = false) String servings,
+    @RequestParam(required = false) String prepareTime,
+    @RequestParam(defaultValue = "true") Boolean isPublic,
+    @RequestParam(required = false) String language,
+    @RequestParam(required = false) List<String> ingredients
+){
+    return recipeService.getRecipeByPage(page,size,category,difficulty,
+    servings, prepareTime, isPublic, language, ingredients);
+}
+\end{minted}
+
+\begin{itemize}
+    \item Endpoint pozwala na wyświetlenie przepisów dla wszystkich użytkowników, nawet niezalogowanych.
+    \item Posiada parametry odnoszące się do filtrowania przepisów (np. po składnikach).
+    \item Automatycznie paginuje ilość wyświetlanych przepisów
+\end{itemize}
+
+\begin{enumerate}
+    \setcounter{enumi}{1} % kontynuacja numeracji
+    \item Recipe - Dodawanie przepisu (POST \texttt{/recipes})
+\end{enumerate}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+public Recipe save(@RequestParam("recipe") String json,
+                   @RequestHeader("Authorization") String token,
+                   @RequestParam(value = "images", required = false)
+                   Optional<List<MultipartFile>> images) throws IOException {
+    ObjectMapper objectMapper = new ObjectMapper();
+    RecipeAddDto recipe = objectMapper.readValue(json,RecipeAddDto.class);
+
+    if(images.isPresent() && images.get() != null && !images.get().isEmpty()){
+        return recipeService.saveRecipeWithPhotos(recipe, images.get(), token);
+    } else {
+        return recipeService.saveRecipeWithoutPhoto(recipe, token);
+    }
+}
+\end{minted}
+
+\begin{itemize}
+    \item Endpoint pozwala na dodanie przepisu
+    \item Wymaga autoryzacji
+    \begin{sloppypar}
+      \item Przyjmuje dane w formie JSON oraz opcjonalne zdjęcia w formacie \texttt{multipart/form-data}
+    \end{sloppypar}
+    \item Po poprawnym zapisaniu, zwraca obiekt przepisu
+\end{itemize}
+
+\begin{enumerate}
+    \setcounter{enumi}{2} % kontynuacja numeracji
+    \item Wyświetlenie danych użytkownika (GET \texttt{/users/aboutme})
+    \begin{itemize}
+        \item Wymaga autoryzacji, na podstawie której wyświetla wszystkie dane użytkownika
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Warstwa serwisów (@Service)}
+
+Warstwa serwisowa, pełni kluczową rolę w aplikacji, zawiera ona w sobie całą logikę biznesową systemu. Oznacza to, że wszystkie procesy, które otrzymuje od warstwy kontrolerów przetwarzane są tutaj np. weryfikacja danych, lub obsługa modyfikacji tła na profilu użytkownika. Klasy tej warstwy są oznaczane adnotacją \texttt{@Service}, która przekazuje Spring Boot'owi informację odnośnie automatycznego zarządzania nimi, umożliwia to wstrzykiwanie zależności. Framework automatycznie zarządza transakcjami dzięki adnotacji \texttt{@Transactional}, minimalizuje to utratę danych dzięki rollbackom przy niepowodzeniu zapisu oraz ułatwia spójność operacji (zapis kilku obiektów w ramach jednej transakcji).
+
+Przykładem serwisu jest \texttt{RecipeServiceImpl} oraz metoda rating. Sprawdza, czy wszystkie warunki są spełnione, pobiera odpowiedniego użytkownika i przepis, a następnie aktualizuje lub tworzy nową ocenę w bazie.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@Transactional
+@Override
+public Recipe rating(int id, String token, int rating){
+    if (rating < 1 || rating > 5){
+        throw new IllegalArgumentException
+        ("Rating has to be from 1 to 5");
+    }
+    int userId = jwtService.extractId(token.substring(7));
+    UserEntity user = userRepository.findById(userId).orElseThrow(
+        () -> new UserNotFoundException(String
+        .format("User with id: %s does not exist in the database",
+        userId)));
+    Recipe recipe = recipeRepository.findById(id).orElseThrow(
+        () -> new RecipeNotFoundException(String
+        .format("Recipe with id: %s does not exist in the database",
+        id)));
+            
+    Optional<Rating> existingRating = ratingRepository
+        .findByRecipeIdAndUserId(id, userId);
+
+    if (existingRating.isPresent()) {
+        Rating rating1 = existingRating.get();
+        rating1.setValue(rating);
+        ratingRepository.save(rating1);
+    } else {
+        Rating newRating = new Rating();
+        newRating.setRecipe(recipe);
+        newRating.setValue(rating);
+        newRating.setUser(user);
+        ratingRepository.save(newRating);
+    }
+    return recipe;
+}
+\end{minted}
+
+\subsubsection{Warstwa dostępu do danych (@Repository)}
+
+Warstwa dostępu do danych odpowiada za komunikację aplikacji z bazą danych. W tym miejscu realizowane są operacje związane z przechowywaniem informacji. Są to operacje zapisu, odczytu, aktualizacji oraz usuwania rekordów. Klasy tej warstwy są oznaczone adnotacją \texttt{@Repository}. Informuje to Spring Boot o tym, że dana klasa pełni role komponentu dostępu do danych.
+
+W Spring Boot zazwyczaj korzysta się z Spring Data JPA, co upraszcza zapytania, ponieważ są one generowane automatycznie na podstawie nazw metod (np. \texttt{findByEmail}, \texttt{findByUser}). Dodatkowo zezwala na bardziej złożone operacje, umożliwiając pisanie własnych zapytań SQL.
+
+\begin{sloppypar}
+Przykładowo \texttt{UserRepository}, które rozszerza \texttt{JpaRepository<UserEntity, Integer>} i pozwala wyszukiwać użytkownika po nazwie lub emailu.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+public interface UserRepository extends 
+                  JpaRepository<UserEntity, Integer> {
+    Optional<UserEntity> findByUsername(String username);
+    Optional<UserEntity> findByEmail(String email);
+}
+
+public interface RecipeRepository extends 
+                  JpaRepository<Recipe, Integer> {
+    @Query("SELECT u FROM Recipe u WHERE u.recipeName ILIKE %:query%")
+    List<Recipe> findByRecipeNameQuery(@Param("query") String query);
+
+    List<Recipe> findByUser(UserEntity user);
+}
+\end{minted}
+
+\subsubsection{Pełna lista endpointów}
+
+\textbf{Moduł autentykacji:}
+
+\begin{itemize}
+  \begin{sloppypar}
+    \item \texttt{POST /api/authenticate} -- Endpoint służący do logowania użytkownika. Przyjmuje dane uwierzytelniające (hasło, email), weryfikuje je i zwraca token JWT umożliwiający dostęp do chronionych zasobów.
+  \end{sloppypar}
+    \item \texttt{POST /api/register} -- Endpoint odpowiedzialny za rejestracje nowych użytkowników. Waliduje dane wejściowe, hashuje hasło algorytmem BCrypt i zapisuje użytkownika do bazy danych.
+\end{itemize}
+
+\textbf{Moduł przepisów:}
+
+\begin{itemize}
+    \item \texttt{GET /api/recipes} -- Pobiera listę z możliwością filtrowania oraz wspiera paginacje.
+    \item \texttt{GET /api/recipes/\{id\}} -- Zwraca szczegóły wybranego przepisu, wraz z informacjami o krokach przygotowania, składnikach oraz ocenach.
+    \item \texttt{POST /api/recipes} -- Umożliwia dodanie nowego przepisu. Wymaga autoryzacji. Obsługuje przesyłanie obrazów w formacie \texttt{multipart/form-data}.
+    \item \texttt{PUT /api/recipes/\{id\}} -- Aktualizuje wybrany przepis. Dostępne tylko dla właściciela przepisu lub administratora.
+    \item \texttt{DELETE /api/recipes/\{id\}} -- Usuwa wybrany przepis. Wymaga uprawnień właściciela przepisu lub administratora.
+    \item \texttt{POST /api/recipes/\{id\}} -- Umożliwia ocenienie przepisu w skali od jeden do pięć. Wymaga zalogowanego użytkownika.
+    \item \texttt{GET /api/recipes/\{id\}/rating} -- Pobiera ocenę przepisu wystawioną przez zalogowanego użytkownika.
+    \item \texttt{GET /api/recipes/favourites/isFavourite} -- Sprawdza, czy użytkownika dodał przepis do ulubionych.
+    \item \texttt{GET /api/recipes/\{id\}/isOwner} -- Sprawdza, czy użytkownik jest właścicielem przepisu.
+    \item \texttt{POST /api/recipes/favourites/add} -- Dodaje przepis do ulubionych. Wymaga autoryzacji.
+    \item \texttt{POST /api/recipes/favourites/delete} -- Usuwa przepis z ulubionych. Wymaga autoryzacji.
+    \item \texttt{GET /api/recipes/search} -- Wyszukuje przepisy po wpisanej frazie.
+\end{itemize}
+
+\textbf{Moduł użytkownika:}
+
+\begin{itemize}
+    \item \texttt{GET /api/users} -- Wyświetla wszystkich użytkowników.
+    \item \texttt{GET /api/users/\{id\}} -- Wyświetla konkretnego użytkownika.
+    \item \texttt{PUT /api/users/\{id\}} -- Aktualizuje całego użytkownika. Wymaga autoryzacji.
+    \item \texttt{PUT /api/users/\{id\}/profile} -- Aktualizuje nazwę użytkownika oraz jego opis. Wymaga uprawnień właściciela profilu.
+    \item \texttt{PUT /api/users/\{id\}/email} -- Aktualizuje email użytkownika. Wymaga uprawnień właściciela oraz wpisania poprawnego hasła.
+    \item \texttt{PUT /api/users/\{id\}/password} -- Aktualizuje hasło użytkownika. Wymaga uprawnień właściciela oraz wpisania starego oraz nowego hasła.
+    \item \texttt{GET /api/users/aboutme} -- Zwraca szczegółowe informacje o profilu zalogowanego użytkownika.
+    \item \texttt{GET /api/users/recipes} -- Pobiera listę przepisów utworzonych przez zalogowanego użytkownika.
+    \item \texttt{GET /api/users/favourites} -- Zwraca listę przepisów dodanych do ulubionych przez zalogowanego użytkownika.
+    \item \texttt{PUT /api/users/\{id\}/profile-picture} -- Aktualizuje zdjęcie profilowe zalogowanego użytkownika.
+    \item \texttt{PUT /api/users/\{id\}/background-picture} -- Aktualizuje zdjęcie w tle zalogowanego użytkownika.
+    \item \texttt{DELETE /api/users/\{id\}} -- Usuwa konto wraz z wszystkimi powiązanymi danymi.
+\end{itemize}
+
+\textbf{Panel administratora:}
+
+\begin{itemize}
+    \item \texttt{GET /api/admin/users} -- Zwraca listę wszystkich użytkowników.
+    \item \texttt{DELETE /api/admin/users/\{id\}} -- Usuwa użytkownika z systemu.
+    \begin{sloppypar}
+      \item \texttt{PUT /api/admin/users/\{id\}/role} -- Zmienia role użytkownika (USER/ADMIN).
+    \end{sloppypar}
+    \begin{sloppypar}
+      \item \texttt{GET /api/admin/recipes} -- Pobiera wszystkie przepisy (prywatne i publiczne).
+    \end{sloppypar}
+    \item \texttt{DELETE /api/admin/recipes/\{id\}} -- Usuwa dowolny przepis z systemu.
+    \item \texttt{PUT /api/admin/recipes/\{id\}} -- Aktualizuje wybrany przepis (prywatny lub publiczny).
+    \item \texttt{GET /api/admin/stats} -- Zwraca statystyki systemu (liczba użytkowników, przepisów).
+\end{itemize}
+
+\textbf{Moduł obrazu:}
+
+\begin{itemize}
+\item
+  POST/api/image/addPhoto -- Przesyła obraz do serwisu Cloudinary i
+  zwraca URL do obrazu.
+\item
+  POST/api/image/deletePhoto -- Usuwa obraz z Cloudinary na podstawie
+  public\_id.
+\end{itemize}
+
+\subsection{Projektowanie RESTful API}
+
+Podczas projektowania RESTful API, kluczowe jest stosowanie się do sprawdzonych konwencji. Spring Boot jako popularny framework udostępnia programistom wiele konwencji.
+
+Statusy HTTP stanowią podstawowy mechanizm komunikacji o wyniku operacji. Konwencja definiuje semantyczne odpowiedzi w postaci kodów:
+
+\begin{itemize}
+    \item \textbf{2xx} -- operacje zakończone sukcesem (np. 200 -- OK, 201 -- Created).
+    \item \textbf{4xx} -- operacje zakończone niepowodzeniem po stronie klienta (np. 400 -- Bad Request, 401 -- Unauthorized, 404 -- Not Found).
+    \item \textbf{5xx} -- operacje zakończone błędem po stronie serwera (np. 500 Internal Server error).
+\end{itemize}
+
+\begin{sloppypar}
+Nazewnictwo zasobów (Resource Naming) opiera się na hierarchicznym nazewnictwie zasobów. URI (Uniform Resource Identifier -- standard internetowy umożliwiający łatwą identyfikację zasobów w sieci) powinny reprezentować rzeczowniki, a nie czasowniki. Stosuje się zagnieżdżoną strukturę odzwierciedlającą relacje między zasobami (np. \texttt{users/\{userId\}/background-picture}). Dla kolekcji zasobów powinno się stosować liczbę mnogą.
+\end{sloppypar}
+
+\begin{sloppypar}
+Format danych w nowoczesnych API standardowo wykorzystuje JSON jako główny format wymiany informacji. Struktura pliku JSON powinna być spójna i posiadać jednolite nazewnictwo (camelCase lub snake\_case). Dodatkowo zaleca się stosować standardowy format dat oraz wartości liczbowych.
+\end{sloppypar}
+
+Walidacja błędów w Spring Boot opiera się na zależności „Validation''. Framework udostępnia wiele adnotacji służących do walidowania, które można umieszczać bezpośrednio na polach encji lub parametrach metod:
+
+\begin{itemize}
+    \item \texttt{@Valid} -- aktywuje proces walidacji.
+    \item \texttt{@NotNull} -- sprawdza, czy wartość nie jest null.
+    \item \texttt{@NotEmpty} -- weryfikuje, czy string lub kolekcja nie są puste.
+    \item \texttt{@Size(min, max)} -- kontroluje rozmiar kolekcji lub długość tekstu.
+    \item \texttt{@Email} -- waliduje poprawność emaila.
+\end{itemize}
+
+Błędy walidacji automatycznie są przekształcane na błędy HTTP z kodem 400, a Spring Boot dostarcza mechanizmy przechwytywania dzięki \texttt{@ControllerAdvice}.
+
+\subsubsection{Obsługa parametrów oraz serializacja i deserializacja JSON}
+
+\begin{sloppypar}
+Obsługa parametrów żądań w Spring Boot odbywa się poprzez dedykowane adnotacje, które automatycznie mapują dane z żądań http na parametry metod kontrolera. \texttt{@RequestParam} służy do przechwytywania parametrów zapytania przekazywanych w URL po znaku zapytania, tym samym umożliwia filtrowanie, sortowanie czy paginację wyniku (np. \texttt{/recipes/search?query=chicken}). \texttt{@PathVariable} pozwala na wyodrębnienie zmiennych ze ścieżki URL (np. \texttt{/recipes/\{id\}}). Jest to kluczowe do identyfikacji konkretnych zasobów w hierarchicznej strukturze REST. Obie adnotacje obsługują automatyczną konwersję typów oraz walidację, tym samym zwiększając bezpieczeństwo API.
+\end{sloppypar}
+
+Serializacja i deserializacja JSON stanowią fundament mechanizmu wymiany danych w RESTful API. \texttt{@RequestBody} automatycznie deserializuje przychodzące dane w formie JSON na obiekty Javy. Wykorzystuje do tego bibliotekę Jackson jako domyślny konwerter. \texttt{@ResponseBody} wykonuje proces odwrotny, serializuje obiekty Javy na format JSON w odpowiedzi http.
+
+\subsection{Modelowanie danych z JPA/Hibernate}
+
+Spring Data JPA jest częścią większego Spring Data, która ułatwia implementacje repozytoriów bazujących na JPA (Java Persistent API). Jest to zestaw reguł i adnotacji, mówiący jak mapować klasy Java na tabele w bazie danych. Natomiast Hibernate to inaczej implementacja JPA. Jest to konkretny silnik odpowiedzialny za tłumaczenie operacji na obiektach na zapytania SQL i odwrotnie.
+
+W Spring Boot encje definiuje się za pomocą adnotacji \texttt{@Entity}, która oznacza klasę jako trwałą encję JPA. Każda encja reprezentuje tabelę w bazie danych, a jej pola odpowiadają kolumnom tabeli. Adnotacja \texttt{@Table} także pozwala na określenie nazwy tabeli oraz dodatkowych właściwości, takich jak indeksy czy ograniczenia integralności.
+
+Mapowanie relacji między tabelami w bazie danych realizowane jest poprzez specjalnie przeznaczone do tej czynności adnotacje. \texttt{@OneToMany} definiuje relacje jeden-do-wielu, gdzie jedna encja może być powiązana z kolekcją innych encji. \texttt{@ManyToOne} reprezentuje relacje wiele-do-jednego, zazwyczaj używa się jej do definiowania kluczy obcych. Przy nich zazwyczaj występuje adnotacja \texttt{@JoinColumn}, stosuje się ją najczęściej, aby wskazać klucz obcy. \texttt{@ManyToMany} jest relacją wiele-do-wielu, automatycznie generuje tabelę łączącą. Każda z tych adnotacji obsługuje parametry takie jak \texttt{cascade} czy \texttt{mappedBy}. W sytuacji, gdy relacja wymaga samodzielnego określenia nazwy oraz struktury tabeli pośredniczącej, stosuje się adnotację \texttt{@JoinTable}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{praca_inzynierska/media/image3.png}
+    \caption{Relacje między encjami w bazie danych}
+\end{figure}
+
+Adnotacje JPA zapewniają precyzyjną kontrolę nad mapowaniem danych. Główną adnotacją jest \texttt{@Id} oznaczającą klucz główny encji, podczas gdy \texttt{@GeneratedValue} definiuje strategie generowania wartości klucza (np. AUTO, IDENTITY). \texttt{@Column} umożliwia szczegółową konfigurację kolumn, włączając nazwę, typ, ograniczenia długości.
+
+\subsection{Integracja z bazą danych PostgreSQL}
+
+Konfiguracja połączenia z bazą danych opiera się na mechanizmie automatycznej konfiguracji, która upraszcza proces łączenia z bazą danych w porównaniu do tradycyjnych rozwiązań w Javie.
+
+Podstawowa konfiguracja odbywa się poprzez zdefiniowanie właściwości połączenia w plikach konfiguracyjnych aplikacji. Spring Boot automatycznie wykrywa zależności JDBC w classpath i na tej podstawie konfiguruje DataSource -- główny komponent odpowiedzialny za połączenie.
+
+\begin{sloppypar}
+Właściwości połączenia definiowane są w pliku \texttt{application.properties} lub \texttt{application.yml}, jednak w projekcie został użyty \texttt{application.yml}. Upraszcza to czytelność poprzez brak konieczności powtarzania prefixów, indentacje pokazujące relacje między właściwościami. Yaml także wspiera i automatycznie rozpoznaje typy danych. Pliki konfiguracyjne obejmują URL bazy danych, dane uwierzytelniające oraz sterownik JDBC. Framework automatycznie ładuje te właściwości przy uruchamianiu aplikacji, tworząc skonfigurowany DataSource. Jest on następnie wstrzykiwany do komponentów wymagających dostępu do bazy danych.
+\end{sloppypar}
+
+Zarządzanie schematem bazy danych realizowane jest przez parametr \texttt{ddl-auto}, który kontroluje sposób synchronizacji struktury bazy danych z definicjami encji JPA. Wartość \emph{update} zapewnia automatyczne dostosowanie schematu do zmian w encjach bez utraty istniejących danych. Inne dostępne opcje to \emph{create} (odtworzenie schematu), \emph{create-drop} (usunięcie po wyłączeniu aplikacji), \emph{validate} (tylko weryfikacja zgodności) oraz \emph{none} (brak automatycznej modyfikacji).
+
+Pliki konfiguracyjne zezwalają także na tworzenie profili, które zaś umożliwiają definiowanie różnych ustawień dla różnych środowisk. Spring Boot automatycznie ładuje odpowiedni profil na podstawie aktywnych profili aplikacji. Pozwala to na elastyczne zarządzanie konfiguracją bez potrzeby zmiany kodu źródłowego.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{yaml}
+spring:
+  application:
+    name: cibaria
+  datasource:
+    url: ${DB_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 25
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 5MB
+
+server:
+  servlet:
+    context-path: /api
+\end{minted}
+
+\textbf{Konfiguracja aplikacji:}
+\begin{itemize}
+    \item Nazwa aplikacji - cibaria (wymyślona nazwa aplikacji).
+\end{itemize}
+
+\textbf{Konfiguracja bazy danych:}
+\begin{itemize}
+    \item Połączenie -- używa zmiennej środowiskowej dla URL, użytkownika oraz hasła.
+    \item Hikari connection pool (użyte pod testy):
+    \begin{itemize}
+        \item Maksymalnie 25 połączeń w puli.
+        \item Minimum 5 bezczynnych połączeń.
+        \item Timeout połączenia: 30 sekund.
+        \item Timeout bezczynności: 5 minut.
+        \item Maksymalny czas życia połączenia: 30 minut.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Konfiguracja JPA/Hibernate:}
+\begin{itemize}
+    \item Dialekt: PostgreSQL.
+    \item \texttt{ddl-auto: update} -- automatyczne aktualizowanie schematu bazy danych przy starcie.
+\end{itemize}
+
+\textbf{Konfiguracja serwletu:}
+\begin{itemize}
+    \item Multipart -- maksymalny rozmiar przesyłanego pliku to 5MB.
+    \item \texttt{context-path: /api} -- wszystkie endpointy będą dostępne pod prefixem \texttt{/api}.
+\end{itemize}
+
+\subsection{Implementacja funkcjonalności biznesowych}
+
+W niniejszym podrozdziale przedstawiono implementację kluczowych funkcjonalności systemu, przedstawiając praktyczne zastosowanie opisanych wcześniej rozwiązań technicznych w kontekście logiki biznesowej aplikacji.
+
+\subsubsection{Zarządzanie użytkownikami i autoryzacja}
+
+Rejestracja użytkowników realizowana jest poprzez endpoint \texttt{POST /register}, który przyjmuje dane w formacie JSON. System automatycznie waliduje poprawność adresu email, wymagania dotyczące hasła czy nazwy użytkownika dzięki adnotacji \texttt{@Valid}. Po pomyślnej weryfikacji, token JWT zostaje przyznany, a hasło użytkownika jest hashowane przy użyciu algorytmu BCrypt, zapewniając wysoki poziom ochrony przed nieautoryzowanym dostępem.
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@Override
+public TokenResponseDto save(RegisterDto dto) {
+    Optional<UserEntity> isUser = userRepository
+                      .findByEmail(dto.getEmail());
+
+    if(isUser.isPresent()){
+        throw new UserEmailAlreadyExistException(
+        "User with given email: "+ dto.getEmail() + 
+        " already exist in database");
+    }
+
+    UserEntity newUser = new UserEntity();
+    newUser.setEmail(dto.getEmail());
+    newUser.setPassword(passwordEncoder.encode(dto.getPassword()));
+    newUser.setUsername(dto.getUsername());
+    UserEntity userDb = userRepository.save(newUser);
+    TokenResponseDto token = new TokenResponseDto();
+    token.setToken(jwtService.generateToken(userDetailService
+    .loadUserByUsername(userDb.getEmail())));
+
+    return token;
+}
+\end{minted}
+
+Logowanie użytkowników odbywa się przez endpoint \texttt{POST /authenticate}, który przyjmuje dane w formacie JSON, zawierające email oraz hasło. System wymaga od użytkowników podania obu parametrów, następnie automatycznie waliduje wprowadzone dane poprzez \texttt{AuthenticationManager} z Spring Security. Przy pomyślnym zalogowaniu, użytkownik otrzymuje ważny token JWT.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@PostMapping("/authenticate")
+public TokenResponseDto authenticate(@Valid @RequestBody 
+                                            LoginFormDto loginFormDto) {
+    try{
+        authenticationManager.authenticate(
+        new UsernamePasswordAuthenticationToken(loginFormDto.email(),
+        loginFormDto.password()));
+        TokenResponseDto token = new TokenResponseDto();
+        token.setToken(jwtService.generateToken(
+        userDetailService.loadUserByUsername(loginFormDto.email())));
+        return token;
+    } catch (BadCredentialsException ex) {
+        throw new UserNotFoundException("Invalid credentials");
+    }
+}
+\end{minted}
+
+Mechanizm autoryzacji w systemie opiera się na tokenie JWT. Podejście to eliminuje konieczność przechowywania stanu sesji po stronie serwera, przekłada się to na lepszą skalowalność i prostsze zarządzanie autoryzacją.
+
+W momencie logowania lub rejestracji użytkownik przekazuje swoje dane, które są weryfikowane. W przypadku poprawnej autoryzacji serwer generuje token JWT, składający się z trzech części:
+
+\begin{itemize}
+    \item \textbf{Header} -- informacje o algorytmie podpisu.
+    \item \textbf{Payload} -- dane użytkownika (oprócz standardowych claims, system wykorzystuje też własne pola):
+    \begin{itemize}
+        \item \texttt{provider} -- identyfikator źródła tokenu.
+        \item \texttt{id} -- unikalny identyfikator użytkownika.
+        \item \texttt{roles} -- rola użytkownika.
+        \item \texttt{Subject} -- nazwa użytkownika.
+        \item \texttt{issuedAt} -- data wydania tokenu.
+        \item \texttt{expiration} -- data wygaśnięcia (siedemdziesiąt dwie godziny).
+    \end{itemize}
+    \item \textbf{Signature} -- podpis cyfrowy utworzony na podstawie tajnego klucza serwera, zapewniający autentyczność tokenu.
+\end{itemize}
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+public String generateToken(UserDetails userDetails) {
+    UserEntity user = userRepository
+        .findByEmail(userDetails.getUsername())
+        .orElseThrow(()-> new UsernameNotFoundException
+        ("User not found"));
+    
+    Map<String, Object> claims = new HashMap<>();
+    claims.put("provider", "kkBackend");
+    claims.put("id", String.valueOf(user.getId()));
+    claims.put("roles", user.getRole().split(","));
+
+    return Jwts.builder()
+        .claims(claims)
+        .subject(userDetails.getUsername())
+        .issuedAt(Date.from(Instant.now()))
+        .expiration(Date.from(Instant.now().plusMillis(EXPIRATIONTIME)))
+        .signWith(generateKey())
+        .compact();
+}
+\end{minted}
+
+Token posiada datę wygaśnięcia, co ogranicza czas jego ważności i minimalizuje ryzyko nadużyć w przypadku przechwycenia.
+
+Weryfikacja tokenu odbywa się poprzez nagłówek \texttt{Authorization} w formacie \texttt{Bearer <token>}. Po stronie serwera działa filtr \texttt{JwtAuthenticationFilter}, który przechwytuje każde żądanie HTTP i wykonuje ekstrakcję tokenu z nagłówka. Następnie weryfikuje jego integralność poprzez ponowne obliczenie podpisu z wykorzystaniem klucza. Dalej przechodzi do sprawdzenia daty ważności; jeśli użytkownik posiada wygaśnięty token, odrzuca go. Ostatecznie wyciąga dane z tokenu i tworzy obiekt autoryzacji, który jest umieszczany w kontekście Spring Security.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@GetMapping("/aboutme")
+public MyProfileDto getMyProfile(@RequestHeader("Authorization")
+    String token){
+    return userService.getMyProfile(token);
+}
+\end{minted}
+
+Przykład komunikacji:
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{praca_inzynierska/media/image4.png}
+    \caption{Żądanie POST /api/register}
+\end{figure}
+
+Odpowiedź:
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{praca_inzynierska/media/image5.png}
+    \caption{Odpowiedź na żądanie POST /api/register}
+\end{figure}
+
+Rozwiązanie to pozwala w prosty sposób uzyskać informacje o aktualnie zalogowanym użytkowniku oraz jego uprawnieniach, co umożliwia precyzyjną kontrolę dostępu.
+
+Po pomyślnym zalogowaniu użytkownik zyskuje dostęp do panelu zarządzania swoim profilem, który umożliwia kompleksową personalizację danych konta. System umożliwia zmianę nazwy użytkownika, adresu e-mail, hasła oraz opisu profilu. Dzięki integracji z usługą Cloudinary jest w stanie zmienić swoje zdjęcie profilowe lub zdjęcie tła profilu. W przypadku rezygnacji z korzystania z aplikacji, użytkownik ma możliwość trwałego usunięcia swojego konta. Skutkuje to całkowitym wymazaniem jego danych z systemu.
+
+\subsubsection{Zarządzanie przepisami}
+
+Moduł zarządzania przepisami stanowi centralną część aplikacji i odpowiada za prezentację i modyfikację dań. Niezalogowany użytkownik posiada możliwość przeglądania wszystkich publicznych przepisów, jak również filtrowania ich według kategorii, czasu przygotowania, ilości porcji, języka, składników, nazwy oraz trudności. Dzięki temu system jest użyteczny dla osób nieposiadających konta, zapewniając im dostęp do bazy przepisów.
+
+Aby móc w pełni skorzystać z funkcjonalności aplikacji, takich jak dodawanie przepisów, edycja własnych przepisów, ocenianie potraw czy dodawanie ich do ulubionych, wymagane jest zalogowanie się do systemu. Token JWT gwarantuje, że wyłącznie właściciel przepisu lub osoba posiadająca odpowiednie uprawnienia (Admin) może wprowadzać w nim zmiany.
+
+Operacje na przepisach są realizowane poprzez zestaw endpointów z prefixem \texttt{/recipes}. Dzięki zastosowaniu mechanizmów sortowania oraz paginacji, możliwe jest sprawne zarządzanie dużą ilością przepisów przy zachowaniu wysokiej wydajności aplikacji.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@GetMapping
+public RecipeRequestDto getRecipesByPage(
+    @RequestParam(defaultValue = "1", required = false) @Min(1) int page,
+    @RequestParam(defaultValue = "10", required = false) @Min(1) int size,
+    @RequestParam(required = false) List<String> category,
+    @RequestParam(required = false) Integer difficulty,
+    @RequestParam(required = false) String servings,
+    @RequestParam(required = false) String prepareTime,
+    @RequestParam(defaultValue = "true") Boolean isPublic,
+    @RequestParam(required = false) String language,
+    @RequestParam(required = false) List<String> ingredients
+){
+    return recipeService.getRecipeByPage(page,size,category,difficulty,
+    servings, prepareTime, isPublic, language, ingredients);
+}
+\end{minted}
+
+Na powyższym przykładzie widnieje sposób pobierania listy przepisów. Operacja ta została zaimplementowana jako metoda kontrolera. Parametry zapytania są przekazywane jako \texttt{@RequestParam} i obejmują między innymi numer strony, rozmiar strony i wcześniej wymienione filtry. Dzięki takiemu podejściu aplikacja może w efektywny sposób obsługiwać dużą liczbę rekordów, zapewniając użytkownikowi szybki dostęp do interesujących go treści.
+
+\subsection{Obsługa błędów}
+
+Aby zapewnić spójność i przewidywalność działania aplikacji w przypadku wystąpienia błędu, zaimplementowano mechanizm globalnej obsługi wyjątków. Pozwala to w jednolity sposób reagować na różnego rodzaju wyjątki, eliminując konieczność powtarzania logiki obsługi w poszczególnych komponentach. Ponadto w systemie zastosowano niestandardowe klasy wyjątków, ułatwiające identyfikacje źródła problemu.
+
+\texttt{@ControllerAdvice} to mechanizm Spring Boot umożliwiający globalne przechwytywanie i obsługę wyjątków oraz błędów w całej aplikacji. Działa jako centralny punkt zarządzania błędami wszystkich kontrolerów. Framework automatycznie skanuje klasy oznaczone adnotacją \texttt{@ControllerAdvice} i rejestruje je jako globalne handlery wyjątków. Gdy w którymś kontrolerze wystąpi wyjątek, Spring sprawdza, czy istnieje odpowiedni handler w \texttt{@ControllerAdvice}. Jeśli tak, przekazuje mu kontrolę zamiast zwracać domyślną wartość błędu. Gdy w trakcie obsługi żądania pojawi się wyjątek, Spring przekazuje go do odpowiedniej metody oznaczonej adnotacją \texttt{@ExceptionHandler}, która określa, które typy wyjątków mają być obsługiwane przez daną metodę.
+
+
+
+Metoda obsługująca wyjątek przygotowuje obiekt odpowiedzi zawierający kod statusu HTTP, opis błędu oraz datę jego wystąpienia.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(RecipeNotFoundException.class)
+    public ResponseEntity<ErrorObject> handleRecipeNotFoundException
+    (RecipeNotFoundException ex) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setStatusCode(HttpStatus.NOT_FOUND.value());
+        errorObject.setMessage(ex.getMessage());
+        return new ResponseEntity<ErrorObject>
+                  (errorObject, HttpStatus.NOT_FOUND);
+    }
+}
+\end{minted}
+
+\begin{sloppypar}
+W powyższym przykładzie w przypadku wystąpienia wyjątku \texttt{RecipeNotFoundException} zwracany jest obiekt \texttt{ErrorObject} zawierający status błędu 404, komunikat o treści wyjątku oraz datę jego wystąpienia.
+\end{sloppypar}
+
+\subsection{Podsumowanie rozdziału}
+
+Podsumowując, implementacja systemu została oparta na architekturze warstwowej, dzięki czemu aplikacja posiada wyraźne rozdzielenie logiki na kontrolery, serwisy i warstwę dostępu do danych, co ułatwia utrzymanie i testowanie kodu. Backend został zbudowany w technologii Spring Boot, zapewniając automatyczną konfigurację i integrację z bazą danych PostgreSQL. Umożliwiło to stworzenie spójnego RESTful API. Mechanizm autoryzacji oparto na tokenach JWT, co pozwoliło na wyeliminowanie sesji po stronie serwera i uzyskanie architektury \textit{stateless}, istotnej z punktu widzenia skalowalności. Przedstawiono logikę biznesową aplikacji między innymi: zarządzanie profilem użytkownika, wyświetlanie, filtrowanie, dodawanie oraz aktualizacje przepisów. W systemie zastosowano globalną obsługę wyjątków z wykorzystaniem adnotacji \texttt{@ControllerAdvice}, zapewniającą jednolity i czytelny sposób wyświetlania błędów.
+
+Przyjęte podejście niesie za sobą zalety, takie jak bezpieczeństwo danych (hasła hashowane algorytmem BCrypt), wysoka czytelność i modularność kodu.
+
+Możliwość dalszego rozwoju systemu obejmują wprowadzenie mechanizmu odświeżania tokenów oraz wieloskładnikowe uwierzytelnianie (2FA), rozbudowę logiki biznesowej o funkcje społecznościowe, takie jak komentarze czy dodawanie innych użytkowników do listy znajomych.
+
+\section{Implementacja aplikacji frontendowej}
+
+\subsection{Przegląd architektury}
+
+Do stworzenia strony internetowej aplikacji użyto frameworka Angular. Jest to rozbudowane środowisko, które oferuje wiele wbudowanych funkcjonalności, dzięki czemu nie ma potrzeby korzystania z zewnętrznych bibliotek. Pozwala to uniknąć czasochłonnej integracji i zapewnia spójność projektu. Angular posiada między innymi wbudowany routing, obsługę formularzy, internacjonalizację (i18n) oraz wiele innych narzędzi. Dzięki temu projekt jest spójny, ustrukturyzowany, a jego architektura opiera się na modułach, komponentach i serwisach. Umożliwia to łatwą skalowalność oraz zachowuje czytelność i separację odpowiedzialności. Framework jest napisany w TypeScript i ściśle z nim zintegrowany. Zalety takiego rozwiązania to statyczne typowanie, które zmniejsza ilość błędów oraz przejrzystość kodu. Dodatkowo, Angular oferuje wbudowany mechanizm wstrzykiwania zależności (Dependency Injection), co ułatwia testowanie komponentów, dynamiczne podmienianie serwisów oraz modularność kodu.
+
+
+
+Aplikacja została zbudowana na wersji Angular 18.2.13, który uruchamiany jest w środowisku Node.js 18 (alpine). Do budowy oraz testowania wykorzystano narzędzie Angular CLI 18.2.20, które automatyzuje proces kompilacji, generowania komponentów, uruchamianie testów oraz optymalizację kodu.
+
+Kluczowe zależności projektu:
+
+\begin{itemize}
+    \item \texttt{@angular/core 18.2.13} -- główny moduł frameworka odpowiedzialny za logikę komponentów i serwisów.
+    \item \texttt{@angular/router 18.2.13} -- moduł nawigacji pomiędzy widokami aplikacji.
+    \item \texttt{@angular/forms 18.2.13} -- moduł do obsługi formularzy.
+    \item \texttt{RxJS 7.8.2} -- biblioteka programowania reaktywnego.
+    \item \texttt{Zone.js 0.14.10} -- mechanizm śledzenia operacji asynchronicznych.
+    \item \texttt{TypeScript 5.5.4} -- język bazujący na JavaScript z obsługą statycznego typowania.
+    \item \texttt{@angular-devkit/build-angular 18.2.20} -- zestaw narzędzi do kompilacji i optymalizacji kodu.
+\end{itemize}
+
+Dzięki takiemu zestawieniu aplikacja jest testowalna, skalowalna oraz łatwa do wdrożenia, przy jednoczesnym zachowaniu spójności wersji Angulara i jego zależności.
+
+Aplikacja została zbudowana w oparciu o architekturę komponentową typu \textit{standalone}. Rozwiązanie to pozwala tworzyć aplikację bez konieczności definiowania tradycyjnych modułów (\texttt{NgModule}). Upraszcza to strukturę projektu oraz konfigurację. Każdy komponent lub serwis może zostać oznaczony jako standalone.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+@Component({
+  selector: 'app-admin-panel',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    TranslateModule,
+    ToastNotificationComponent,
+  ],
+  templateUrl: './admin-panel.component.html',
+  styleUrls: ['./admin-panel.component.css'],
+})
+\end{minted}
+
+Umożliwia to bezpośrednie wykorzystanie w innych częściach aplikacji bez konieczności deklarowania w osobnych modułach. Zastosowanie architektury standalone pozwala na redukcję złożoności projektu, szybszy rozwój, lepszą testowalność, mniejszy narzut konfiguracji oraz ułatwia skalowanie. W projekcie każdy kluczowy komponent został napisany jako samodzielny komponent standalone.
+
+\subsubsection{Struktura projektu}
+
+Struktura aplikacji została podzielona między trzy główne katalogi i jeden pomniejszy. Pozwala to na czytelną nawigację po projekcie.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{praca_inzynierska/media/image6.png}
+    \caption{Struktura projektu}
+\end{figure}
+
+Katalogi projektu:
+
+\begin{itemize}
+    \item \texttt{Components/} - zawiera wszystkie komponenty interfejsu użytkownika. Każdy stanowi samodzielny komponent (standalone) posiadający własne pliki:
+    \begin{itemize}
+        \item Plik TypeScript (\texttt{.ts}) z logiką.
+        \item Plik szablonu (\texttt{.html}) odpowiedzialny za szkielet widoku.
+        \item Plik stylów (\texttt{.css}) definiujący wygląd komponentu.
+        \item Plik testów (\texttt{.spec.ts}) zawierający logikę testów.
+    \end{itemize}
+    \item \texttt{Services/} - zawiera serwisy odpowiedzialne za logikę biznesową oraz komunikację z backendem.
+    \item \texttt{Interface/} - katalog przechowujący definicje interfejsów, które opisują struktury danych.
+    \item \texttt{Shared/styles} - zawiera plik (\texttt{.css}) odpowiedzialny za wspólne dla całej aplikacji style do przycisków.
+\end{itemize}
+
+Taka organizacja folderów zapewnia modularność oraz przejrzystość. Umożliwia także niezależne rozwijanie poszczególnych części aplikacji oraz testowanie komponentów.
+
+\subsubsection{Wzorce projektowe}
+
+W projekcie zostało wykorzystane programowanie reaktywne oparte na bibliotece RxJS do zarządzania asynchronicznym strumieniem danych. Pierwszym przykładem jest zarządzanie stanem autoryzacji w \texttt{auth.service.ts}. Eksponuje observable (strumień danych tylko do odczytu) informujący o stanie logowania.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+public isLoggedIn$ = this.isLoggedInSubject.asObservable();
+\end{minted}
+
+Użycie \texttt{BehaviorSubject} gwarantuje, że nowi subskrybenci natychmiast otrzymają ostatnią wartość. Jest to kluczowe podczas inicjalizacji komponentów.
+
+Następnym przykładem jest mechanizm \textbf{Debounce}. Zastosowano go w celu optymalizacji komunikacji między aplikacją frontendową a serwerem API. Wykorzystuje operator \texttt{debounceTime()} z biblioteki RxJS. Rozwiązanie to zostało zaimplementowane we wszystkich komponentach wysyłających zapytania do API.
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+constructor(
+  private recipeService: RecipeService,
+  private router: Router,
+  private notificationService: NotificationService,
+  private authService: AuthService
+) {
+  // Setup debounced submit attempts
+  this.submitAttempts$
+    .pipe(debounceTime(1000), takeUntil(this.destroy$))
+    .subscribe(() => {
+      this.executeSubmit();
+    });
+}
+\end{minted}
+
+Zastosowanie operatora \texttt{debounceTime(1000)} powoduje opóźnienie wysłania zapytania o 1000 milisekund. W praktyce oznacza to, że przy wielokrotnym wywołaniu akcji w krótkim odstępie czasu, tylko ostatnie zostanie przetworzone. Debounce przyczynia się do znaczącej redukcji zapytań HTTP kierowanych do serwera, znacząco zmniejszając obciążenie. Poprawia także responsywność interfejsu użytkownika.
+
+W aplikacji zaimplementowano wzorzec zapobiegający wyciekom pamięci, który systematycznie anuluje aktywne subskrypcje w momencie niszczenia komponentu. W tym celu wykorzystano metodę \texttt{takeUntil()} oraz Lifecycle hook \texttt{ngOnDestroy()}. Każdy komponent wykorzystujący subskrypcje deklaruje prywatny obiekt \texttt{Subject}, który służy jako sygnalizator zakończenia.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private destroy$ = new Subject<void>();
+
+ngOnDestroy(): void {
+  this.destroy$.next();
+  this.destroy$.complete();
+}
+\end{minted}
+
+\noindent Mechanizm działa według następującego schematu:
+
+\noindent Tworzony jest obiekt \texttt{Subject} jako sygnalizator zakończenia. \\
+$\downarrow$ \\
+Dla każdej subskrypcji dodawany jest operator \texttt{takeUntil(this.destroy\$)}, który nasłuchuje zakończenia. \\
+$\downarrow$ \\
+W momencie niszczenia komponentu, Angular automatycznie wywołuje metodę \texttt{ngOnDestroy()}, która emituje wartość przez \texttt{next()}, co powoduje anulowanie wszystkich powiązanych subskrypcji. \\
+$\downarrow$ \\
+Ostatecznie, wywołanie \texttt{complete()} zwalnia zasoby obiektu \texttt{Subject}.
+
+\noindent Zastosowanie takiego rozwiązania skutecznie zapobiega wyciekom pamięci. Eliminuje ryzyko wykonywania operacji na nieistniejących komponentach, co mogłoby prowadzić do błędów.
+
+\subsection{Serwisy HTTP}
+
+\subsubsection{Auth.service.ts}
+
+W aplikacji zaimplementowano autentykację opartą na tokenie JWT. Podczas procesu logowania, po pomyślnej weryfikacji danych, serwer zwraca token w odpowiedzi HTTP. Aplikacja zapisuje go w Web Storage API.
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+login(email: string, password: string, rememberMe: boolean = false): 
+      Observable<any>
+{
+  const body = { email: email, password: password };
+  return this.http.post(this.apiUrl + '/authenticate', body).pipe(
+    tap((response: any) => {
+      if (response && response.token) {
+        if (rememberMe) {
+          localStorage.setItem('token', response.token);
+        } else {
+          sessionStorage.setItem('token', response.token);
+        }
+        this.isLoggedInSubject.next(true);
+      }
+    })
+  );
+}
+\end{minted}
+
+W przypadku, jeśli użytkownik zaznaczy opcję „Zapamiętaj mnie'', token jest zapisywany w \texttt{localStorage}, co zapewnia trwałość mimo zamknięcia przeglądarki. Alternatywnie, token jest przechowywany wewnątrz \texttt{sessionStorage}, który jest czyszczony automatycznie po wyłączeniu sesji przeglądarki lub zamknięciu karty z aplikacją.
+
+Dekodowanie i walidowanie tokenu JWT odbywa się za pomocą trzech metod: \texttt{isAdmin()}, \texttt{getUserRoles()}, \texttt{hasRole()}, każda z nich działa w podobny sposób.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+getUserRoles(): string[] {
+  const token = this.getToken();
+  if (!token) return [];
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.roles || [];
+  } catch (error) {
+    return [];
+  }
+}
+\end{minted}
+
+Wstępnie token jest dzielony za pomocą metody \texttt{split('.')}, a następnie wybierany jest drugi segment zawierający payload. Segment jest zakodowany, dlatego wykorzystywana jest funkcja \texttt{atob()} do dekodowania. Wynik następnie jest parsowany do zmiennej \texttt{payload} i ostatecznie zwracane są role użytkownika. Metoda jest zabezpieczona blokiem \texttt{try-catch}, który obsługuje potencjalne błędy wynikające z nieprawidłowego formatu tokenu lub uszkodzenia. W przypadku wystąpienia błędu, metoda zwróci pustą tablicę.
+
+Serwis wykorzystuje wzorzec \texttt{Observable} do reaktywnego zarządzania stanem autentykacji wewnątrz całej aplikacji.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+public isLoggedIn$ = this.isLoggedInSubject.asObservable();
+
+constructor(private http: HttpClient, private router: Router) {
+  this.checkInitialAuthState();
+}
+
+private checkInitialAuthState(): void {
+  const token = this.getToken();
+  if (token) {
+    this.isLoggedInSubject.next(true);
+  } else {
+    this.isLoggedInSubject.next(false);
+  }
+}
+\end{minted}
+
+\begin{sloppypar}
+Podczas inicjalizacji serwisu, w konstruktorze wywoływana jest metoda \texttt{checkInitialAuthState()}, która sprawdza czy token znajduje się w \texttt{localStorage} bądź w \texttt{sessionStorage} przy użyciu metody pomocniczej \texttt{getToken()}. Następnie bazując na zwróconej odpowiedzi aktualizuje stan autentykacji. Eliminuje to potrzebę ponownego logowania po odświeżeniu strony.
+\end{sloppypar}
+
+Proces wylogowywania przebiega przy użyciu metody \texttt{logout()}.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+logout(): void {
+  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
+  this.isLoggedInSubject.next(false);
+  this.router.navigate(['/login']);
+}
+\end{minted}
+
+\begin{sloppypar}
+Usuwa ona token z \texttt{localStorage} oraz \texttt{sessionStorage}, aktualizuje stan autentykacji na false, co powoduje aktualizację wszystkich komponentów subskrybujących strumień \texttt{isLoggedIn\$}. Ostatecznie użytkownik przekierowywany jest na stronę logowania przy użyciu serwisu Router.
+\end{sloppypar}
+
+Dekodowanie tokenu JWT po stronie klienta nie stanowi zagrożenia, ponieważ odczytane metadane nie zawierają wrażliwych informacji o użytkowniku takich jak hasło a jedynie dane identyfikujące. Faktyczna walidacja tokenu odbywa się po stronie serwera przy odkodowaniu podpisu cyfrowego.
+
+\subsubsection{Recipe.service.ts}
+
+Serwis odpowiada za komunikację z API serwera, w kontekście zarządzania przepisami. W celu bezpieczeństwa, przed wysłaniem zapytania wymagającego autoryzacji wykorzystywana jest prywatna metoda \texttt{getAuthHeaders()}. Wydobywa token z serwisu autoryzacji i zapisuje go do zmiennej, po czym, jeśli go znajdzie zwraca obiekt nagłówków zawierający pole Authorization z tokenem. Jeśli token nie jest dostępny, zwracany jest pusty obiekt nagłówków. Skutkuje to żądaniem bez danych uwierzytelniających i zostaje odrzucone przez serwer z kodem błędu 401 Unauthorized.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private getAuthHeaders(): HttpHeaders {
+  const token = this.authService.getToken();
+  if (token) {
+    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  }
+  return new HttpHeaders();
+}
+\end{minted}
+
+Przykładem zabezpieczonego endpointu jest dodawanie przepisu, które wykorzystuje token w celach autoryzacji. Przed wysłaniem żądania, dane z formularza są zbierane do obiektu \texttt{FormData}. Następnie do zmiennej \texttt{headers} przypisywany jest nagłówek wydobyty z metody \texttt{getAuthHeaders()}. Ostatecznie, wysyłane jest żądanie HTTP POST przekazując do klienta \texttt{HttpClient} zawierające, URL na który ma zostać wysłane żądanie, przygotowany obiekt \texttt{FormData} oraz nagłówek autoryzacyjny.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+postRecipe(recipeData: FormData): Observable<any> {
+  const headers = this.getAuthHeaders();
+  return this.http.post<any>(this.url, recipeData, { headers });
+}
+\end{minted}
+
+\subsubsection{Filter.service.ts}
+
+Serwis FilterService odpowiedzialny jest za logikę filtrowania, paginacji oraz pobierania danych dotyczących przepisów z serwera. Zaprojektowany został zgodnie z wzorcem reaktywnego programowania. Serwis jest odpowiedzialny za zarządzanie stanem filtrów, wykonywaniem zapytań do API na podstawie filtrów oraz dynamicznym generowaniu opcji do wykorzystania w interfejsie użytkownika.
+
+Sercem serwisu jest \texttt{BehaviorSubject}, pełniące funkcję centralnego źródła prawdy dla aktualnych filtrów.
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private filterState$ = new BehaviorSubject<FilterState>({
+  currentPage: 1,
+  pageSize: 12,
+});
+\end{minted}
+
+Każdy komponent subskrybujący do \texttt{filterState\$} natychmiast otrzyma bieżący stan. Modyfikacja stanu odbywa się poprzez metodę \texttt{updateFilters()}, co gwarantuje przewidywalny przepływ danych.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+updateFilters(filters: Partial<FilterState>): void {
+  const currentState = this.filterState$.value;
+  const newState = { ...currentState, ...filters };
+  this.filterState$.next(newState);
+}
+\end{minted}
+
+Prywatna metoda \texttt{buildParams()} odpowiada za tłumaczenie stanu filterState na zapytania http. Zawiera ona logikę biznesową np. konwersje zakresów liczbowych (czas przygotowania czy liczba porcji) na format tekstowy oczekiwany przez API serwera.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private buildParams(filters?: Partial<FilterState>): any {
+  const currentFilters = { ...this.currentFilters, ...filters };
+  const params: any = {
+    page: currentFilters.currentPage,
+    size: currentFilters.pageSize,
+  };
+
+  if (currentFilters.difficulty) {
+    params.difficulty = currentFilters.difficulty;
+  }
+  if (currentFilters.prepTimeFrom !== undefined || 
+        currentFilters.prepTimeTo !== undefined) {
+    const prepTimeFrom = currentFilters.prepTimeFrom ?? 0;
+    const prepTimeTo = currentFilters.prepTimeTo ?? 99999;
+    params.prepareTime = `${prepTimeFrom}-${prepTimeTo}`;
+  }
+  if (currentFilters.servingsFrom !== undefined || 
+        currentFilters.servingsTo !== undefined) {
+    const servingsFrom = currentFilters.servingsFrom ?? 0;
+    const servingsTo = currentFilters.servingsTo ?? 99999;
+    params.servings = `${servingsFrom}-${servingsTo}`;
+  }
+  if (currentFilters.category) {
+    params.category = currentFilters.category;
+  }
+  if (currentFilters.recipeLanguage) {
+    params.language = currentFilters.recipeLanguage;
+  }
+  if (currentFilters.query) {
+    params.query = currentFilters.query;
+  }
+  if (currentFilters.ingredients && 
+      currentFilters.ingredients.length > 0) {
+    params.ingredients = currentFilters.ingredients;
+  }
+  return params;
+}
+\end{minted}
+
+\begin{sloppypar}
+Metody takie jak \texttt{loadCategories()}, \texttt{loadLanguages()} oraz \texttt{loadIngredients()} dynamicznie tworzą opcje dla kontrolek filtrujących w interfejsie użytkownika. Zamiast wysyłać zapytanie o listy wartości, sprawdzają pełną listę przepisów, z których wydobywają wymagane dane. Przy użyciu obiektu \texttt{Set} wyciągane są unikalne, posortowane wartości. Rozwiązanie to gwarantuje, że dostępne filtry zawsze odpowiadają tym dostępnym w systemie.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+loadCategories(): Observable<string[]> {
+  return new Observable((observer) => {
+    this.http.get<RecipesResponse>(this.url).subscribe({
+      next: (response) => {
+        if (response && Array.isArray(response.content)) {
+          const categories = Array.from(
+            new Set(response.content.map((recipe) => recipe.category))
+          ).sort();
+          observer.next(categories);
+        } else {
+          observer.next([]);
+        }
+        observer.complete();
+      },
+      error: (err) => observer.error(err),
+    });
+  });
+}
+\end{minted}
+
+\subsubsection{Profile.service.ts}
+
+ProfileService jest odpowiedzialny za logikę biznesową oraz stan interfejsu użytkownika związanego z profilem użytkownika. Jego głównymi zadaniami są zarządzanie trybem pracy widoku profili oraz realizacja zapytań do API serwera.
+
+Przy użyciu BehaviorSubject zdefiniowano trzy niezależne strumienie danych:
+
+\begin{enumerate}
+    \item \texttt{editMode\$} - zarządza stanem trybu edycji podstawowych danych profilu.
+    \item \texttt{settingsMode\$} - kontroluje widoczność sekcji zmiany hasła oraz emaila.
+    \item \texttt{deleteMode\$} i \texttt{showDeleteModal\$} - odpowiadają za procesie usuwania konta, w tym aktywacja trybu oraz wyświetlanie okna potwierdzającego.
+\end{enumerate}
+
+\begin{sloppypar}
+Wszystkie metody komunikujące się z autoryzowanymi endpointami wykorzystują znaną wcześniej metodę pomocniczą \texttt{getAuthHeaders()}. Logika serwisu obejmuje pobieranie danych o profilu, przepisach i ulubionych przepisach użytkownika przy użyciu metod \texttt{getUserProfile()}, \texttt{getUserRecipes()} oraz \texttt{getUserFavourites()}.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+getUserProfile(): Observable<any> {
+  const headers = this.getAuthHeaders();
+  return this.http.get<any>(`${environment.apiUrl}/users/aboutme`, {
+    headers,
+  });
+}
+\end{minted}
+
+\noindent Za aktualizację profilu użytkownika odpowiedzialne są metody:
+\begin{itemize}
+    \item \texttt{updateUserProfile()},
+    \item \texttt{updateUserEmail},
+    \item \texttt{updateUserPassword()}.
+\end{itemize}
+Proces usuwania konta obsługiwany jest przez metodę \texttt{deleteUser()}.
+
+\begin{sloppypar}
+  W serwisie zaimplementowano logikę odpowiedzialną za zmianę zdjęcia profilowego oraz zdjęcia tła profilu użytkownika. Metody \texttt{editProfilePicture()} oraz \texttt{editBackgroundPicture()} wchodzą w interakcję z modelem DOM. Tworzą one element \texttt{<input type="file">} i symulują jego kliknięcie, otwierając okno wyboru pliku. Po wybraniu pliku, metoda sprawdza rozmiar pliku, a następnie w żądaniu wysyła obiekt FormData do serwera. Po pomyślnym przesłaniu, serwer zwraca adres URL do nowego obrazu, który jest ustawiany jako nowy obraz w odpowiednim elemencie \texttt{<img>}.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+editProfilePicture(userId: number, event: Event): void {
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'image/*';
+  fileInput.onchange = (e: Event) => {
+    const input = e.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File size exceeds 5 MB limit.');
+        return;
+      }
+      this.uploadProfilePicture(userId, file).subscribe({
+        next: (imageUrl) => {
+          this.setImageSafely('.profile-picture', imageUrl);
+        },
+        error: (error) => {
+          alert('Failed to upload profile picture.');
+        },
+      });
+    }
+  };
+  fileInput.click();
+}
+
+private uploadProfilePicture(userId: number, file: File): 
+Observable<string> 
+{
+  const formData = new FormData();
+  formData.append('file', file);
+  const headers = this.getAuthHeaders();
+  return this.http.put(
+    `${environment.apiUrl}/users/${userId}/profile-picture`,
+    formData,
+    {
+      headers,
+      responseType: 'text',
+    }
+  );
+}
+\end{minted}
+
+\subsection{Kluczowe komponenty}
+
+\begin{sloppypar}
+Aplikacja opiera się na głównym komponencie \texttt{AppComponent}, który pełni rolę nadrzędnego komponentu definiującego układ strony. Jego szablon zawarty jest w \texttt{app.component.html}. Pierwszym komponentem jest nawigacja, której wyświetlanie jest warunkowe. Opiera się o flagę \texttt{isMobile}, która jest dynamicznie aktualizowana w zależności od rozdzielczości ekranu. Do wyświetlania nawigacji służą dwa komponenty: \texttt{app-navbar} oraz \texttt{app-mobile-nav} dla urządzeń mobilnych.
+\end{sloppypar}
+
+Drugim elementem jest dyrektywa \texttt{router-outlet}. Działa jako dynamiczny kontener, w którym Angular renderuje komponent odpowiadający ścieżce URL.
+
+Ostatnim elementem jest \texttt{app-footer-section}, czyli komponent stopki, zamyka on strukturę każdej strony.
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{html}
+@if (!isMobile) {
+  <app-navbar></app-navbar>
+} @else {
+  <app-mobile-nav></app-mobile-nav>
+}
+
+<router-outlet></router-outlet>
+<app-footer-section></app-footer-section>
+\end{minted}
+
+\subsubsection{Nawigacja i układ}
+
+Nawigacja składa się z dwóch komponentów. Pierwszym z nich jest \emph{navbar} dla widoków desktopowych, a drugim \emph{mobile-nav} dla urządzeń mobilnych. Struktura obu komponentów, to lista elementów zawierających linki do poszczególnych części aplikacji. Wyświetlanie elementów jest dynamiczne i bazuje na flagach \texttt{isLoggedIn} oraz \texttt{isAdmin}. Przykładowo, jeśli użytkownik nie jest zalogowany, opcja wylogowania oraz dodania przepisu nie będzie widoczna. Z kolei dostęp do panelu administratora jest ograniczony tylko dla zalogowanego użytkownika posiadającego rolę \texttt{ADMIN}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{praca_inzynierska/media/image7.png}
+    \caption{Responsywny komponent nawigacji: a) widok desktopowy, b) widok mobilny zwinięty, c) widok mobilny rozwinięty}
+\end{figure}
+
+\begin{sloppypar}
+Układ każdej strony zamykany jest poprzez komponent stopki (\texttt{app-footer-section}). Zawiera on podstawowe informacje, odnośniki do podstron, sekcję z przykładowymi linkami do mediów społecznościowych oraz odnośnik do dokumentów prawnych mających charakter demonstracyjny.
+\end{sloppypar}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{praca_inzynierska/media/image8.png}
+    \caption{Komponent stopki}
+\end{figure}
+
+\subsubsection{Autoryzacja}
+
+\begin{sloppypar}
+\texttt{LoginComponent} służy do rejestracji oraz logowania użytkowników. Wykorzystuje on w tym celu serwis autoryzacji (\texttt{auth.service.ts}) oraz strumienie typu \texttt{Subject<void>} sygnalizujące akcję użytkownika, takie jak próby logowania (\texttt{loginAttempts\$}) oraz rejestracja (\texttt{registerAttempts\$}). Metoda wywoływana przez interfejs użytkownika (\texttt{onLogin(), onRegister()}) nie uruchamia bezpośrednio logiki biznesowej, tylko emituje sygnał do strumienia \texttt{loginAttempts\$}. Następnie sygnał jest przetwarzany przez \emph{pipe} (potok operatorów), w którym kluczowy jest \texttt{debounceTime(500)}. Operator blokuje wielokrotne, szybkie wywołania przepuszczając sygnał dopiero po pięciuset milisekundach od przerwania akcji użytkownika. Po przejściu przez filtr, wykonywana jest metoda \texttt{executeLogin()}, odpowiedzialna za właściwy proces uwierzytelniania oraz przekierowania zalogowanego użytkownika na jego profil. Podejście to zmniejsza obciążenie serwera i poprawia responsywność interfejsu.
+\end{sloppypar}
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private loginAttempts$ = new Subject<void>();
+private registerAttempts$ = new Subject<void>();
+
+constructor(
+  private authService: AuthService,
+  // ...
+) {
+  this.loginAttempts$
+    .pipe(debounceTime(500), takeUntil(this.destroy$))
+    .subscribe(() => {
+      this.executeLogin();
+    });
+
+  this.registerAttempts$
+    .pipe(debounceTime(500), takeUntil(this.destroy$))
+    .subscribe(() => {
+      this.executeRegister();
+    });
+}
+
+private executeLogin(): void {
+  if (this.isLoginLoading) {
+    return;
+  }
+  this.isLoginLoading = true;
+  this.lastLoginAttempt = Date.now();
+
+  this.authService
+    .login(this.formEmail, this.formPassword, this.rememberMe)
+    .subscribe({
+      next: (response) => {
+        this.router.navigate(['/profile']);
+        this.isLoginLoading = false;
+      },
+      error: (err) => {
+        this.notificationService.error('Email or password is incorrect');
+        this.isLoginLoading = false;
+      },
+    });
+}
+\end{minted}
+
+\begin{sloppypar}
+Komponent zawiera także dodatkową warstwę ochrony poprzez ograniczenie czasowe \texttt{minTimeBetweenAttempts} (dwie sekundy). System sprawdza odstęp czasowy między próbami zalogowania lub rejestracji i blokuje zbyt częste żądania wyświetlając komunikat ostrzegawczy.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+const now = Date.now();
+if (now - this.lastRegisterAttempt < this.minTimeBetweenAttempts) {
+  this.notificationService.warning('Please wait before trying again');
+  return;
+}
+\end{minted}
+
+Dodatkowo dzięki flagom \texttt{isLoginLoading} oraz \texttt{isRegisterLoading}, komponent kontroluje stan interfejsu podczas akcji asynchronicznych, wprowadzając dodatkową warstwę ochronną przeciwko wielokrotnym wywołaniom tej samej akcji.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{praca_inzynierska/media/image9.png}
+    \caption{Komponent logowania a) ekran logowania b) ekran rejestracji}
+\end{figure}
+
+\subsubsection{Przepisy}
+
+\paragraph{RecipeComponent}
+
+\texttt{RecipesComponent} odpowiada za wyświetlanie, filtrowanie oraz paginację przepisów. Filtracja przepisów odbywa się poprzez subskrypcję do strumienia \texttt{filters\$} z \texttt{FilterService} przechowującego stan filtrów. Komponent nasłuchuje zmian w strumieniu i automatycznie synchronizuje interfejs użytkownika.
+
+Metoda \texttt{loadRecipes()} pobiera przepisy na podstawie aktualnie wybranych filtrów. Odpowiedź z serwera przechodzi dodatkową walidację i zostają wyświetlone wyłącznie przepisy oznaczone jako publiczne (\texttt{isPublic === true}).
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+loadRecipes(): void {
+  const currentFilters = this.filterService.currentFilters;
+  this.filterService
+    .loadRecipes(currentFilters)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe({
+      next: (response) => {
+        if (response && Array.isArray(response.content)) {
+          this.recipesArray = response.content.filter(
+            (recipe) => recipe.isPublic === true
+          );
+          this.totalPages = response.totalPages;
+        } else {
+          this.notificationService.error(
+            'Failed to load recipes. Please try again later.',
+            5000
+          );
+          this.recipesArray = [];
+        }
+      },
+      error: () => {
+        this.notificationService.error(
+          'Failed to load recipes. Please try again later.',
+          5000
+        );
+        this.recipesArray = [];
+      },
+    });
+}
+\end{minted}
+
+Paginacją zarządza metoda \texttt{onPageChange()}, która nie tylko zmienia stronę wyników, ale także automatycznie przewija widok do góry.
+
+Komponent dostosowuje interfejs użytkownika do rozmiaru ekranu. Odpowiada za to dekorator \texttt{@HostListener}, który monitoruje zmiany szerokości okna przeglądarki i przy przekroczeniu 1350 pikseli przełącza tryb wyświetlania filtrów.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{praca_inzynierska/media/image10.png}
+    \caption{Komponent wyświetlania wszystkich publicznych przepisów}
+\end{figure}
+
+\paragraph{RecipeDetailedComponent}
+
+\texttt{RecipeDetailedComponent} odpowiedzialny jest za wyświetlanie szczegółów pojedynczego przepisu wraz z interaktywnymi funkcjonalnościami. Dzieli się na cztery obszary: wyświetlanie danych, system oceniania, zarządzanie ulubionymi oraz kontrolę uprawnień właściciela.
+
+Ładowanie oraz weryfikacja danych rozpoczynają się podczas inicjalizacji komponentu, z którego wydobywane jest ID przepisu. Następnie metoda \texttt{loadRecipeDetails()} pobiera dane przepisu i przekształca składniki do odpowiedniego formatu. W przypadku braku przepisu (error 404 Not Found), użytkownik automatycznie zostanie przekierowany na stronę błędu. Równolegle sprawdzane są uprawnienia użytkownika oraz ocena przepisu, czy użytkownik ma przepis w ulubionych.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private loadRecipeDetails(): void {
+  this.recipeService.loadRecipeDetails(this.recipeId).subscribe({
+    next: (response) => {
+      this.recipeDetails = response;
+      this.ingredients = this.recipeDetails.ingredients
+        .map((ingredient) => ({
+        name: ingredient.ingredientName,
+        quantity: Number(ingredient.quantity),
+        unit: ingredient.unit,
+      }));
+      this.checkOwnership();
+    },
+    error: (err) => {
+      // Check if it's a 404 error (recipe not found)
+      if (err.status === 404) {
+        this.router.navigate(['/not-found']);
+      } else {
+        this.notificationService.error('Error loading recipe details');
+      }
+    },
+  });
+}
+\end{minted}
+
+System oceniania wykorzystuje pięciogwiazdkową skalę. Użytkownik może ocenić przepis zaznaczając ilość gwiazdek. Ocenianie zabezpieczone jest poprzez \texttt{debounceTime(500)}, które zapobiega przeciążeniom serwera.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{praca_inzynierska/media/image11.png}
+    \caption{Panel interakcji użytkownika}
+\end{figure}
+
+\begin{sloppypar}
+Dodawanie przepisu do ulubionych jest obsługiwane przy pomocy metody \texttt{toggleFavourite()}, która sprawdza stan autoryzacji i kontroluje częstotliwość żądań.
+\end{sloppypar}
+
+\begin{sloppypar}
+Opcja usunięcia oraz edycji przepisu jest dostępna tylko dla właściciela przepisu. Usuwanie przepisu posiada dwuetapową weryfikację. Po wywołaniu \texttt{delete()} wyświetlane jest okno potwierdzenia, które użytkownik może anulować \texttt{cancelDelete()} lub potwierdzić \texttt{confirmDelete()}. Po pomyślnym usunięciu, użytkownik zostaje poinformowany o konieczności odświeżenia strony w celu zauważenia zmian. Jeśli użytkownik chce edytować przepis, zostanie przekierowany do podstrony \texttt{update-recipe}, gdzie ma możliwość aktualizacji przepisu.
+\end{sloppypar}
+
+\paragraph{AddRecipePanelComponent}
+
+Komponent jest odpowiedzialny za dodawanie przepisów przy pomocy formularza. Wstawiać nowy przepis mogą wyłącznie zalogowani użytkownicy. Formularz \texttt{FormGroup}, posiada kontrolki odnośnie do struktury przepisu oraz walidatory.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+recipeForm = new FormGroup({
+  title: new FormControl('', [Validators.required]),
+  description: new FormControl('', [Validators.required]),
+  category: new FormControl('', [Validators.required]),
+  servings: new FormControl(null, [Validators.required, 
+                                    Validators.min(1)]),
+  prepareTime: new FormControl(null, [
+    Validators.required,
+    Validators.min(1),
+  ]),
+  quantity: new FormControl(this.ingredients, [Validators.required]),
+  unit: new FormControl(this.ingredients, [Validators.required]),
+  difficulty: new FormControl(null, [Validators.required]),
+  images: new FormControl<File | null>(null, [Validators.required]),
+  steps: new FormControl(this.steps, [Validators.required]),
+  ingredients: new FormControl(this.ingredients, [Validators.required]),
+  isPublic: new FormControl(this.isPublic, [Validators.required]),
+  language: new FormControl(this.recipeLanguage, [Validators.required]),
+});
+\end{minted}
+
+\begin{sloppypar}
+Dodawanie oraz usuwanie elementów zostało zaimplementowane metodami \texttt{addIngredient()}, \texttt{addStep()}, \texttt{removeIngredient()}, \texttt{removeStep()}, reszta kontrolek zarządzana jest poprzez \texttt{<select>} w szkielecie komponentu. System weryfikuje czy dany składnik już istnieje i powiadamia o tym użytkownika. Dodatkowo jeśli użytkownik chce, aby składnik był opcjonalny, może to wykonać metodą \texttt{toggleOptional()}.
+\end{sloppypar}
+
+System wysyłania obrazów został zaimplementowany na dwa sposoby: użytkownik może wybrać plik poprzez okno dialogowe lub przeciągnąć je z pulpitu. Następnie sprawdzany jest rozmiar pliku, jeśli przekroczy pięć megabajtów, użytkownik zostanie o tym poinformowany. W momencie wprowadzenia pliku, wyświetlany jest podgląd zdjęcia przy użyciu FileReader API.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+const reader = new FileReader();
+reader.onload = (e) => {
+  const result = e.target?.result as string;
+  this.imagePreview = result;
+  this.recipeForm.patchValue({
+    // update the form with the selected file
+    images: file,
+  });
+};
+\end{minted}
+
+Ostatecznie, jak użytkownik wprowadzi wszystkie wymagane dane, może wykonać wysłanie przepisu. W tym celu ponownie wykorzystano bibliotekę RxJS oraz strumień typu Subject \texttt{submitAttempts\$} z operatorem \texttt{debounceTime(1000)}, który opóźnia wykonanie o sekundę. Metoda \texttt{executeSubmit()} wprowadza dodatkową weryfikacje przed wysłaniem danych:
+
+\begin{itemize}
+    \item Sprawdza flagę \texttt{isSubmitting}, blokując równoległe wysłanie kilku żądań.
+    \item Weryfikuje autoryzacje użytkownika.
+    \item Kontroluje, czy formularz został wypełniony (\emph{pristine} lub \emph{untouched}).
+    \item Wymaga minimalnie jednego składnika i kroku przygotowania.
+\end{itemize}
+
+Po pomyślnej weryfikacji, metoda tworzy obiekt \texttt{FormData}, umożliwiający przesłanie danych JSON oraz obrazu w jednym żądaniu. Dane przepisu są serializowane do formatu JSON i dołączane jako pole \texttt{recipe}. Obraz dodawany jest osobno jako pole \texttt{images}. Flaga \texttt{isSubmitting} pozostaje aktywna przez cały czas trwania żądania.
+
+
+\begin{sloppypar}
+W przypadku pomyślnego wysłania, formularz jest resetowany metodą \texttt{resetForm()}, która czyści wszystkie pola oraz usuwa podgląd obrazu. Użytkownik dostaje powiadomienie o pomyślnym utworzeniu przepisu. Jeśli wystąpi błąd, zostaje wyświetlony komunikat o niepowodzeniu, a flaga \texttt{isSubmitting} jest resetowana, umożliwiając ponowną próbę.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+this.submitAttempts$
+  .pipe(debounceTime(1000), takeUntil(this.destroy$))
+  .subscribe(() => {
+    this.executeSubmit();
+  });
+
+private executeSubmit() {
+  if (this.isSubmitting) {
+    return;
+  }
+  if (!this.authService.isAuthenticated()) {
+    this.notificationService.error('User is not logged in!', 5000);
+    return;
+  }
+  if (this.recipeForm.pristine || this.recipeForm.untouched) {
+    this.notificationService.error('Please fill in the form!', 5000);
+    return;
+  }
+  if (this.ingredients.length === 0) {
+    this.notificationService.error(
+      'Please add at least one ingredient!',
+      5000
+    );
+    return;
+  }
+  if (this.steps.length === 0) {
+    this.notificationService.error('Please add at least one step!', 5000);
+    return;
+  }
+
+  this.isSubmitting = true;
+  this.lastSubmitAttempt = Date.now();
+  const formData = new FormData();
+
+  formData.append(
+    'recipe',
+    JSON.stringify({
+      recipeName: this.recipeForm.value.title!,
+      category: this.recipeForm.value.category!,
+      difficulty: this.recipeForm.value.difficulty,
+      servings: this.recipeForm.value.servings,
+      prepareTime: this.recipeForm.value.prepareTime,
+      ingredients: this.ingredients,
+      steps: this.steps,
+      isPublic: this.recipeForm.value.isPublic,
+      language: this.recipeForm.value.language,
+    })
+  );
+
+  if (
+    this.fileInput.nativeElement.files &&
+    this.fileInput.nativeElement.files.length > 0
+  ) {
+    const file = this.fileInput.nativeElement.files[0];
+    formData.append('images', file);
+  }
+
+  this.recipeService.postRecipe(formData).subscribe({
+    next: () => {
+      this.notificationService.success('Recipe has been created', 5000);
+      this.resetForm();
+      this.isSubmitting = false;
+    },
+    error: () => {
+      this.notificationService.error('Failed to add the recipe!', 5000);
+      this.isSubmitting = false;
+    },
+  });
+}
+\end{minted}
+
+\hypertarget{editrecipecomponent}{%
+\paragraph{EditRecipeComponent}\label{editrecipecomponent}}
+
+EditRecipeComponent dzieli większość funkcjonalności z wcześniej
+opisanym komponentem dodawania przepisów. Wykorzystuje identyczny system
+dodawania obrazów, sposoby walidacji danych oraz zabezpieczenia przed
+wielokrotnym wysłaniem formularza poprzez strumień
+\emph{updateAttempts\$.} Główną różnicą jest wykorzystanie metody
+\emph{loadRecipeDetails()} podczas wstępnego ładowania komponentu.
+Pobiera ona dane na podstawie ID z parametrów routingu i mapuje je do
+formularza. Obsługa obrazów również różni się od poprzedniego
+komponentu. Komponent przechowuje URL obecnego obrazu w
+\emph{currentImageUrl} oraz flagę \emph{hasExistingImage}. Użytkownik
+może zachować istniejący obraz lub usunąć go i zastąpić nowym. W
+metodzie \emph{executeUpdate()}, jeśli nie wybrano nowego obrazu, system
+wysyła informację o zachowaniu obecnego obrazu poprzez
+\emph{keepExistingImage: „true''}. Po pomyślnej aktualizacji przepisu,
+użytkownik powiadamiany jest o sukcesie oraz odświeżany jest widok z
+nowymi danymi, jest to istotne zwłaszcza dla obrazu.
+
+\subsubsection{System filtrowania}
+
+\begin{sloppypar}
+\texttt{RecipeFiltersComponent} to uniwersalny komponent służący do filtrowania przepisów z dwoma trybami pracy. Przy użyciu flagi \texttt{useCustomData} określa czy korzysta z serwisu filtrów (\texttt{FilterService}), czy przyjmuje dane poprzez \texttt{@Input}. Komponent używa system właściwości \texttt{@Input} (\texttt{customCategories}, \texttt{customLanguages}, \texttt{customIngredients}, \texttt{showTabs}, \texttt{showIngredients}) oraz emituje zdarzenia poprzez \texttt{@Output} (\texttt{filtersChanged}, \texttt{tabChanged}). Pozwala to na wykorzystanie go na stronie głównej oraz w profilach użytkowników.
+\end{sloppypar}
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+if (this.useCustomData) {
+  // For custom usage, load custom categories and languages
+  this.categoriesArray = this.customCategories.map((cat) => ({
+    key: cat.toUpperCase(),
+    value: cat,
+  }));
+  this.languagesArray = this.customLanguages;
+  this.ingredientsArray = this.customIngredients;
+  this.loadCurrentFiltersFromCustom();
+} else {
+  this.loadLanguages();
+  this.loadIngredients();
+  this.loadCurrentFilters();
+}
+\end{minted}
+
+\begin{sloppypar}
+Wszystkie zmiany filtrów przechodzą przez strumień \texttt{filterChange\$} z operatorem \texttt{debounceTime(300)}. Metoda \texttt{executeFilterUpdate()} tworzy obiekt \texttt{FilterState} z wszystkimi aktywnymi filtrami i przekazuje go do serwisu lub emituje zdarzenie.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private executeFilterUpdate(): void {
+  if (this.useCustomData) {
+    // For custom usage, just emit the change
+    this.filtersChanged.emit();
+  } else {
+    // For FilterService usage
+    const filters: Partial<FilterState> = {
+      query: this.searchQuery,
+      prepTimeFrom: this.prepTimeFrom,
+      prepTimeTo: this.prepTimeTo,
+      servingsFrom: this.servingsFrom,
+      servingsTo: this.servingsTo,
+      category: this.selectedCategory || undefined,
+      difficulty:
+        this.selectedDifficulty === '' ? 
+        undefined : +this.selectedDifficulty,
+      recipeLanguage: this.selectedLanguage || undefined,
+      ingredients:
+        this.selectedIngredients.length > 0
+          ? this.selectedIngredients
+          : undefined,
+      currentPage: 1,
+    };
+    this.filterService.updateFilters(filters);
+    this.filtersChanged.emit();
+  }
+}
+\end{minted}
+
+Komponent obsługuje osiem typów filtrów: wyszukiwanie tekstowe, czas przygotowania, liczba porcji, kategoria, trudność, język oraz składniki. Lista składników jest automatycznie aktualizowana po zmianie języka przy użyciu metody \texttt{onLanguageChange()}. Wejściowo wyświetlane są wszystkie dostępne składniki.
+
+\subsubsection{Profil użytkownika}
+
+\begin{sloppypar}
+System zarządzania profilem użytkownika składa się z czterech komponentów: \texttt{ProfileComponent} (główny komponent), \texttt{EditProfileComponent} (edycja profilu), \texttt{SettingsProfileComponent} (ustawienia konta) oraz \texttt{DeleteProfileComponent} (usuwanie konta). Ich komunikacja odbywa się poprzez \texttt{ProfileService}, który zarządza ich stanem i synchronizuje dane między nimi.
+\end{sloppypar}
+
+
+\paragraph{ProfileComponent}
+
+Jest to obszerny komponent obsługujący profil użytkownika, jego przepisy oraz ulubione. Implementuje lokalne filtrowanie danych bez wysyłania zapytań do serwera. Komponent zarządza trzema głównymi obszarami danych: informacjami o użytkowniku (\texttt{username}, \texttt{userPhotoUrl}, \texttt{backgroundImageUrl}), przepisami użytkownika (\texttt{userRecipes}) oraz ulubionymi (\texttt{favouriteRecipes}). Podczas inicjalizacji profilu, wszystkie obszary są ładowane jednocześnie.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private initializeData(): void {
+  this.loadUserData();
+  this.loadUserRecipes();
+  this.loadUserFavourites();
+}
+\end{minted}
+
+Interfejs podzielony jest na dwie zakładki: własne przepisy oraz ulubione. Przełączanie między nimi odbywa się przy użyciu metody \texttt{setActiveTab()}, która automatycznie przeładowuje opcje filtrowania i resetuje paginację. Dodatkowo metoda dynamicznie generuje filtry na podstawie aktualnie wyświetlanych danych.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private loadCategories(): void {
+  const source = this.getActiveRecipeSource();
+  if (source.length > 0) {
+    const uniqueCategories = Array.from(
+      new Set(source.map((recipe) => recipe.category))
+    ).sort();
+    this.categoriesArray = uniqueCategories;
+  } else {
+    this.categoriesArray = [];
+  }
+}
+\end{minted}
+
+\begin{sloppypar}
+Komponent wykonuje filtrowanie w pamięci przeglądarki. Metoda \texttt{applyAllFilters()} sekwencyjnie aplikuje wszystkie aktywne filtry. Filtrowanie po składnikach wykorzystuje logikę „wszystkie z wybranych''.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+if (this.filters.ingredients && this.filters.ingredients.length > 0) {
+  filtered = filtered.filter((recipe) =>
+    this.filters.ingredients!.every((filterIngredient) =>
+      recipe.ingredients?.some((recipeIngredient) =>
+        recipeIngredient.ingredientName
+          .toLowerCase()
+          .includes(filterIngredient.toLowerCase())
+      )
+    )
+  );
+}
+\end{minted}
+
+\begin{sloppypar}
+Do komunikacji z \texttt{RecipeFiltersComponent} wykorzystany został \texttt{@ViewChild}. Komponent filtrów działa wtedy w trybie niestandardowym (\texttt{useCustomData = true}) i przyjmuje dynamicznie generowane listy kategorii, języków i składników. Zmieniając język, lista składników jest automatycznie przeładowywana.
+\end{sloppypar}
+
+\begin{sloppypar}
+Implementacja paginacji opiera się na metodzie \texttt{getPaginatedItems()}, która wyświetla odpowiednią ilość elementów tablicy na podstawie \texttt{currentPage} i \texttt{pageSize}. Całkowita liczba stron jest obliczana przy każdej zmianie filtrów.
+\end{sloppypar}
+
+\paragraph{EditProfileComponent}
+
+Komponent umożliwia zmianę nazwy użytkownika oraz opisu profilu.
+
+Implementuje niezależne strumienie aktualizacji dla wymienionych pól. Pozwala to na zapisywanie zmian bez konieczności edycji wszystkich danych jednocześnie. Każde pole posiada strumień \texttt{Subject} z operatorem \texttt{debounceTime(800)}. Dodatkowo zastosowano zabezpieczenie zapobiegające zbyt częstym żądaniom poprzez \texttt{minTimeBetweenUpdates}.
+
+\begin{sloppypar}
+Komponent przechowuje oryginalne wartości (\texttt{originalUsername}, \texttt{originalDescription}) i przed wysłaniem porównuje je z nowo wprowadzonymi danymi. Jeśli wartości są identyczne, użytkownikowi wyświetli się komunikat bez wykonania zbędnego zapytania do serwera.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+if (newUsername === this.originalUsername) {
+  this.notificationService.info('Username is already up to date', 5000);
+  return;
+}
+\end{minted}
+
+Flagi \texttt{isUpdatingUsername} i \texttt{isUpdatingDescription} blokują możliwość ponownego wysłania podczas trwającej operacji.
+
+Metoda \texttt{loadUserData()} jest wywoływana przy inicjalizacji oraz po każdej udanej aktualizacji. Zapewnia to synchronizację danych z \texttt{ProfileService}. Przycisk „Cancel'' przywraca oryginalne wartości i zamyka tryb edycji. Metoda \texttt{save()} aktualizuje jednocześnie oba pola, delegując walidacje do odpowiednich metod.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{praca_inzynierska/media/image12.png}
+    \caption{EditProfileComponent}
+\end{figure}
+
+\paragraph{SettingsProfileComponent}
+
+Komponent odpowiada za zmianę danych uwierzytelniających użytkownika, konkretnie adresu email oraz hasła. Wymaga potwierdzenia tożsamości poprzez podanie aktualnego hasła przy każdej operacji, stanowi to dodatkową warstwę bezpieczeństwa.
+
+Zmiana hasła wymaga spełnienia kryteriów: długość od ośmiu do sześćdziesięciu czterech znaków, minimum jedna cyfra i wielka litera. System dodatkowo sprawdza, czy hasło różni się od obecnego. Obie funkcje walidują format wprowadzonych danych przy użyciu wyrażeń regularnych. Dodatkowo zmiana adresu email wymaga podania hasła jako potwierdzenia tożsamości.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+if (!/.*\d.*/.test(newPassword)) {
+  this.notificationService.error(
+    'Password must contain at least one digit'
+  );
+  return;
+}
+
+if (!/.*[A-Z].*/.test(newPassword)) {
+  this.notificationService.error(
+    'Password must contain at least one uppercase letter'
+  );
+  return;
+}
+\end{minted}
+
+\begin{sloppypar}
+Podobnie jak \texttt{EditProfileComponent}, wykorzystuje strumienie z \texttt{debounceTime(1000)} oraz zabezpieczenia przed zbyt częstym wysyłaniom zapytań \texttt{minTimeBetweenUpdates}. Po udanej zmianie danych, użytkownik otrzymuje informacje o konieczności ponownego zalogowania. Metoda \texttt{handleApiErrors()} sprawdza kody odpowiedzi HTTP i wyświetla zrozumiałe komunikaty.
+\end{sloppypar}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{praca_inzynierska/media/image13.png}
+    \caption{SettingsProfileComponent}
+\end{figure}
+
+\paragraph{DeleteProfileComponent}
+
+Komponent implementuje mechanizm bezpiecznego usunięcia konta z dwustopniową weryfikacją. Nasłuchując zmian \texttt{showDeleteModal\$} z \texttt{ProfileService}, komponent kontroluje wyświetlanie okna potwierdzenia.
+
+\begin{sloppypar}
+Po wywołaniu \texttt{confirmDeleteUser()}, wykonywane jest żądanie do \texttt{ProfileService}. Jeśli żądanie zakończy się sukcesem, użytkownik zostanie automatycznie wylogowany przy użyciu \texttt{authService.logout()}, a okno zostaje zamknięte.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+confirmDeleteUser(): void {
+  if (!this.userId) return;
+
+  this.profileService
+    .deleteUser(this.userId)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe({
+      next: () => {
+        this.notificationService.success(
+          'Profile deleted successfully',
+          3000
+        );
+        this.notificationService.info('Refresh to update changes', 3000);
+        this.authService.logout();
+        this.cancelDeleteUser();
+      },
+      error: () => {
+        this.notificationService.error('Failed to delete user', 3000);
+        this.cancelDeleteUser();
+      },
+    });
+}
+\end{minted}
+
+System zabezpiecza przed przypadkowym usunięciem. Użytkownik może anulować operacje dzięki metodzie \texttt{cancelDeleteUser()}, która resetuje stan modalnego okna oraz flagę trybu usuwania w \texttt{ProfileService}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{praca_inzynierska/media/image14.png}
+    \caption{DeleteProfileComponent}
+\end{figure}
+
+\subsubsection{Panel administratora}
+
+\texttt{AdminPanelComponent} to centrum zarządzania systemem dostępne wyłącznie dla użytkowników posiadających rolę administratora. Komponent składa się z trzech głównych obszarów: panelu ze statystykami, zarządzania użytkownikami oraz zarządzania przepisami.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{praca_inzynierska/media/image15.png}
+    \caption{AdminPanelComponent}
+\end{figure}
+
+\begin{sloppypar}
+Zaimplementowano weryfikację uprawnień administratora podczas inicjalizacji poprzez \texttt{authService.isAdmin()}. W przypadku braku autoryzacji, użytkownik otrzymuje informację o odmowie dostępu. Interfejs podzielony jest na trzy zakładki kontrolowane przez metodę \texttt{setActiveTab()}, która dynamicznie ładuje odpowiednie dane.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+setActiveTab(tab: 'dashboard' | 'users' | 'recipes'): void {
+  this.activeTab = tab;
+  switch (tab) {
+    case 'dashboard':
+      this.loadDashboardData();
+      break;
+    case 'users':
+      this.loadUsers();
+      break;
+    case 'recipes':
+      this.loadRecipes();
+      break;
+  }
+}
+\end{minted}
+
+Sekcja użytkowników umożliwia modyfikację ról, adresów email i nazw użytkowników poprzez formularz edycji. Metoda \texttt{saveUser()} wysyła zaktualizowane dane do \texttt{AdminService} i odświeża listę lokalnie bez przeładowywania. Usuwanie użytkowników wymaga dwustopniowej weryfikacji. Metoda \texttt{deleteUser()} otwiera okno potwierdzenia, a \texttt{confirmDeleteUser()} wykonuje operację.
+
+\begin{sloppypar}
+Administrator ma możliwość usuwać i edytować wszystkie przepisy w systemie. Edycja przekierowuje do komponentu \texttt{EditRecipeComponent} przy użyciu \texttt{this.router.navigate(['/update-recipe', recipeId])}. Edycja przepisu także wymaga potwierdzenia i aktualizuje listę lokalnie po pomyślnej operacji.
+\end{sloppypar}
+
+\begin{sloppypar}
+Zakładka \texttt{dashboard} wyświetla aktualne statystyki systemu poprzez \texttt{getStatus()}. Metoda wyświetla liczbę użytkowników, przepisów oraz inne metryki. Wszystkie operacje asynchroniczne wykorzystują flagę \texttt{loading}, aby zasygnalizować stan ładowania.
+\end{sloppypar}
+
+\subsection{Systemy wsparcia}
+
+\begin{sloppypar}
+Systemy wsparcia stanowią nierozłączną część infrastruktury aplikacji. W skład tej warstwy wchodzą serwisy odpowiedzialne za powiadamianie użytkownika (\texttt{NotificationService}), zarządzanie stanem interfejsu (\texttt{ScrollLockService}) oraz synchronizację języka (\texttt{LanguageService}). Serwisy te zostały zaprojektowane z zasadą pojedynczej odpowiedzialności.
+\end{sloppypar}
+
+\subsubsection{System powiadomień}
+
+\texttt{NotificationService} implementuje system powiadomień typu toast, umożliwiający komunikację z użytkownikiem z dowolnego miejsca aplikacji. System wykorzystuje wzorzec \texttt{Observable} z \texttt{BehaviorSubject} do przechowywania i wysyłania aktywnych powiadomień.
+
+System obsługuje cztery typy komunikatów: \emph{error}, \emph{success}, \emph{warning} oraz \emph{info}, każdy z nich jest konfigurowalny. Struktura komunikatu zawiera unikalny identyfikator generowany metodą \texttt{generateId()}, typ, wiadomość oraz opcjonalny czas trwania (domyślnie pięć sekund).
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+export interface Notification {
+  id: string;
+  type: 'success' | 'error' | 'warning' | 'info';
+  message: string;
+  duration?: number; // Duration in milliseconds, optional
+}
+\end{minted}
+
+Kluczową funkcjonalnością jest automatyczne usuwanie powiadomienia po określonym czasie. Metoda \texttt{AddNotification()} dodaje powiadomienie do strumienia i jednocześnie planuje jego usunięcia przy użyciu \texttt{setTimeout()}.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private AddNotification(notification: Notification) {
+  const currentNotifitcations = this.notificationSubject.value;
+  this.notificationSubject.next([...currentNotifitcations, notification]);
+
+  // Automatically remove the notification after its duration
+  setTimeout(() => {
+    this.removeNotification(notification.id);
+  }, notification.duration || 3000);
+}
+\end{minted}
+
+\texttt{BehaviorSubject} przechowuje aktywne komunikaty w tablicy, umożliwiając komponentom subskrypcję zmian poprzez \texttt{notifications\$}. Metoda \texttt{remove()} i \texttt{clear()} pozwalają na ręczne usunięcie pojedynczych powiadomień lub wyczyszczenie całej listy.
+
+\begin{sloppypar}
+\texttt{ToastNotificationComponent} wyświetla powiadomienia otrzymane z \texttt{NotificationService}.
+\end{sloppypar}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{praca_inzynierska/media/image16.png}
+    \caption{Dwa typy powiadomień: \texttt{success} oraz \texttt{info}}
+\end{figure}
+
+Podczas inicjalizacji komponentu, subskrybowany jest strumień \texttt{notifications\$} i przechowywana jest referencja do subskrypcji.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+ngOnInit() {
+  this.subscription = this.notificationService.notifications$.subscribe(
+    (notification) => (this.notifications = notification)
+  );
+}
+\end{minted}
+
+Umożliwia to ręczne usunięcie powiadomienia metodą \texttt{removeNotification()}, która deleguje operacje do serwisu.
+
+Wewnątrz szablonu wykorzystano dyrektywę \texttt{@switch} do dynamicznego wyboru ikony w zależności od typu powiadomienia.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{html}
+@switch (notification.type) {
+  @case ('success') {
+    <img src="images/icons/tick-icon.svg" alt="Success"
+         class="toast-icon-img"/>
+  }
+  @case ('error') {
+    <img src="images/icons/error-icon.svg" alt="Error" 
+         class="toast-icon-img"/>
+  }
+  @case ('warning') {
+    <img src="images/icons/warning-icon.svg" alt="Warning" 
+         class="toast-icon-img"/>
+  }
+  @case ('info') {
+    <img src="images/icons/info-icon.svg" alt="Info" 
+         class="toast-icon-img"/>
+  }
+}
+\end{minted}
+
+Każdy typ komunikatu ma dedykowaną ikonę SVG, co zapewnia prostą identyfikację powiadomienia.
+
+\subsubsection{System zarządzania stanem interfejsu}
+
+\texttt{ScrollLockService} zarządza blokowaniem przewijania strony podczas wyświetlania okien modalnych lub mobilnych widoków menu. Serwis wykorzystuje \texttt{Renderer2} jako zalecany przez Angular sposób manipulacji DOM.
+
+Serwis operuje poprzez dodawanie i usuwanie klasy CSS \texttt{overflow-h} do elementu \texttt{<body>}.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+lockScroll() {
+  this.renderer.addClass(this.document.body, 'overflow-h');
+}
+
+unlockScroll() {
+  this.renderer.removeClass(this.document.body, 'overflow-h');
+}
+\end{minted}
+
+Klasa \texttt{overflow-h} zdefiniowana jest w globalnym CSS. Takie ustawienie powoduje zablokowanie możliwości przewijania.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{css}
+.overflow-h {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+\end{minted}
+
+Serwis jest wstrzykiwany do komponentów wykorzystujących modalne interfejsy (menu filtrów, okna usuwania profilu, panele potwierdzenia), zapobiegając niepożądanemu przewijaniu podczas interakcji z nakładkami.
+
+\subsubsection{Zarządzanie językiem aplikacji}
+
+\texttt{LanguageService} odpowiada za globalną synchronizację języka interfejsu w całym systemie. Wykorzystuje \texttt{BehaviorSubject} do przechowywania aktualnego języka oraz \texttt{localStorage} do zachowania preferencji między sesjami.
+
+Podczas inicjalizacji, serwis odczytuje zapisany język z \texttt{localStorage}, lub domyślnie ustawia język angielski (`en').
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+private getSavedLanguage(): string {
+  return localStorage.getItem('language') || 'en';
+}
+\end{minted}
+
+\begin{sloppypar}
+Metoda \texttt{setLanguage()} aktualizuje język w dwóch miejscach. Emituje nową wartość przez \texttt{BehaviorSubject} (powiadamiając wszystkich subskrybentów) oraz zapisuje wybór w \texttt{localStorage}. Komponenty mogą subskrybować zmiany poprzez strumień \texttt{language\$} lub pobrać wartość przy użyciu metody \texttt{getLanguage()}, która zwraca wybrany język.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+setLanguage(language: string): void {
+  this.languageSubject.next(language);
+  localStorage.setItem('language', language);
+}
+
+getLanguage(): string {
+  return this.languageSubject.value;
+}
+\end{minted}
+
+\paragraph{Internacjonalizacja (i18n)}
+
+Aplikacja wykorzystuje bibliotekę \texttt{@ngx-translate} do obsługi zmiany języka interfejsu. System opiera się na plikach JSON zawierających klucze translacji dla każdego języka. Struktura tych plików jest hierarchiczna i zawiera strukturę kluczy.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{json}
+"REGISTER": {
+  "CATCH_PHRASE": "Zarejestruj się i rozpocznij swoją podróż z Cibarią!",
+  "USERNAME_PLACEHOLDER": "Nazwa użytkownika",
+  "PASSWORD_PLACEHOLDER": "Hasło",
+  "CONFIRM_PASSWORD_PLACEHOLDER": "Potwierdź hasło",
+  "SUBMIT_BUTTON": "Zarejestruj się"
+},
+\end{minted}
+
+W szablonach komponentów wykorzystywany jest \emph{pipe} translate.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{html}
+<label for="name">{{ "CTA.NAME" | translate }}</label>
+\end{minted}
+
+Klucz \texttt{CTA.NAME} jest mapowany na odpowiednią wartość z aktywnego pliku (na przykład \texttt{en.json}, \texttt{pl.json}).
+
+Komponenty importują \texttt{TranslateModule} i ustawiają domyślny język w konstruktorze.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+constructor(private translate: TranslateService) {
+  this.translate.setDefaultLang('en');
+}
+\end{minted}
+
+Zmiana języka odbywa się przy użyciu metody \texttt{changeLanguage()}, wywoływanej w odpowiedzi na akcję użytkownika.
+
+\subsection{Podsumowanie}
+
+W niniejszym rozdziale przedstawiono implementację aplikacji frontendowej wykorzystującą Angular 18.2.13 z architekturą opartą na elementach \textit{standalone}. Uprościło to strukturę projektu poprzez wyeliminowanie tradycyjnych modułów \texttt{NgModule}.
+
+Kluczowym aspektem implementacji było reaktywne programowanie z biblioteką RxJS. Wzorce \texttt{Observable}, \texttt{BehaviorSubject} oraz operatory \texttt{debounceTime} czy \texttt{takeUntil} zapewniły efektywne zarządzanie strumieniami informacji. Optymalizowały komunikację z serwerem oraz zapobiegały wyciekom pamięci.
+
+Warstwa komunikacji z serwerem została zrealizowana przy użyciu dedykowanych serwisów zawierających logikę biznesową. System autoryzacji JWT implementuje automatyczne dołączanie tokenów oraz zarządzanie stanem uwierzytelnienia.
+
+Zaimplementowano pełen zestaw komponentów interfejsu, gdzie każdy posiada walidację danych, obsługę błędów oraz mechanizmy powiadomień.
+
+Systemy wsparcia działają w tle wspierając główną funkcjonalność aplikacji. System filtrowania został zrealizowany dwutorowo, przez \texttt{FilterService} dla strony głównej oraz lokalne filtrowanie dla profilu użytkownika. Zapewnia to responsywność przy dużych zbiorach danych.
+
+Została zastosowana architektura oparta na separacji odpowiedzialności i wzorcach. Zapewnia modularność oraz łatwość przyszłej rozbudowy. Potencjalne kierunki rozwoju obejmują implementację \textit{route guards}, \textit{lazy loading}, rozszerzenie internacjonalizacji oraz dalszą optymalizację dla urządzeń mobilnych.
+
+\section{Weryfikacja, testowanie i konteneryzacja systemu}
+
+Celem procesu testowania było zapewnienie wytrzymałości systemu oraz potwierdzenie zgodności z założonymi wymaganiami. W aplikacji przyjęto strategię testowania obejmującą różne poziomy abstrakcji. Zaczynając od testów jednostkowych sprawdzających pojedyncze metody, przez testy integracyjne upewniające się, że komponenty ze sobą współgrają, aż po testy warstwy prezentacji oraz testy wydajnościowe. Niniejszy rozdział opisuje środowisko testowe, użyte narzędzia oraz przedstawia wyniki a także sposób konteneryzacji i orkiestracji środowiska wielokontenerowego.
+
+\subsection{Środowisko testowe i wykorzystane narzędzia}
+
+Proces testowania oparto na zewnętrznym środowisku testowym wykorzystującym konteneryzację oraz biblioteki dla każdej warstwy systemu. Strategia ta pozwoliła na przeprowadzenie testów jednostkowych, integracyjnych oraz wydajnościowych bez naruszania danych produkcyjnych.
+
+W warstwie serwerowej fundamentem testów jest framework JUnit 5, współpracujący z biblioteką Mockito, umożliwiającą odizolowanie testowanej logiki poprzez symulacje zależności. W celu przyspieszenia wykonywania testów integracyjnych, zastąpiono bazę danych PostgreSQL na lekką bazę danych in-memory H2 Database. Cały proces budowy i testowania aplikacji backendowej został zautomatyzowany przy użyciu skryptu oraz platformy Docker, gwarantując powtarzalność wyników niezależnie od systemu operacyjnego hosta.
+
+Weryfikacja warstwy prezentacji bazuje na frameworku Jasmine, służącym do definiowania specyficznych zachowań aplikacji. Jako środowisko rozruchowe (test runner) wykorzystano narzędzie Karma. Narzędzie to skonfigurowane jest do pracy z przeglądarką Chrome w trybie headless (bez interfejsu graficznego), dodatkowo testy zostały wykonane także w przeglądarce Firefox. Uzupełnieniem są testy wydajnościowe wykonane przy użyciu narzędzia k6, symulującego ruch użytkowników w celu weryfikacji czasu odpowiedzi API pod obciążeniem.
+
+\subsection{Konteneryzacja środowiska}
+
+W celu zapewnienia przenośności aplikacji oraz spójności środowiska rozruchowego (eliminacja problemu różnic konfiguracyjnych między systemami), proces wdrażania systemu oparto na platformie Docker. Konfigurację zdefiniowano osobno dla każdej warstwy aplikacji.
+
+\subsubsection{Budowa obrazów kontenerów}
+
+W celu optymalizacji rozmiaru obrazów oraz zwiększenia bezpieczeństwa, dla obu warstw (backend i frontend) zastosowano technikę wieloetapowego budowania (multi-stage build). Pozwala na oddzielenie środowiska kompilacji, zawierającego narzędzia deweloperskie od lekkiego środowiska produkcyjnego.
+
+
+
+W przypadku backendu proces zdefiniowany w pliku Dockerfile przebiega w dwóch etapach:
+
+\begin{enumerate}
+  \begin{sloppypar}
+    \item \textbf{Etap budowania:} Wykorzystuje obraz\\ 
+    \texttt{maven:3.9-eclipse-temurin-21-alpine}\\
+    do skompilowania kodu źródłowego i zbudowania pliku .jar.
+  \end{sloppypar}
+  \begin{sloppypar}
+    \item \textbf{Etap uruchomienia:} Gotowa aplikacja jest kopiowana do lekkiego obrazu \texttt{eclipse-temurin:21-jre-alpine}, zawierającego jedynie środowisko uruchomieniowe Java (JRE) co minimalizuje rozmiar kontenera.
+  \end{sloppypar}
+
+\end{enumerate}
+
+Analogiczne podejście zastosowano dla aplikacji frontendowej:
+
+\begin{enumerate}
+    \item \textbf{Etap budowania:} Obraz \texttt{Node:18-alpine} służy do instalacji zależności i przepisania kodu Angulara do statycznych plików HTML/JS/CSS.
+    \item \textbf{Etap serwowania:} Wynikowe pliki są przenoszone do wydajnego serwera \texttt{nginx:alpine}, który został skonfigurowany do obsługi aplikacji typu SPA (Single Page Application).
+\end{enumerate}
+
+\subsubsection{Orkiestracja usług}
+
+\begin{sloppypar}
+Do zarządzania wielokontenerową architekturą wykorzystano Docker Compose. Plik \texttt{docker-compose.yml} definiuje trzy współpracujące ze sobą usługi:
+\end{sloppypar}
+
+\begin{enumerate}
+    \item \texttt{cibaria\_database}: Kontener bazy danych PostgreSQL (wersja 15-alpine), skonfigurowany ze zmiennymi środowiskowymi oraz wolumenem zapewniającym trwałość danych.
+    \item \texttt{cibaria\_backend}: Usługa backendowa zależna od dostępności do bazy danych, komunikująca się z nią wewnątrz prywatnej sieci wirtualnej.
+    \item \texttt{cibaria\_frontend}: Usługa frontendowa, mapująca zewnętrzny port 80 kontenera na port 4200 hosta, umożliwiając dostęp do aplikacji z poziomu przeglądarki.
+\end{enumerate}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{yaml}
+services:
+  cibaria_database:
+    container_name: cibaria_database
+    image: postgres:15-alpine
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  cibaria_backend:
+    container_name: cibaria_backend
+    build: ./backend
+    ports:
+      - 8080:8080
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_URL=${DB_URL}
+      - CLOUD_NAME=${CLOUD_NAME}
+      - API_SECRET_KEY=${API_SECRET_KEY}
+      - API_KEY=${API_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+    env_file:
+      - .env
+    depends_on:
+      - cibaria_database
+
+  cibaria_frontend:
+    container_name: cibaria_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 4200:80
+    depends_on:
+      - cibaria_backend
+
+volumes:
+  pgdata: {}
+\end{minted}
+
+Konfiguracja pozwala na uruchomienie całego środowiska jedną komendą, co znacząco usprawnia procesy testowe.
+
+\subsection{Testy warstwy serwerowej}
+
+Weryfikacja logiki biznesowej aplikacji serwerowej została podzielona na dwa etapy, co pozwoliło na szybkie wykrywanie błędów na poziomie szczególnych klas oraz weryfikację poprawności procesów.
+
+\subsubsection{Testy jednostkowe}
+
+Testy jednostkowe skupiają się na izolowanej weryfikacji metod bez uruchamiania pełnego kontekstu aplikacji. W tym celu wykorzystano bibliotekę Mockito.
+
+\begin{sloppypar}
+Przykładem takiego podejścia są testy klasy \texttt{RecipeServiceImpl}. Weryfikacja metody \texttt{testSaveRecipeWithPhotos\_Success} sprawdza, czy system poprawnie reaguje na udaną próbę dodania przepisu ze zdjęciem. Zamiast łączyć się z rzeczywistą bazą danych, repozytoria \texttt{UserRepository}, \texttt{RecipeRepository} oraz serwisy \texttt{JwtService}, \texttt{ImageService} są „zaślepiane'' (mockowane), aby zwrócić poprawne wartości dla metod z wcześniej wymienionych serwisów oraz repozytoriów. Dzięki temu test wykonuje się bardzo szybko, weryfikując, że serwisy nie rzucą wyjątku i utworzą przepis.
+\end{sloppypar}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@Test
+void testSaveRecipeWithPhotos_Success() throws IOException {
+    MultipartFile mockFile = mock(MultipartFile.class);
+    List<MultipartFile> images = List.of(mockFile);
+    Image mockImage = new Image();
+
+    when(jwtService.extractId("testtoken123")).thenReturn(1);
+    when(userRepository.findById(1)).thenReturn(Optional.of(testUser));
+    when(imageService.createPhoto(mockFile, ImageType.RECIPE))
+                    .thenReturn(mockImage);
+    when(recipeRepository.save(any(Recipe.class))).thenReturn(testRecipe);
+
+    Recipe result = recipeService
+            .saveRecipeWithPhotos(testRecipeAddDto, images, testToken);
+
+    assertNotNull(result);
+    verify(imageService).createPhoto(mockFile, ImageType.RECIPE);
+    verify(recipeRepository).save(any(Recipe.class));
+}
+\end{minted}
+
+Analogicznie przetestowano pozostałe klasy w tym oraz innych serwisach, gdzie symulowano odpowiedzi z API. W \texttt{ImageService} symulowano odpowiedzi z zewnętrznego API Cloudinary, co pozwoliło na przetestowanie logiki bez konieczności wysyłania plików.
+
+\subsubsection{Testy integracyjne}
+
+\begin{sloppypar}
+Testy integracyjne weryfikują współpracę wszystkich warstw (kontroler, serwis, baza danych, repozytorium) aplikacji w ramach pełnego kontekstu Spring Boot. W klasie \texttt{AdminControllerIntegrationTest} wykorzystano adnotację \texttt{@SpringBootTest} wraz z \texttt{@AutoConfigureMockMvc}, co pozwala na wysyłanie żądań do wirtualnego serwera aplikacji bez konieczności uruchamiania go na porcie sieciowym.
+\end{sloppypar}
+
+Konfiguracja testowa zdefiniowana przy użyciu \texttt{@TestPropertySource}, wymusza użycie lekkiej bazy danych H2. Kluczowym elementem testów jest metoda przygotowująca setup poprzedzona adnotacją \texttt{@BeforeEach}, która przed każdym testem zasila bazę danych testowymi informacjami oraz generuje tokeny JWT.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@BeforeEach
+void setup() {
+    // Create test admin user with proper role
+    adminUser = new UserEntity();
+    adminUser.setUsername("testAdmin");
+    adminUser.setEmail("admin@integration.test");
+    adminUser.setPassword("hashedPassword");
+    adminUser.setRole("ADMIN");
+    adminUser = userRepository.save(adminUser);
+
+    // Create test regular user
+    regularUser = new UserEntity();
+    regularUser.setUsername("testUser");
+    regularUser.setEmail("user@integration.test");
+    regularUser.setPassword("hashedPassword");
+    regularUser.setRole("USER");
+    regularUser = userRepository.save(regularUser);
+    userRepository.flush();
+
+    // Create test recipe owned by regular user
+    testRecipe = new Recipe();
+    testRecipe.setRecipeName("Test Recipe");
+    testRecipe.setDifficulty(2);
+    testRecipe.setIsPublic(true);
+    testRecipe.setLanguage("en");
+    testRecipe.setUser(regularUser);
+    testRecipe = recipeRepository.save(testRecipe);
+    recipeRepository.flush();
+
+    // Generate JWT tokens for testing using UserDetails
+    User adminUserDetails = new User(adminUser.getEmail(), 
+          adminUser.getPassword(),
+          java.util.Collections.singletonList
+          (new SimpleGrantedAuthority("ROLE_ADMIN")));
+
+    User regularUserDetails = new User(regularUser.getEmail(), 
+          regularUser.getPassword(),
+          java.util.Collections.singletonList(new SimpleGrantedAuthority
+          ("ROLE_USER")));
+
+    adminToken = "Bearer " + jwtService.generateToken(adminUserDetails);
+    userToken = "Bearer " + jwtService.generateToken(regularUserDetails);
+}
+\end{minted}
+
+Testy sprawdzają poprawność logiki biznesowej oraz spójność danych. Przykładowo test \texttt{getStats\_ShouldReturnRealDatabaseCounts\_WhenAdmin} weryfikuje, czy endpoint poprawnie łączy dane z bazy, zwracając oczekiwaną liczbę przepisów oraz użytkowników w formacie JSON.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@Test
+void getStats_ShouldReturnRealDatabaseCounts_WhenAdmin() throws Exception {
+    mockMvc.perform(get("/admin/stats")
+            .header("Authorization", adminToken))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.totalUsers").value(2))
+            .andExpect(jsonPath("$.adminUsers").value(1))
+            .andExpect(jsonPath("$.regularUsers").value(1))
+            .andExpect(jsonPath("$.totalRecipes").value(1))
+            .andExpect(jsonPath("$.publicRecipes").value(1))
+            .andExpect(jsonPath("$.privateRecipes").value(0));
+}
+\end{minted}
+
+Natomiast test \texttt{deleteUser\_ShouldRemoveUserAndRecipes\_WhenAdmin} potwierdza działanie kaskadowego usuwania danych. Po wywołaniu endpointu DELETE sprawdza bezpośrednio w repozytorium czy encja użytkownika oraz powiązane z nią przepisy zostały usunięte.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{java}
+@Test
+void deleteUser_ShouldRemoveUserAndRecipes_WhenAdmin() throws Exception {
+    recipeRepository.deleteAll(recipeRepository.findByUser(regularUser));
+    recipeRepository.flush();
+
+    mockMvc.perform(delete("/admin/users/" + regularUser.getId())
+            .header("Authorization", adminToken))
+            .andExpect(status().isOk());
+
+    assertFalse(userRepository.existsById(regularUser.getId()));
+    assertEquals(0, recipeRepository.findByUser(regularUser).size());
+}
+\end{minted}
+
+Dodatkowo w celu zapewnienia izolacji testów zastosowano adnotację \texttt{@Transactional}. Gwarantuje, że wszelkie operacje na bazie danych są wykonywane w ramach pojedynczego testu są wycofywane po jego zakończeniu. Zapobiega to wzajemnemu wpływaniu na siebie poszczególnych przypadków testowych.
+
+\subsection{Testy warstwy klienckiej}
+
+Testy warstwy frontendowej skupiają się na weryfikacji logiki komponentów. Wykorzystano wbudowane narzędzie Angulara \texttt{TestBed} do konfiguracji modułów testowych oraz \texttt{fakeAsync} aby obsłużyć metody asynchroniczne.
+
+\subsubsection{Weryfikacja logiki i formularzy}
+
+\begin{sloppypar}
+Testy komponentów zawierających formularz, takich jak \texttt{LoginComponent}, sprawdzają poprawność wprowadzanych danych oraz reakcje systemu na działania użytkownika. W środowisku testowym użyto zależności takich jak \texttt{AuthService} czy \texttt{Router}, które zostały zastąpione przez obiekty typu Spy z narzędzia Jasmine (\texttt{jasmine.createSpyObj}). Pozwala to na izolację komponentu od warstwy sieciowej oraz nawigacyjnej.
+\end{sloppypar}
+
+Testy obejmują sprawdzenie mechanizmu ograniczającego częstotliwość prób logowania (\emph{rate limiting}). Wpływając na czas systemowy przy użyciu \texttt{spyOn(Date, 'now')}, test potwierdza, że zbyt częste wywołanie metody \texttt{onLogin} zakończy się wyświetleniem ostrzeżenia i nie wysłaniem żądania do serwera.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+it('should prevent rapid login attempts with rate limiting', () => {
+    // needed because rapid firing onLogin is ~2ms
+    spyOn(Date, 'now').and.returnValues(0, 1500);
+    component.formPassword = 'abc123';
+    component.formEmail = 'abc123@gmail.com';
+
+    component.onLogin();
+    component.onLogin();
+
+    expect(notificationServiceMock.warning).toHaveBeenCalledWith(
+        'Please wait before trying again'
+    );
+    // 2 beacuse executeLogin & onLogin
+    expect(notificationServiceMock.warning).toHaveBeenCalledTimes(2); 
+});
+\end{minted}
+
+Dodatkowo mechanizm \texttt{fakeAsync} i funkcja \texttt{tick()}, pozwoliły na przetestowanie asynchronicznego procesu logowania. Upewniały, że po pozytywnej odpowiedzi serwera, użytkownik zostanie przekierowany, a w przypadku błędu wyświetli się komunikat.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+it('should handle successful login and navigate to profile', 
+    fakeAsync(() => {
+    authServiceMock.login.and.returnValue(of({ success: true }));
+    component.formPassword = 'abc123';
+    component.formEmail = 'abc123@gmail.com';
+
+    component.onLogin();
+    tick(600);
+
+    expect(routerMock.navigate).toHaveBeenCalled();
+    expect(component.isLoginLoading).toBe(false);
+}));
+
+it('should handle login failure and show error message', 
+    fakeAsync(() => {
+    routerMock.navigate.calls.reset();
+    authServiceMock.login.and.returnValue(throwError('Login failed'));
+    component.formPassword = 'abc123';
+    component.formEmail = 'abc123@gmail.co';
+
+    component.onLogin();
+    tick(600);
+
+    expect(notificationServiceMock.error).toHaveBeenCalledWith(
+        'Email or password is incorrect'
+    );
+    expect(routerMock.navigate).not.toHaveBeenCalled();
+    expect(component.isLoginLoading).toBe(false);
+}));
+\end{minted}
+
+\subsubsection{Testy warstwy prezentacji}
+
+\begin{sloppypar}
+  W przypadku komponentów wizualnych, takich jak \texttt{RecipeCardComponent}, kluczowe było przetestowanie logiki transformacji surowych danych na formę prezentowaną użytkownikowi. Wewnątrz procedury \texttt{beforeEach} przygotowywano zestaw obiektów imitujących konkretne przepisy (\texttt{mockRecipe}, \texttt{mockProfileRecipe}, \texttt{mockProfileRecipeWithoutImage} oraz \texttt{mockProfileRecipeWithImage}). Obiekty te reprezentują różne warianty modelu danych, co pozwoliło na pokrycie wszystkich możliwości bez konieczności łączenia się z backendem.
+\end{sloppypar}
+
+Testy metody \texttt{getRecipeImage} weryfikują elastyczność komponentu w obsłudze danych przychodzących z API. Potwierdzają również, że system posiada dodatkowe zabezpieczenia w przypadku braku grafiki.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+it('should return Recipe image when recipe has images', () => {
+    component.recipe = mockRecipe;
+    const imageUrl = component.getRecipeImage();
+    expect(imageUrl).toBe('https://images.com/test-image.jpg');
+});
+\end{minted}
+
+Szczególną uwagę poświęcono metodom pomocniczym, odpowiedzialnym za przekształcanie danych numerycznych. Testy metody \texttt{getAveregeRating} sprawdzają poprawność obliczania średniej arytmetycznej oraz formatowania do jednego miejsca po przecinku. Dodatkowo zweryfikowano także odporność na błędy, upewniając się, że dla pustych wartości lub tablic, zostanie zwrócona wartość „0.0''. Analogicznie przetestowano metodę \texttt{getDifficulty}, odpowiedzialną za mapowanie wartości (1-3) liczbowych na tekst („Easy'', „Medium'', „Hard'') oraz obsługę wartości spoza zakresu jako „Unknown''.
+
+W przypadku komponentów niezawierających logiki, pełniących rolę wyłącznie reprezentacyjną, przetestowano, czy komponent zostaje utworzony.
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{typescript}
+it('should create', () => {
+    expect(component).toBeTruthy();
+});
+\end{minted}
+
+\subsection{Testy wydajnościowe}
+
+W celu weryfikacji zachowania aplikacji pod obciążeniem oraz wykrycia wąskich gardeł, przygotowano testy w oparciu o narzędzie k6. Skrypt \texttt{basic-test.js} symuluje ruch generowany przez wielu użytkowników jednocześnie. Każdy z użytkowników wykonuje złożone operacje w systemie.
+
+Zamiast stałej liczby użytkowników zastosowano model zmiennego ruchu zdefiniowanego w obiekcie \texttt{option.stages}. Pozwala to na sprawdzenie aplikacji w wielu fazach.
+
+
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{javascript}
+stages: [
+    { duration: "30s", target: 20 },
+    { duration: "1m", target: 50 },
+    { duration: "2m", target: 40 },
+    { duration: "30s", target: 90 },
+],
+\end{minted}
+
+Pierwsza część testu trwa trzydzieści sekund i posiada dwudziestu wirtualnych użytkowników wykonujących operacje. Następnie przez jedną minutę wykonywane jest obciążenie w postaci pięćdziesięciu wirtualnych użytkowników przez jedną minutę. W kolejnej fazie testowana jest stabilizacja, gdzie przez dwie minuty czterdziestu użytkowników wykonuje operacje. Ostatecznie następuje weryfikacja systemu pod największym obciążeniem, ilość użytkowników nagle skacze do dziewięćdziesięciu. Etap trwa przez trzydzieści sekund.
+
+Taka konfiguracja pozwala na bezpieczny rozruch puli połączeń do bazy danych oraz pamięci podręcznej aplikacji.
+
+\subsubsection{Scenariusz testowy}
+
+Logika testu została zaprojektowana tak, aby odwzorować pełen cykl życia użytkownika w systemie. Główna metoda realizuje następujące kroki:
+
+\begin{enumerate}
+    \item \textbf{Rejestracja oraz autentykacja:} Generuje unikalne dane, rejestruje użytkownika oraz loguje go w celu uzyskania tokenu JWT.
+    \item \textbf{Operacja publiczne:} Weryfikuje wydajność publicznych endpointów, w tym pobieranie listy przepisów, filtrowanie oraz wyszukiwanie po nazwie przepisu. Zastosowano tutaj asercje (\emph{check}) sprawdzające, czy czas odpowiedzi serwera nie przekracza tysiąca milisekund (1000ms).
+    \item \textbf{Zarządzanie treścią:} Symuluje dodawanie, edycje oraz usunięcie przepisu. Ze względu na specyfikację backendu wymagającą Multipart/form-data (dla obsługi zdjęć), w skrypcie zaimplementowano metodę pomocniczą konstruującą nagłówki i ciało żądania.
+\end{enumerate}
+
+\begin{minted}[bgcolor=black!5, fontsize=\small, linenos, frame=single]{javascript}
+function createMultipartRequest(data, token) {
+    const boundary = "----WebKitFormBoundary" +
+    Math.random().toString(36).substr(2);
+    const body =
+        `------${boundary}\r\n` +
+        `Content-Disposition: form-data; name="recipe"\r\n\r\n` +
+        `${JSON.stringify(data)}\r\n` +
+        `------${boundary}--\r\n`;
+
+    return {
+        body: body,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": `multipart/form-data; boundary=----${boundary}`,
+        },
+    };
+}
+\end{minted}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item \textbf{Interakcje profilu:} Testuje dodawanie przepisu do ulubionych, ocenianie oraz aktualizacje danych profilu (zmiana emaila oraz hasła).
+    \item \textbf{Czyszczenie:} Na końcu każdego cyklu testowy użytkownik usuwany jest z bazy danych, zapobiegając nadmiernemu przyrostowi danych testowych.
+\end{enumerate}
+
+W celu odwzorowania rzeczywistego zachowania użytkowników, pomiędzy operacjami zastosowano metodę \texttt{sleep()}, wprowadzającą losowe opóźnienie. Zapobiega to nienaturalnemu zalewaniu serwera żądaniami w falach.
+
+\subsubsection{Sposób uruchomienia}
+
+\begin{sloppypar}
+Testy wydajnościowe uruchamiane są przeciwko działającej instancji aplikacji. To znaczy, że najpierw należy uruchomić aplikacje przy użyciu docker'a (\texttt{docker compose up -d}). Następnie, aby uruchomić testy wydajnościowe należy mieć zainstalowane narzędzie k6 i uruchomić testy komendą (\texttt{k6 run performance-tests/basic-test.js}).
+\end{sloppypar}
+
+Wynikiem działania testu jest raport wyświetlany w konsoli deweloperskiej, zawierający kluczowe metryki.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{praca_inzynierska/media/image17.png}
+    \caption{Wyniki testu wydajnościowego}
+\end{figure}
+
+\section{Podsumowanie i wnioski}
+
+Głównym celem niniejszej pracy inżynierskiej było zaprojektowanie i zaimplementowanie nowoczesnej aplikacji do zarządzania przepisami kulinarnymi. Realizacja projektu objęła stworzenie kompletnego rozwiązania \emph{full-stack}, składającego się z warstwy serwerowej opartej na frameworku Spring Boot, warstwy klienckiej wykonanej w Angular oraz relacyjnej bazy danych PostgreSQL. Całość została osadzona w środowisku kontenerowym Docker, zapewniając aplikacji przenośność, łatwość skalowania i wdrażania aplikacji.
+
+Przeprowadzone testy funkcjonalne oraz wydajnościowe potwierdziły, że aplikacja spełnia założone wymagania. System umożliwia bezpieczną rejestracje i autoryzację użytkowników przy użyciu standardu JWT, zarządzanie treścią (CRUD). Dodatkowo umożliwia interakcję z multimediami poprzez integrację z chmurą Cloudinary. Testy wydajnościowe wykazały, że architektura serwerowa zachowuje stabilność, nawet przy nagłym wzroście liczby użytkowników. Świadczy to o poprawnym zarządzaniu zasobami i połączeniami do bazy danych.
+
+\subsection{Kierunki dalszego rozwoju aplikacji}
+
+Mimo osiągnięcia założonych celów, aplikacja posiada potencjał na dalszy rozwój. Do kluczowych obszarów, które mogłyby zostać w przyszłości rozbudowane należą:
+
+\begin{enumerate}
+    \item \textbf{Zabezpieczenie tras po stronie klienta:} Mimo, że implementacja backendu poprawnie weryfikuje tokeny i blokuje nieuprawnione żądania, frontend opiera się na statycznej definicja tras wewnątrz pliku \texttt{app.routes.ts}. Przez to interfejs użytkownika pozwala na nawigację do chronionych widoków, nawet dla niezalogowanych użytkowników, co kończy się błędem dopiero błędem ładowania danych. Wprowadzenie mechanizmu Angular Route Guards pozwoliłoby na weryfikację uprawnień przed załadowaniem komponentu automatycznie przekierowując niezalogowanych użytkowników na stronę logowania.
+    \item \textbf{Rozbudowa funkcji społecznościowych:} Aktualnie system koncentruje się na relacji użytkownik-przepis. Naturalnym kierunkiem rozwoju jest wprowadzenie interakcji między użytkownikami.
+    \begin{itemize}
+        \item \textbf{Publiczne profile:} Obecny kontroler \texttt{UserController} udostępnia głównie metody do zarządzania własnym kontem. Rozszerzenie API o endpointy publiczne (np. \texttt{GetUserByUsername} -- wyszukiwanie użytkownika po jego nazwie) pozwoliłoby na przeglądanie innych użytkowników i ich kolekcji przepisów.
+        \item \textbf{System znajomości:} Implementacja relacji wiele-do-wielu między użytkownikami pozwoliłaby na stworzenie spersonalizowanej podstrony wyświetlającej przepisy dodane przez znajomych.
+    \end{itemize}
+    \item \textbf{Generator list zakupów:} Praktycznym usprawnieniem byłoby stworzenie automatycznej listy zakupów, która na podstawie wybranych przepisów dodawałaby składniki do listy. System mógłby sumować składniki z kilku przepisów i umożliwiać eksport listy do formatu PDF.
+\end{enumerate}
+
+\subsection{Przepis na carbonarę}
+
+Rzymski klasyk w najlepszym wydaniu. Kremowy sos na bazie żółtej i sera Pecorino, chrupiące guanciale oraz duża ilość czarnego pieprzu.
+
+\textbf{Składniki}
+\begin{itemize}
+    \item \textbf{Makaron:} 200g (tradycyjnie Spaghetti lub Rigatoni, ale każdy kształt się sprawdzi)
+    \item \textbf{Mięso:} 75g Guanciale (włoskie podgardle) lub boczku wędzonego
+    \item \textbf{Ser:} 100g sera Pecorino Romano (opcjonalnie Grana Padano lub Parmezan)
+    \item \textbf{Jajka:} 3 żółtka
+    \item \textbf{Przyprawy:} Świeżo mielony czarny pieprz
+    \item \textbf{Sól:} Do gotowania makaronu
+\end{itemize}
+
+\textbf{Przygotowanie}
+\begin{enumerate}
+    \item \textbf{Gotowanie makaronu:} W dużym garnku zagotuj wodę i mocno ją posól. Wrzuć makaron i gotuj go \emph{al dente} (zgodnie z czasem na opakowaniu minus 1 minuta).
+    \item \textbf{Przygotowanie bazy mięsnej:} Guanciale (lub boczek) pokrój w drobną kostkę albo w paski, w zależności od preferencji. Wrzuć mięso na zimną, suchą patelnię i smaż na średnim ogniu, aż tłuszcz się wytopi, a kawałki staną się złociste i chrupiące.
+    \item \textbf{Masa jajeczna:} W międzyczasie zetrzyj ser na drobnych oczkach. W misce wymieszaj żółtka ze startym serem oraz dużą ilością świeżo mielonego pieprzu, aż powstanie gęsta pasta. Aby ją nieco rozluźnić, dodaj 1-2 łyżki gorącej wody z gotującego się makaronu.
+    \item \textbf{Hartowanie sosu:} Gdy mięso będzie gotowe, ostrożnie wlej wytopiony, gorący tłuszcz z patelni do miski z masą jajeczną, cały czas energicznie mieszając. Dzięki temu sos nabierze głębokiego smaku, a żółtka się zahartują.
+    \item \textbf{Łączenie smaków:} Ugotowany makaron odcedź (nie przelewaj zimną wodą!) i wrzuć bezpośrednio na patelnię, na której smażyło się mięso. Podsmaż go przez chwilę, aby zebrał resztki smaku z dna patelni.
+    \item \textbf{Finał:} Przełóż gorący makaron z patelni bezpośrednio do miski z przygotowaną wcześniej masą serowo-jajeczną. Mieszaj energicznie, aż ciepło makaronu sprawi, że sos zgęstnieje, stając się kremowy i aksamitny.
+    \item \textbf{Podanie:} Serwuj natychmiast, posypując dodatkową porcją pieprzu i sera.
+\end{enumerate}
+
+\newpage
+\addcontentsline{toc}{section}{Źródła}
+
+\begin{thebibliography}{99}
+
+% --- Spring / Java ---
+\bibitem{spring_di}
+GeeksforGeeks, \textit{Spring Dependency Injection with Example}, [online]. Dostępne pod adresem: \url{https://www.geeksforgeeks.org/advance-java/spring-dependency-injection-with-example/}
+
+\bibitem{spring_features}
+GeeksforGeeks, \textit{Spring Boot Features for Java Development}, [online]. Dostępne pod adresem: \url{https://www.geeksforgeeks.org/blogs/spring-boot-features-for-java-development/}
+
+\bibitem{spring_boot}
+Spring.io, \textit{Spring Boot Project Overview}, [online]. Dostępne pod adresem: \url{https://spring.io/projects/spring-boot}
+
+\bibitem{lombok_data}
+Project Lombok, \textit{@Data Feature Documentation}, [online]. Dostępne pod adresem: \url{https://projectlombok.org/features/Data}
+
+\bibitem{spring_gs}
+Spring.io, \textit{Guides: Building an Application with Spring Boot}, [online]. Dostępne pod adresem: \url{https://spring.io/guides/gs/spring-boot}
+
+\bibitem{bean_validation}
+Spring Framework Documentation, \textit{Java Bean Validation}, [online]. Dostępne pod adresem: \url{https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html}
+
+\bibitem{spring_data}
+Spring.io, \textit{Spring Data JPA Overview}, [online]. Dostępne pod adresem: \url{https://spring.io/projects/spring-data-jpa#overview}
+
+% --- Frontend ---
+\bibitem{angular_v18}
+Angular.dev, \textit{Angular v18 Overview}, [online]. Dostępne pod adresem: \url{https://v18.angular.dev/overview}
+
+\bibitem{angular_testing}
+Angular.dev, \textit{Testing Guide}, [online]. Dostępne pod adresem: \url{https://angular.dev/guide/testing}
+
+% --- Testowanie i Wydajność ---
+\bibitem{k6_docs}
+Grafana k6, \textit{k6 Documentation}, [online]. Dostępne pod adresem: \url{https://grafana.com/docs/k6/latest/}
+
+\bibitem{junit5}
+JUnit 5, \textit{JUnit 5 User Guide}, [online]. Dostępne pod adresem: \url{https://docs.junit.org/current/overview.html}
+
+% --- Infrastruktura ---
+\bibitem{docker_compose}
+Docker Docs, \textit{Docker Compose Overview}, [online]. Dostępne pod adresem: \url{https://docs.docker.com/compose/}
+
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,20 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+@switch (notification.type) \PYGZob{}
+  @case (\PYGZsq{}success\PYGZsq{}) \PYGZob{}
+    \PYG{p}{\PYGZlt{}}\PYG{n+nt}{img} \PYG{n+na}{src}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}images/icons/tick\PYGZhy{}icon.svg\PYGZdq{}} \PYG{n+na}{alt}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}Success\PYGZdq{}}
+         \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}toast\PYGZhy{}icon\PYGZhy{}img\PYGZdq{}}\PYG{p}{/}\PYG{p}{\PYGZgt{}}
+  \PYGZcb{}
+  @case (\PYGZsq{}error\PYGZsq{}) \PYGZob{}
+    \PYG{p}{\PYGZlt{}}\PYG{n+nt}{img} \PYG{n+na}{src}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}images/icons/error\PYGZhy{}icon.svg\PYGZdq{}} \PYG{n+na}{alt}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}Error\PYGZdq{}}
+         \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}toast\PYGZhy{}icon\PYGZhy{}img\PYGZdq{}}\PYG{p}{/}\PYG{p}{\PYGZgt{}}
+  \PYGZcb{}
+  @case (\PYGZsq{}warning\PYGZsq{}) \PYGZob{}
+    \PYG{p}{\PYGZlt{}}\PYG{n+nt}{img} \PYG{n+na}{src}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}images/icons/warning\PYGZhy{}icon.svg\PYGZdq{}} \PYG{n+na}{alt}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}Warning\PYGZdq{}}
+         \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}toast\PYGZhy{}icon\PYGZhy{}img\PYGZdq{}}\PYG{p}{/}\PYG{p}{\PYGZgt{}}
+  \PYGZcb{}
+  @case (\PYGZsq{}info\PYGZsq{}) \PYGZob{}
+    \PYG{p}{\PYGZlt{}}\PYG{n+nt}{img} \PYG{n+na}{src}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}images/icons/info\PYGZhy{}icon.svg\PYGZdq{}} \PYG{n+na}{alt}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}Info\PYGZdq{}}
+         \PYG{n+na}{class}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}toast\PYGZhy{}icon\PYGZhy{}img\PYGZdq{}}\PYG{p}{/}\PYG{p}{\PYGZgt{}}
+  \PYGZcb{}
+\PYGZcb{}
+\end{MintedVerbatim}

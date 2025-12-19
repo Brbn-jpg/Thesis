@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+@if (!isMobile) \PYGZob{}
+  \PYG{p}{\PYGZlt{}}\PYG{n+nt}{app\PYGZhy{}navbar}\PYG{p}{\PYGZgt{}}\PYG{p}{\PYGZlt{}}\PYG{p}{/}\PYG{n+nt}{app\PYGZhy{}navbar}\PYG{p}{\PYGZgt{}}
+\PYGZcb{} @else \PYGZob{}
+  \PYG{p}{\PYGZlt{}}\PYG{n+nt}{app\PYGZhy{}mobile\PYGZhy{}nav}\PYG{p}{\PYGZgt{}}\PYG{p}{\PYGZlt{}}\PYG{p}{/}\PYG{n+nt}{app\PYGZhy{}mobile\PYGZhy{}nav}\PYG{p}{\PYGZgt{}}
+\PYGZcb{}
+
+\PYG{p}{\PYGZlt{}}\PYG{n+nt}{router\PYGZhy{}outlet}\PYG{p}{\PYGZgt{}}\PYG{p}{\PYGZlt{}}\PYG{p}{/}\PYG{n+nt}{router\PYGZhy{}outlet}\PYG{p}{\PYGZgt{}}
+\PYG{p}{\PYGZlt{}}\PYG{n+nt}{app\PYGZhy{}footer\PYGZhy{}section}\PYG{p}{\PYGZgt{}}\PYG{p}{\PYGZlt{}}\PYG{p}{/}\PYG{n+nt}{app\PYGZhy{}footer\PYGZhy{}section}\PYG{p}{\PYGZgt{}}
+\end{MintedVerbatim}

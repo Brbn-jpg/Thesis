@@ -1,0 +1,39 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{buildParams}\PYG{p}{(}\PYG{n+nx}{filters?}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Partial}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{FilterState}\PYG{o}{\PYGZgt{}}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{any}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{p}{...}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{currentFilters}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{...}\PYG{n+nx}{filters}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{params}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{any}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{page}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{currentFilters.currentPage}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{size}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{currentFilters.pageSize}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{difficulty}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{params}\PYG{p}{.}\PYG{n+nx}{difficulty}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{difficulty}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{prepTimeFrom}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{k+kc}{undefined}\PYG{+w}{ }\PYG{o}{||}
+\PYG{+w}{        }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{prepTimeTo}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{k+kc}{undefined}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{prepTimeFrom}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{prepTimeFrom}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{l+m+mf}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{prepTimeTo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{prepTimeTo}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{l+m+mf}{99999}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{params}\PYG{p}{.}\PYG{n+nx}{prepareTime}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sb}{`}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{prepTimeFrom}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{\PYGZhy{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{prepTimeTo}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{servingsFrom}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{k+kc}{undefined}\PYG{+w}{ }\PYG{o}{||}
+\PYG{+w}{        }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{servingsTo}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{k+kc}{undefined}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{servingsFrom}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{servingsFrom}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{l+m+mf}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{servingsTo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{servingsTo}\PYG{+w}{ }\PYG{o}{??}\PYG{+w}{ }\PYG{l+m+mf}{99999}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{params}\PYG{p}{.}\PYG{n+nx}{servings}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sb}{`}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{servingsFrom}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{\PYGZhy{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{servingsTo}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{category}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{params}\PYG{p}{.}\PYG{n+nx}{category}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{category}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{recipeLanguage}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{params}\PYG{p}{.}\PYG{n+nx}{language}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{recipeLanguage}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{query}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{params}\PYG{p}{.}\PYG{n+nx}{query}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{query}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}
+\PYG{+w}{      }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{p}{.}\PYG{n+nx}{length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mf}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{params}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentFilters}\PYG{p}{.}\PYG{n+nx}{ingredients}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nx}{params}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

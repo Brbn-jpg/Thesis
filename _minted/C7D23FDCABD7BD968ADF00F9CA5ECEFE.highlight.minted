@@ -1,0 +1,15 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{it}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}should prevent rapid login attempts with rate limiting\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{spyOn}\PYG{p}{(}\PYG{n+nb}{Date}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}now\PYGZsq{}}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{and}\PYG{p}{.}\PYG{n+nx}{returnValues}\PYG{p}{(}\PYG{l+m+mf}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{1500}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// needed because rapid firing onLogin is \PYGZti{}2ms}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{formPassword}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}abc123\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{formEmail}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}abc123@gmail.com\PYGZsq{}}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{onLogin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{component}\PYG{p}{.}\PYG{n+nx}{onLogin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{notificationServiceMock}\PYG{p}{.}\PYG{n+nx}{warning}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toHaveBeenCalledWith}\PYG{p}{(}
+\PYG{+w}{        }\PYG{l+s+s1}{\PYGZsq{}Please wait before trying again\PYGZsq{}}
+\PYG{+w}{    }\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n+nx}{expect}\PYG{p}{(}\PYG{n+nx}{notificationServiceMock}\PYG{p}{.}\PYG{n+nx}{warning}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{toHaveBeenCalledTimes}\PYG{p}{(}\PYG{l+m+mf}{2}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 2 beacuse executeLogin \PYGZam{} onLogin}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

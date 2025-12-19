@@ -1,0 +1,21 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@Test}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{testSaveRecipeWithPhotos\PYGZus{}Success}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{k+kd}{throws}\PYG{+w}{ }\PYG{n}{IOException}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{MultipartFile}\PYG{+w}{ }\PYG{n}{mockFile}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{mock}\PYG{p}{(}\PYG{n}{MultipartFile}\PYG{p}{.}\PYG{n+na}{class}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{MultipartFile}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{images}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{List}\PYG{p}{.}\PYG{n+na}{of}\PYG{p}{(}\PYG{n}{mockFile}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Image}\PYG{+w}{ }\PYG{n}{mockImage}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Image}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{when}\PYG{p}{(}\PYG{n}{jwtService}\PYG{p}{.}\PYG{n+na}{extractId}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{testtoken123}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{thenReturn}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{when}\PYG{p}{(}\PYG{n}{userRepository}\PYG{p}{.}\PYG{n+na}{findById}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{thenReturn}\PYG{p}{(}\PYG{n}{Optional}\PYG{p}{.}\PYG{n+na}{of}\PYG{p}{(}\PYG{n}{testUser}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{when}\PYG{p}{(}\PYG{n}{imageService}\PYG{p}{.}\PYG{n+na}{createPhoto}\PYG{p}{(}\PYG{n}{mockFile}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ImageType}\PYG{p}{.}\PYG{n+na}{RECIPE}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{                    }\PYG{p}{.}\PYG{n+na}{thenReturn}\PYG{p}{(}\PYG{n}{mockImage}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{when}\PYG{p}{(}\PYG{n}{recipeRepository}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{any}\PYG{p}{(}\PYG{n}{Recipe}\PYG{p}{.}\PYG{n+na}{class}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{thenReturn}\PYG{p}{(}\PYG{n}{testRecipe}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{Recipe}\PYG{+w}{ }\PYG{n}{result}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{recipeService}
+\PYG{+w}{            }\PYG{p}{.}\PYG{n+na}{saveRecipeWithPhotos}\PYG{p}{(}\PYG{n}{testRecipeAddDto}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{images}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{testToken}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{assertNotNull}\PYG{p}{(}\PYG{n}{result}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{verify}\PYG{p}{(}\PYG{n}{imageService}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{createPhoto}\PYG{p}{(}\PYG{n}{mockFile}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ImageType}\PYG{p}{.}\PYG{n+na}{RECIPE}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{verify}\PYG{p}{(}\PYG{n}{recipeRepository}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{any}\PYG{p}{(}\PYG{n}{Recipe}\PYG{p}{.}\PYG{n+na}{class}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,15 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{constructor}\PYG{p}{(}
+\PYG{+w}{  }\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{recipeService}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{RecipeService}\PYG{p}{,}
+\PYG{+w}{  }\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{router}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Router}\PYG{p}{,}
+\PYG{+w}{  }\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{notificationService}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{NotificationService}\PYG{p}{,}
+\PYG{+w}{  }\PYG{k}{private}\PYG{+w}{ }\PYG{n+nx}{authService}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{AuthService}
+\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// Setup debounced submit attempts}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{submitAttempts\PYGZdl{}}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n+nx}{pipe}\PYG{p}{(}\PYG{n+nx}{debounceTime}\PYG{p}{(}\PYG{l+m+mf}{1000}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{takeUntil}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{destroy\PYGZdl{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{executeSubmit}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,16 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{setActiveTab}\PYG{p}{(}\PYG{n+nx}{tab}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}dashboard\PYGZsq{}}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}users\PYGZsq{}}\PYG{+w}{ }\PYG{o}{|}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}recipes\PYGZsq{}}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{activeTab}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{tab}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{switch}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{tab}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}dashboard\PYGZsq{}}\PYG{o}{:}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{loadDashboardData}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}users\PYGZsq{}}\PYG{o}{:}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{loadUsers}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}recipes\PYGZsq{}}\PYG{o}{:}
+\PYG{+w}{      }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{loadRecipes}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

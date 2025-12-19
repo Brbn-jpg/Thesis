@@ -1,0 +1,24 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{confirmDeleteUser}\PYG{p}{(}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{userId}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{profileService}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n+nx}{deleteUser}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{userId}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n+nx}{pipe}\PYG{p}{(}\PYG{n+nx}{takeUntil}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{destroy\PYGZdl{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n+nx}{subscribe}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{next}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{success}\PYG{p}{(}
+\PYG{+w}{          }\PYG{l+s+s1}{\PYGZsq{}Profile deleted successfully\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{          }\PYG{l+m+mf}{3000}
+\PYG{+w}{        }\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{info}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Refresh to update changes\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{3000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{authService}\PYG{p}{.}\PYG{n+nx}{logout}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{cancelDeleteUser}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{error}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{error}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Failed to delete user\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{3000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{cancelDeleteUser}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

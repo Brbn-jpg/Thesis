@@ -1,0 +1,16 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@PostMapping}\PYG{p}{(}\PYG{n}{consumes}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{MediaType}\PYG{p}{.}\PYG{n+na}{MULTIPART\PYGZus{}FORM\PYGZus{}DATA\PYGZus{}VALUE}\PYG{p}{)}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{Recipe}\PYG{+w}{ }\PYG{n+nf}{save}\PYG{p}{(}\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{recipe}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{json}\PYG{p}{,}
+\PYG{+w}{                   }\PYG{n+nd}{@RequestHeader}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Authorization}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{String}\PYG{+w}{ }\PYG{n}{token}\PYG{p}{,}
+\PYG{+w}{                   }\PYG{n+nd}{@RequestParam}\PYG{p}{(}\PYG{n}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{images}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{required}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{false}\PYG{p}{)}
+\PYG{+w}{                   }\PYG{n}{Optional}\PYG{o}{\PYGZlt{}}\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{MultipartFile}\PYG{o}{\PYGZgt{}}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{images}\PYG{p}{)}\PYG{+w}{ }\PYG{k+kd}{throws}\PYG{+w}{ }\PYG{n}{IOException}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{ObjectMapper}\PYG{+w}{ }\PYG{n}{objectMapper}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{ObjectMapper}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{RecipeAddDto}\PYG{+w}{ }\PYG{n}{recipe}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{objectMapper}\PYG{p}{.}\PYG{n+na}{readValue}\PYG{p}{(}\PYG{n}{json}\PYG{p}{,}\PYG{n}{RecipeAddDto}\PYG{p}{.}\PYG{n+na}{class}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{images}\PYG{p}{.}\PYG{n+na}{isPresent}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{images}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{o}{!}\PYG{n}{images}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{p}{)}\PYG{p}{.}\PYG{n+na}{isEmpty}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{recipeService}\PYG{p}{.}\PYG{n+na}{saveRecipeWithPhotos}\PYG{p}{(}\PYG{n}{recipe}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{images}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{token}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{recipeService}\PYG{p}{.}\PYG{n+na}{saveRecipeWithoutPhoto}\PYG{p}{(}\PYG{n}{recipe}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{token}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

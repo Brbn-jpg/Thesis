@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{newUsername}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{originalUsername}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{notificationService}\PYG{p}{.}\PYG{n+nx}{info}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Username is already up to date\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{5000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{return}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}
